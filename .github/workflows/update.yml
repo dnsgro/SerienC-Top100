@@ -24,6 +24,7 @@ permissions:
   id-token: write  # wird von GitHub Pages zur Prüfung benötigt
   actions: write   # Zeitplan aktiv halten (siehe Schritt „Zeitplan aktiv halten“)
 
+# Läufe warten aufeinander, statt gleichzeitig zu arbeiten.
 concurrency:
   group: serien-update
   cancel-in-progress: false
@@ -38,6 +39,10 @@ jobs:
     steps:
       - name: Repository auschecken
         uses: actions/checkout@v7
+        with:
+          # Immer den neuesten Stand holen – auch wenn dieser Lauf warten musste,
+          # bis ein anderer fertig war, und dieser inzwischen Daten gespeichert hat.
+          ref: ${{ github.ref_name }}
 
       - name: Node.js einrichten
         uses: actions/setup-node@v7
@@ -53,29 +58,44 @@ jobs:
         run: node scripts/update.mjs
 
       - name: Neue Daten committen
+        id: speichern
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/data.json
-          if [ -d img ]; then git add img; fi
-          if git diff --cached --quiet; then
-            echo "Keine Änderungen zu committen."
-            exit 0
-          fi
-          git commit -m "Daten aktualisiert ($(date -u +%Y-%m-%d))"
-          for versuch in 1 2 3; do
-            if git push; then exit 0; fi
-            echo "Push fehlgeschlagen – hole neuere Änderungen und versuche es erneut …"
-            git pull --rebase
-            sleep 5
+          zweig="$GITHUB_REF_NAME"
+          for versuch in 1 2 3 4 5; do
+            # Den neuesten Stand holen und nur die frisch erzeugten Dateien daraufsetzen.
+            # So gibt es keine Konflikte, auch wenn inzwischen ein anderer Lauf
+            # oder du selbst etwas gespeichert hast.
+            if git fetch --quiet --depth=1 origin "$zweig" && git reset --quiet --mixed FETCH_HEAD; then
+              git add data/data.json
+              # Das TMDB-Logo nur hinzufügen, wenn es im Repository noch fehlt
+              if [ -f img/tmdb-logo.svg ] && ! git cat-file -e HEAD:img/tmdb-logo.svg 2>/dev/null; then
+                git add img/tmdb-logo.svg
+              fi
+              if git diff --cached --quiet; then
+                echo "Keine Änderungen zu speichern."
+                exit 0
+              fi
+              git commit --quiet -m "Daten aktualisiert ($(date -u +%Y-%m-%d))"
+              if git push --quiet origin "HEAD:$zweig"; then
+                echo "Neue Daten gespeichert."
+                exit 0
+              fi
+            fi
+            if [ "$versuch" -lt 5 ]; then
+              echo "Speichern hat nicht geklappt (Versuch $versuch von 5) – neuer Versuch in $((versuch * 5)) Sekunden …"
+              sleep $((versuch * 5))
+            fi
           done
-          echo "::error::Die neuen Daten konnten nicht gespeichert werden."
-          exit 1
+          echo "Speichern ist auch nach 5 Versuchen fehlgeschlagen."
+          # Die Website wird trotzdem veröffentlicht; der Lauf wird am Ende rot markiert.
+          echo "fehlgeschlagen=true" >> "$GITHUB_OUTPUT"
 
       - name: Zeitplan aktiv halten
         # GitHub schaltet geplante Workflows in öffentlichen Repositories nach
         # 60 Tagen ohne Aktivität ab. Das erneute Aktivieren per API beugt dem vor.
-        if: github.event_name == 'schedule'
+        if: ${{ !cancelled() && github.event_name == 'schedule' }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
@@ -86,7 +106,7 @@ jobs:
           mkdir -p _site/data
           cp index.html style.css app.js _site/
           cp data/data.json _site/data/
-          cp -r fonts _site/
+          if [ -d fonts ]; then cp -r fonts _site/; fi
           if [ -d img ]; then cp -r img _site/; fi
 
       - name: GitHub Pages vorbereiten
@@ -100,3 +120,9 @@ jobs:
       - name: Website veröffentlichen
         id: veroeffentlichen
         uses: actions/deploy-pages@v5
+
+      - name: Ergebnis prüfen
+        if: ${{ steps.speichern.outputs.fehlgeschlagen == 'true' }}
+        run: |
+          echo "::error title=Daten nicht gespeichert::Die Website zeigt die neuen Daten, aber data/data.json konnte nicht im Repository gespeichert werden. Starte den Workflow später erneut (Actions → Daten aktualisieren → Run workflow)."
+          exit 1
