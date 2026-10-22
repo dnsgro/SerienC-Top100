@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "stand": "2026-10-22T16:42:56.071Z",
+  "stand": "2026-10-22T18:36:00.453Z",
   "sprache": "de-DE",
   "land": "DE",
   "quellen": {
@@ -28,6 +28,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -36,30 +37,35 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -92,50 +98,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -168,56 +179,69 @@
       "abo": [
         {
           "id": 9,
+          "dienst": "amazonprimevideo",
           "name": "Amazon Prime Video",
           "logo": "/gMZdpavHmxFNnLpMHwVxfqeux2g.png",
           "art": "Abo"
         },
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
         },
         {
           "id": 2358,
-          "name": "Lionsgate+ Amazon Channel",
+          "dienst": "lionsgateplus",
+          "name": "Lionsgate+",
           "logo": "/1356slxu4QrHOMrEVDKHJXRo5sW.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -250,62 +274,66 @@
       "abo": [
         {
           "id": 30,
+          "dienst": "wow",
           "name": "WOW",
           "logo": "/2o26YwA7tXQ7I6CSrMvO9Rj4oNi.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2660,
-          "name": "Wow Fiction Amazon Channel",
-          "logo": "/mIR4wc2DLEIbn9TbtemvoX4zb26.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -338,14 +366,16 @@
       "abo": [
         {
           "id": 9,
+          "dienst": "amazonprimevideo",
           "name": "Amazon Prime Video",
           "logo": "/gMZdpavHmxFNnLpMHwVxfqeux2g.png",
-          "art": "Abo"
+          "art": "Abo oder kostenlos"
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
@@ -378,50 +408,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -454,50 +489,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -530,6 +570,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -538,36 +579,42 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -600,62 +647,66 @@
       "abo": [
         {
           "id": 30,
+          "dienst": "wow",
           "name": "WOW",
           "logo": "/2o26YwA7tXQ7I6CSrMvO9Rj4oNi.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2660,
-          "name": "Wow Fiction Amazon Channel",
-          "logo": "/mIR4wc2DLEIbn9TbtemvoX4zb26.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -688,6 +739,7 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -696,36 +748,42 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -758,56 +816,69 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
         },
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
         },
         {
           "id": 2250,
-          "name": "FlimmerkisteTV Amazon Channel",
+          "dienst": "flimmerkistetv",
+          "name": "FlimmerkisteTV",
           "logo": "/iOpRuhzi1exWyWaYDBn8WagEvsz.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -840,12 +911,14 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
         },
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -879,50 +952,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -956,24 +1034,28 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -1006,50 +1088,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -1082,30 +1169,30 @@
       "abo": [
         {
           "id": 285,
-          "name": "BBC Player Amazon Channel",
+          "dienst": "bbcplayer",
+          "name": "BBC Player",
           "logo": "/ozvOiPMMjhOMXpcUYMDK5ut6puz.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         },
         {
           "id": 1902,
+          "dienst": "ardplus",
           "name": "ARD Plus",
           "logo": "/iwv2QRXX0bke0kK3b1v6P1uT4u6.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2037,
-          "name": "ARD Plus Apple TV channel",
-          "logo": "/oMSdb3qt0nY9cbHPvDFbqGNl7Oq.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2065,
-          "name": "ARD Plus Amazon channel",
-          "logo": "/qF2LbROaQnSQknEyru1mrdMxqy0.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Apple TV Channel",
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 2412,
+          "dienst": "magentatvplus",
           "name": "Magenta TV+",
           "logo": "/2HcyGXRwSTh3DkgDwaF59AzACHu.png",
           "art": "Abo"
@@ -1114,12 +1201,14 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -1152,6 +1241,7 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -1160,36 +1250,42 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -1222,50 +1318,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -1298,56 +1399,62 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
         },
         {
           "id": 30,
+          "dienst": "wow",
           "name": "WOW",
           "logo": "/2o26YwA7tXQ7I6CSrMvO9Rj4oNi.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 29,
+          "dienst": "skygo",
           "name": "Sky Go",
           "logo": "/1Yvl9eP3pmktqChitnFhHJHcBtX.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2660,
-          "name": "Wow Fiction Amazon Channel",
-          "logo": "/mIR4wc2DLEIbn9TbtemvoX4zb26.png",
           "art": "Abo"
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -1380,6 +1487,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -1413,68 +1521,73 @@
       "abo": [
         {
           "id": 30,
+          "dienst": "wow",
           "name": "WOW",
           "logo": "/2o26YwA7tXQ7I6CSrMvO9Rj4oNi.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 29,
+          "dienst": "skygo",
           "name": "Sky Go",
           "logo": "/1Yvl9eP3pmktqChitnFhHJHcBtX.png",
           "art": "Abo"
         },
         {
-          "id": 2660,
-          "name": "Wow Fiction Amazon Channel",
-          "logo": "/mIR4wc2DLEIbn9TbtemvoX4zb26.png",
-          "art": "Abo"
-        },
-        {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -1507,6 +1620,7 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -1515,18 +1629,21 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -1559,38 +1676,41 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -1623,26 +1743,21 @@
       "abo": [
         {
           "id": 531,
+          "dienst": "paramountplus",
           "name": "Paramount Plus",
           "logo": "/pkx3klJlwW5JdtaulvDx6hDNtch.png",
-          "art": "Abo"
-        },
-        {
-          "id": 582,
-          "name": "Paramount+ Amazon Channel",
-          "logo": "/bxX0YVOCY7bI85BKRlJAAQ2EjUR.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1853,
-          "name": "Paramount Plus Apple TV channel",
-          "logo": "/xu4LyKTwasTbta1Z0qWtZG48yZ3.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel",
+            "Apple TV Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -1675,20 +1790,20 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
@@ -1721,6 +1836,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -1754,6 +1870,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -1762,30 +1879,35 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -1818,56 +1940,62 @@
       "abo": [
         {
           "id": 9,
+          "dienst": "amazonprimevideo",
           "name": "Amazon Prime Video",
           "logo": "/gMZdpavHmxFNnLpMHwVxfqeux2g.png",
           "art": "Abo"
         },
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -1900,12 +2028,14 @@
       "abo": [
         {
           "id": 304,
+          "dienst": "joyn",
           "name": "Joyn",
           "logo": "/fXtgvU410LTT6NjQ4ERdUzoUHQC.png",
           "art": "kostenlos mit Werbung"
         },
         {
           "id": 300,
+          "dienst": "plutotv",
           "name": "Pluto TV",
           "logo": "/fN4czqaMQNLeF6sSSIjGbAWzvwK.png",
           "art": "kostenlos mit Werbung"
@@ -1914,6 +2044,7 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
@@ -1946,15 +2077,14 @@
       "abo": [
         {
           "id": 350,
+          "dienst": "appletv",
           "name": "Apple TV",
           "logo": "/9icYBfYFcwgCbky5VdGUIKJ4C5i.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2243,
-          "name": "Apple TV Amazon Channel",
-          "logo": "/rerVCu9auZrgxTTiZu1criqrQzg.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [],
@@ -2011,6 +2141,7 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -2044,50 +2175,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -2120,6 +2256,7 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -2128,24 +2265,28 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -2178,68 +2319,73 @@
       "abo": [
         {
           "id": 30,
+          "dienst": "wow",
           "name": "WOW",
           "logo": "/2o26YwA7tXQ7I6CSrMvO9Rj4oNi.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 29,
+          "dienst": "skygo",
           "name": "Sky Go",
           "logo": "/1Yvl9eP3pmktqChitnFhHJHcBtX.png",
           "art": "Abo"
         },
         {
-          "id": 2660,
-          "name": "Wow Fiction Amazon Channel",
-          "logo": "/mIR4wc2DLEIbn9TbtemvoX4zb26.png",
-          "art": "Abo"
-        },
-        {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -2272,15 +2418,14 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [],
@@ -2312,30 +2457,35 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -2368,12 +2518,14 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
         },
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -2382,36 +2534,42 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -2444,50 +2602,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -2520,6 +2683,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -2579,50 +2743,59 @@
       "abo": [
         {
           "id": 2750,
+          "dienst": "rtlplus",
           "name": "RTL+",
           "logo": "/er0P3HwuVruKgnOqF8CoNdAAPPD.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2578,
-          "name": "RTL+ Max Amazon Channel",
-          "logo": "/4a1AfcgwF3QeEmRkgbpFj3QZdJn.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 537,
+          "dienst": "zdf",
           "name": "ZDF",
           "logo": "/sQsgEUFPgsuJaBf68OJ7s6ht6ta.png",
           "art": "kostenlos"
         },
         {
           "id": 2251,
-          "name": "Founderzone Amazon Channel",
+          "dienst": "founderzone",
+          "name": "Founderzone",
           "logo": "/1gZabxYjEAtTetezvvEHMaBg8qA.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -2655,18 +2828,21 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
         },
         {
-          "id": 613,
-          "name": "Amazon Prime Video Free",
-          "logo": "/fuVBtr57kxnYzOILZ38xqSmBeyR.png",
+          "id": 9,
+          "dienst": "amazonprimevideo",
+          "name": "Amazon Prime Video",
+          "logo": "/gMZdpavHmxFNnLpMHwVxfqeux2g.png",
           "art": "kostenlos mit Werbung"
         },
         {
           "id": 1898,
+          "dienst": "amazonmxplayer",
           "name": "Amazon MX Player",
           "logo": "/46U3TOB3PhVDjA7qaFOuYSaGMiq.png",
           "art": "kostenlos mit Werbung"
@@ -2675,6 +2851,7 @@
       "kaufen": [
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -2707,6 +2884,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -2740,12 +2918,18 @@
       "abo": [
         {
           "id": 285,
-          "name": "BBC Player Amazon Channel",
+          "dienst": "bbcplayer",
+          "name": "BBC Player",
           "logo": "/ozvOiPMMjhOMXpcUYMDK5ut6puz.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         },
         {
           "id": 234,
+          "dienst": "arte",
           "name": "Arte",
           "logo": "/ieo2l4zOaljYqJNGxWY8jWryld5.png",
           "art": "kostenlos"
@@ -2754,12 +2938,14 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -2793,12 +2979,14 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -2831,44 +3019,39 @@
       "abo": [
         {
           "id": 531,
+          "dienst": "paramountplus",
           "name": "Paramount Plus",
           "logo": "/pkx3klJlwW5JdtaulvDx6hDNtch.png",
-          "art": "Abo"
-        },
-        {
-          "id": 582,
-          "name": "Paramount+ Amazon Channel",
-          "logo": "/bxX0YVOCY7bI85BKRlJAAQ2EjUR.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel",
+            "Apple TV Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 11,
+          "dienst": "mubi",
           "name": "MUBI",
           "logo": "/k7iSlvgWzZuO4zU5PcBjhABMuia.png",
-          "art": "Abo"
-        },
-        {
-          "id": 201,
-          "name": "MUBI Amazon Channel",
-          "logo": "/w1hl8HszsPf5aAGT0mVY0O6LYP4.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 234,
+          "dienst": "arte",
           "name": "Arte",
           "logo": "/ieo2l4zOaljYqJNGxWY8jWryld5.png",
           "art": "kostenlos"
-        },
-        {
-          "id": 1853,
-          "name": "Paramount Plus Apple TV channel",
-          "logo": "/xu4LyKTwasTbta1Z0qWtZG48yZ3.png",
-          "art": "Abo"
         }
       ],
       "kaufen": [
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -2901,6 +3084,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -2909,30 +3093,35 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -2965,18 +3154,18 @@
       "abo": [
         {
           "id": 2750,
+          "dienst": "rtlplus",
           "name": "RTL+",
           "logo": "/er0P3HwuVruKgnOqF8CoNdAAPPD.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2578,
-          "name": "RTL+ Max Amazon Channel",
-          "logo": "/4a1AfcgwF3QeEmRkgbpFj3QZdJn.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 2412,
+          "dienst": "magentatvplus",
           "name": "Magenta TV+",
           "logo": "/2HcyGXRwSTh3DkgDwaF59AzACHu.png",
           "art": "Abo"
@@ -2985,12 +3174,14 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -3024,36 +3215,42 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -3087,36 +3284,42 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -3149,18 +3352,21 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
         },
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
         },
         {
           "id": 304,
+          "dienst": "joyn",
           "name": "Joyn",
           "logo": "/fXtgvU410LTT6NjQ4ERdUzoUHQC.png",
           "art": "kostenlos mit Werbung"
@@ -3169,36 +3375,42 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -3231,6 +3443,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -3264,21 +3477,15 @@
       "abo": [
         {
           "id": 531,
+          "dienst": "paramountplus",
           "name": "Paramount Plus",
           "logo": "/pkx3klJlwW5JdtaulvDx6hDNtch.png",
-          "art": "Abo"
-        },
-        {
-          "id": 582,
-          "name": "Paramount+ Amazon Channel",
-          "logo": "/bxX0YVOCY7bI85BKRlJAAQ2EjUR.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1853,
-          "name": "Paramount Plus Apple TV channel",
-          "logo": "/xu4LyKTwasTbta1Z0qWtZG48yZ3.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel",
+            "Apple TV Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [],
@@ -3309,50 +3516,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -3385,27 +3597,22 @@
       "abo": [
         {
           "id": 531,
+          "dienst": "paramountplus",
           "name": "Paramount Plus",
           "logo": "/pkx3klJlwW5JdtaulvDx6hDNtch.png",
-          "art": "Abo"
-        },
-        {
-          "id": 582,
-          "name": "Paramount+ Amazon Channel",
-          "logo": "/bxX0YVOCY7bI85BKRlJAAQ2EjUR.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel",
+            "Apple TV Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 300,
+          "dienst": "plutotv",
           "name": "Pluto TV",
           "logo": "/fN4czqaMQNLeF6sSSIjGbAWzvwK.png",
           "art": "kostenlos mit Werbung"
-        },
-        {
-          "id": 1853,
-          "name": "Paramount Plus Apple TV channel",
-          "logo": "/xu4LyKTwasTbta1Z0qWtZG48yZ3.png",
-          "art": "Abo"
         }
       ],
       "kaufen": [],
@@ -3436,6 +3643,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -3470,6 +3678,7 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
@@ -3554,15 +3763,21 @@
       "abo": [
         {
           "id": 546,
+          "dienst": "wowpresentsplus",
           "name": "WOW Presents Plus",
           "logo": "/8pME6TzkiDzMnKZioeoqqvfaNya.png",
           "art": "Abo"
         },
         {
           "id": 607,
-          "name": "OUTtv Amazon Channel",
+          "dienst": "outtv",
+          "name": "OUTtv",
           "logo": "/x6kyGhdmBrAqE4uRc7XpxCj3hZu.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         }
       ],
       "kaufen": [],
@@ -3593,15 +3808,14 @@
       "abo": [
         {
           "id": 350,
+          "dienst": "appletv",
           "name": "Apple TV",
           "logo": "/9icYBfYFcwgCbky5VdGUIKJ4C5i.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2243,
-          "name": "Apple TV Amazon Channel",
-          "logo": "/rerVCu9auZrgxTTiZu1criqrQzg.png",
-          "art": "Abo"
+          "art": "Abo oder kostenlos",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [],
@@ -3632,20 +3846,27 @@
       "abo": [
         {
           "id": 285,
-          "name": "BBC Player Amazon Channel",
+          "dienst": "bbcplayer",
+          "name": "BBC Player",
           "logo": "/ozvOiPMMjhOMXpcUYMDK5ut6puz.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -3678,6 +3899,7 @@
       "abo": [
         {
           "id": 300,
+          "dienst": "plutotv",
           "name": "Pluto TV",
           "logo": "/fN4czqaMQNLeF6sSSIjGbAWzvwK.png",
           "art": "kostenlos mit Werbung"
@@ -3711,50 +3933,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -3787,27 +4014,25 @@
       "abo": [
         {
           "id": 30,
+          "dienst": "wow",
           "name": "WOW",
           "logo": "/2o26YwA7tXQ7I6CSrMvO9Rj4oNi.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2660,
-          "name": "Wow Fiction Amazon Channel",
-          "logo": "/mIR4wc2DLEIbn9TbtemvoX4zb26.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [],
@@ -3838,36 +4063,39 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
         },
         {
           "id": 9,
+          "dienst": "amazonprimevideo",
           "name": "Amazon Prime Video",
           "logo": "/gMZdpavHmxFNnLpMHwVxfqeux2g.png",
-          "art": "Abo"
-        },
-        {
-          "id": 613,
-          "name": "Amazon Prime Video Free",
-          "logo": "/fuVBtr57kxnYzOILZ38xqSmBeyR.png",
-          "art": "kostenlos mit Werbung"
+          "art": "Abo oder kostenlos mit Werbung"
         },
         {
           "id": 2141,
-          "name": "MGM Plus Amazon Channel",
+          "dienst": "mgmplus",
+          "name": "MGM Plus",
           "logo": "/gk7O3l9qHttE9F3hgDNnhbhlOs7.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         },
         {
           "id": 2412,
+          "dienst": "magentatvplus",
           "name": "Magenta TV+",
           "logo": "/2HcyGXRwSTh3DkgDwaF59AzACHu.png",
           "art": "Abo"
         },
         {
           "id": 1898,
+          "dienst": "amazonmxplayer",
           "name": "Amazon MX Player",
           "logo": "/46U3TOB3PhVDjA7qaFOuYSaGMiq.png",
           "art": "kostenlos mit Werbung"
@@ -3876,12 +4104,14 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -3914,6 +4144,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -3973,26 +4204,34 @@
       "abo": [
         {
           "id": 2745,
-          "name": "Sony Pictures Core Amazon Channel",
+          "dienst": "sonypicturescore",
+          "name": "Sony Pictures Core",
           "logo": "/uNyIRlzYb0Hf7Ix6Q3MKms0ERgA.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
@@ -4025,6 +4264,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -4058,6 +4298,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -4091,56 +4332,59 @@
       "abo": [
         {
           "id": 30,
+          "dienst": "wow",
           "name": "WOW",
           "logo": "/2o26YwA7tXQ7I6CSrMvO9Rj4oNi.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2660,
-          "name": "Wow Fiction Amazon Channel",
-          "logo": "/mIR4wc2DLEIbn9TbtemvoX4zb26.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -4173,6 +4417,7 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -4206,15 +4451,14 @@
       "abo": [
         {
           "id": 350,
+          "dienst": "appletv",
           "name": "Apple TV",
           "logo": "/9icYBfYFcwgCbky5VdGUIKJ4C5i.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2243,
-          "name": "Apple TV Amazon Channel",
-          "logo": "/rerVCu9auZrgxTTiZu1criqrQzg.png",
-          "art": "Abo"
+          "art": "Abo oder kostenlos",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [],
@@ -4245,44 +4489,45 @@
       "abo": [
         {
           "id": 30,
+          "dienst": "wow",
           "name": "WOW",
           "logo": "/2o26YwA7tXQ7I6CSrMvO9Rj4oNi.png",
-          "art": "Abo"
-        },
-        {
-          "id": 2660,
-          "name": "Wow Fiction Amazon Channel",
-          "logo": "/mIR4wc2DLEIbn9TbtemvoX4zb26.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -4315,6 +4560,7 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -4323,36 +4569,42 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -4384,25 +4636,37 @@
       "naechsteFolge": null,
       "abo": [
         {
-          "id": 421,
-          "name": "Joyn Plus",
-          "logo": "/mjkfHoWsOku18fGjmYF5O1VXUrm.png",
+          "id": 304,
+          "dienst": "joyn",
+          "name": "Joyn",
+          "logo": "/fXtgvU410LTT6NjQ4ERdUzoUHQC.png",
           "art": "Abo"
         },
         {
           "id": 2265,
-          "name": "ProSieben Fun Amazon Channel",
+          "dienst": "prosiebenfun",
+          "name": "ProSieben Fun",
           "logo": "/krt5kSjG8y1xgZ1Usy9w8mUmaLq.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         },
         {
           "id": 2293,
-          "name": "Seven Entertainment Amazon Channel",
+          "dienst": "sevenentertainment",
+          "name": "Seven Entertainment",
           "logo": "/iI1WY8inWiaUinlobTBnTKTcShC.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         },
         {
           "id": 2412,
+          "dienst": "magentatvplus",
           "name": "Magenta TV+",
           "logo": "/2HcyGXRwSTh3DkgDwaF59AzACHu.png",
           "art": "Abo"
@@ -4436,32 +4700,28 @@
       "abo": [
         {
           "id": 531,
+          "dienst": "paramountplus",
           "name": "Paramount Plus",
           "logo": "/pkx3klJlwW5JdtaulvDx6hDNtch.png",
-          "art": "Abo"
-        },
-        {
-          "id": 582,
-          "name": "Paramount+ Amazon Channel",
-          "logo": "/bxX0YVOCY7bI85BKRlJAAQ2EjUR.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1853,
-          "name": "Paramount Plus Apple TV channel",
-          "logo": "/xu4LyKTwasTbta1Z0qWtZG48yZ3.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel",
+            "Apple TV Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -4494,15 +4754,14 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [],
@@ -4533,6 +4792,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -4567,24 +4827,28 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -4617,62 +4881,67 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
         },
         {
           "id": 531,
+          "dienst": "paramountplus",
           "name": "Paramount Plus",
           "logo": "/pkx3klJlwW5JdtaulvDx6hDNtch.png",
-          "art": "Abo"
-        },
-        {
-          "id": 582,
-          "name": "Paramount+ Amazon Channel",
-          "logo": "/bxX0YVOCY7bI85BKRlJAAQ2EjUR.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1853,
-          "name": "Paramount Plus Apple TV channel",
-          "logo": "/xu4LyKTwasTbta1Z0qWtZG48yZ3.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel",
+            "Apple TV Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 2745,
-          "name": "Sony Pictures Core Amazon Channel",
+          "dienst": "sonypicturescore",
+          "name": "Sony Pictures Core",
           "logo": "/uNyIRlzYb0Hf7Ix6Q3MKms0ERgA.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -4704,27 +4973,28 @@
       "naechsteFolge": null,
       "abo": [
         {
-          "id": 584,
-          "name": "Discovery+ Amazon Channel",
-          "logo": "/52htht83nlt2aAobIug88TeiWvO.png",
-          "art": "Abo"
-        },
-        {
           "id": 524,
+          "dienst": "discoveryplus",
           "name": "Discovery+",
           "logo": "/8B7fVLDHbdZAv7JcZSTqFLVchUq.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -4783,6 +5053,7 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -4816,6 +5087,7 @@
       "abo": [
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -4849,38 +5121,35 @@
       "abo": [
         {
           "id": 531,
+          "dienst": "paramountplus",
           "name": "Paramount Plus",
           "logo": "/pkx3klJlwW5JdtaulvDx6hDNtch.png",
-          "art": "Abo"
-        },
-        {
-          "id": 582,
-          "name": "Paramount+ Amazon Channel",
-          "logo": "/bxX0YVOCY7bI85BKRlJAAQ2EjUR.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel",
+            "Apple TV Channel"
+          ],
+          "direkt": true
         },
         {
           "id": 2750,
+          "dienst": "rtlplus",
           "name": "RTL+",
           "logo": "/er0P3HwuVruKgnOqF8CoNdAAPPD.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1853,
-          "name": "Paramount Plus Apple TV channel",
-          "logo": "/xu4LyKTwasTbta1Z0qWtZG48yZ3.png",
           "art": "Abo"
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -4913,6 +5182,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -4946,50 +5216,55 @@
       "abo": [
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -5022,6 +5297,7 @@
       "abo": [
         {
           "id": 234,
+          "dienst": "arte",
           "name": "Arte",
           "logo": "/ieo2l4zOaljYqJNGxWY8jWryld5.png",
           "art": "kostenlos"
@@ -5055,56 +5331,62 @@
       "abo": [
         {
           "id": 9,
+          "dienst": "amazonprimevideo",
           "name": "Amazon Prime Video",
           "logo": "/gMZdpavHmxFNnLpMHwVxfqeux2g.png",
           "art": "Abo"
         },
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -5137,50 +5419,49 @@
       "abo": [
         {
           "id": 9,
+          "dienst": "amazonprimevideo",
           "name": "Amazon Prime Video",
           "logo": "/gMZdpavHmxFNnLpMHwVxfqeux2g.png",
           "art": "Abo"
         },
         {
           "id": 531,
+          "dienst": "paramountplus",
           "name": "Paramount Plus",
           "logo": "/pkx3klJlwW5JdtaulvDx6hDNtch.png",
-          "art": "Abo"
-        },
-        {
-          "id": 582,
-          "name": "Paramount+ Amazon Channel",
-          "logo": "/bxX0YVOCY7bI85BKRlJAAQ2EjUR.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1853,
-          "name": "Paramount Plus Apple TV channel",
-          "logo": "/xu4LyKTwasTbta1Z0qWtZG48yZ3.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel",
+            "Apple TV Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -5213,6 +5494,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -5246,18 +5528,21 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
         },
         {
           "id": 9,
+          "dienst": "amazonprimevideo",
           "name": "Amazon Prime Video",
           "logo": "/gMZdpavHmxFNnLpMHwVxfqeux2g.png",
           "art": "Abo"
         },
         {
           "id": 304,
+          "dienst": "joyn",
           "name": "Joyn",
           "logo": "/fXtgvU410LTT6NjQ4ERdUzoUHQC.png",
           "art": "kostenlos mit Werbung"
@@ -5266,24 +5551,28 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
@@ -5317,12 +5606,14 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
@@ -5355,56 +5646,77 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
         },
         {
-          "id": 421,
-          "name": "Joyn Plus",
-          "logo": "/mjkfHoWsOku18fGjmYF5O1VXUrm.png",
+          "id": 304,
+          "dienst": "joyn",
+          "name": "Joyn",
+          "logo": "/fXtgvU410LTT6NjQ4ERdUzoUHQC.png",
           "art": "Abo"
         },
         {
           "id": 2265,
-          "name": "ProSieben Fun Amazon Channel",
+          "dienst": "prosiebenfun",
+          "name": "ProSieben Fun",
           "logo": "/krt5kSjG8y1xgZ1Usy9w8mUmaLq.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         },
         {
           "id": 2293,
-          "name": "Seven Entertainment Amazon Channel",
+          "dienst": "sevenentertainment",
+          "name": "Seven Entertainment",
           "logo": "/iI1WY8inWiaUinlobTBnTKTcShC.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         },
         {
           "id": 2412,
+          "dienst": "magentatvplus",
           "name": "Magenta TV+",
           "logo": "/2HcyGXRwSTh3DkgDwaF59AzACHu.png",
           "art": "Abo"
         },
         {
           "id": 2745,
-          "name": "Sony Pictures Core Amazon Channel",
+          "dienst": "sonypicturescore",
+          "name": "Sony Pictures Core",
           "logo": "/uNyIRlzYb0Hf7Ix6Q3MKms0ERgA.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
@@ -5437,6 +5749,7 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
@@ -5470,80 +5783,94 @@
       "abo": [
         {
           "id": 8,
+          "dienst": "netflix",
           "name": "Netflix",
           "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
           "art": "Abo"
         },
         {
           "id": 9,
+          "dienst": "amazonprimevideo",
           "name": "Amazon Prime Video",
           "logo": "/gMZdpavHmxFNnLpMHwVxfqeux2g.png",
           "art": "Abo"
         },
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
         },
         {
           "id": 304,
+          "dienst": "joyn",
           "name": "Joyn",
           "logo": "/fXtgvU410LTT6NjQ4ERdUzoUHQC.png",
           "art": "kostenlos mit Werbung"
         },
         {
-          "id": 2578,
-          "name": "RTL+ Max Amazon Channel",
-          "logo": "/4a1AfcgwF3QeEmRkgbpFj3QZdJn.png",
-          "art": "Abo"
+          "id": 2750,
+          "dienst": "rtlplus",
+          "name": "RTL+",
+          "logo": "/er0P3HwuVruKgnOqF8CoNdAAPPD.png",
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
         },
         {
           "id": 1899,
+          "dienst": "hbomax",
           "name": "HBO Max",
           "logo": "/skypuy7SXuugIQeYg0IglmzoKaS.png",
-          "art": "Abo"
-        },
-        {
-          "id": 1825,
-          "name": "HBO Max Amazon Channel",
-          "logo": "/64fLWeSyZ1KQZhIdvTdy4QHeWty.png",
-          "art": "Abo"
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
         }
       ],
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
@@ -5576,12 +5903,14 @@
       "abo": [
         {
           "id": 9,
+          "dienst": "amazonprimevideo",
           "name": "Amazon Prime Video",
           "logo": "/gMZdpavHmxFNnLpMHwVxfqeux2g.png",
           "art": "Abo"
         },
         {
           "id": 337,
+          "dienst": "disneyplus",
           "name": "Disney Plus",
           "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
           "art": "Abo"
@@ -5590,36 +5919,42 @@
       "kaufen": [
         {
           "id": 2,
+          "dienst": "appletvstore",
           "name": "Apple TV Store",
           "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
           "art": "Kaufen"
         },
         {
           "id": 10,
+          "dienst": "amazonvideo",
           "name": "Amazon Video",
           "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
           "art": "Kaufen"
         },
         {
           "id": 178,
+          "dienst": "magentatv",
           "name": "MagentaTV",
           "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
           "art": "Kaufen"
         },
         {
           "id": 20,
+          "dienst": "maxdomestore",
           "name": "maxdome Store",
           "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
           "art": "Kaufen"
         },
         {
           "id": 1993,
+          "dienst": "videoload",
           "name": "Videoload",
           "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
           "art": "Kaufen"
         },
         {
           "id": 2209,
+          "dienst": "freenetmeinvod",
           "name": "Freenet meinVOD",
           "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
           "art": "Kaufen"
