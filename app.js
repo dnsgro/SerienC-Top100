@@ -224,7 +224,12 @@
         { class: 'logos' },
         liste.map((p) => {
           const name = String(p.name || 'Unbekannter Dienst');
-          const beschriftung = p.art && p.art !== 'Abo' ? `${name} (${p.art})` : name;
+          const zusatz = [];
+          if (p.art && p.art !== 'Abo') zusatz.push(p.art);
+          if (Array.isArray(p.kanaele) && p.kanaele.length) {
+            zusatz.push(`${p.direkt === false ? 'als' : 'auch als'} ${p.kanaele.join(' oder ')}`);
+          }
+          const beschriftung = zusatz.length ? `${name} (${zusatz.join(', ')})` : name;
           return el(
             'li',
             { title: beschriftung },
@@ -337,7 +342,7 @@
     balken.setAttribute('aria-valuemax', String(gesamt));
   }
 
-  const anbieterSchluessel = (p) => normal(p?.name);
+  const anbieterSchluessel = (p) => p?.dienst || normal(p?.name);
 
   function baueAnbieterFilter() {
     const zaehler = new Map();
