@@ -364,58 +364,157 @@ function zaehleFolgen(serie) {
   return { staffeln: zahl(serie.number_of_seasons), folgen: zahl(serie.number_of_episodes) };
 }
 
-/** „Netflix basic with Ads“ → „Netflix“ (gleicher Dienst, nur mit Werbung) */
-function basisName(name) {
-  return String(name || '')
-    .replace(/\s+(?:(?:basic|standard)\s+)?with\s+ads$/i, '')
-    .trim();
+// ---------------------------------------------------------------------------
+// Streamingdienste zusammenfassen
+// ---------------------------------------------------------------------------
+// JustWatch führt Kanäle anderer Plattformen („HBO Max Amazon Channel“) und
+// Tarife mit Werbung („Netflix basic with Ads“) als eigene Anbieter. Auf der
+// Website zählt der Dienst selbst: Jede Karte zeigt pro Dienst ein Logo.
+
+/** Endung für Kanäle anderer Plattformen, z. B. „… Amazon Channel“, „… Apple TV channel“ */
+const KANAL = /\s+(amazon|apple\s*tv|roku(?:\s+premium)?)\s+channels?$/i;
+const KANAL_NAME = { amazon: 'Amazon Channel', appletv: 'Apple TV Channel', roku: 'Roku Channel', rokupremium: 'Roku Channel' };
+const WERBETARIF = /\s+(?:(?:basic|standard)\s+)?with\s+ads$/i;
+
+/**
+ * Derselbe Dienst unter anderem Namen. Bei Bedarf ergänzen:
+ * Schlüssel des Namens (klein, ohne Leer- und Sonderzeichen, „+“ als „plus“)
+ * → [Schlüssel des Dienstes, Anzeigename]
+ */
+const GLEICHER_DIENST = new Map([
+  ['wowfiction', ['wow', 'WOW']],
+  ['rtlplusmax', ['rtlplus', 'RTL+']],
+  ['joynplus', ['joyn', 'Joyn']],
+  ['amazonprimevideofree', ['amazonprimevideo', 'Amazon Prime Video']],
+]);
+
+const ART_REIHENFOLGE = ['Abo', 'kostenlos', 'kostenlos mit Werbung', 'Leihen', 'Kaufen'];
+
+/** „Paramount+“ und „Paramount Plus“ ergeben denselben Schlüssel. */
+const dienstSchluessel = (name) => normal(String(name ?? '').replace(/\+/g, ' plus '));
+
+/**
+ * Zerlegt einen Anbieternamen in Dienst und Kanal.
+ * rang: 0 = der Dienst selbst, 1 = anderer Name oder Werbetarif, 2 = Kanal einer anderen Plattform
+ */
+function dienstInfo(anbieterName) {
+  let name = String(anbieterName || '').trim();
+  let kanal = null;
+  let rang = 0;
+  const treffer = KANAL.exec(name);
+  if (treffer) {
+    kanal = KANAL_NAME[normal(treffer[1])] || 'Channel';
+    name = name.slice(0, treffer.index).trim();
+    rang = 2;
+  }
+  const ohneWerbung = name.replace(WERBETARIF, '').trim();
+  if (ohneWerbung !== name) {
+    name = ohneWerbung;
+    rang = Math.max(rang, 1);
+  }
+  let schluessel = dienstSchluessel(name);
+  const alias = GLEICHER_DIENST.get(schluessel);
+  if (alias) {
+    [schluessel, name] = alias;
+    rang = Math.max(rang, 1);
+  }
+  return { schluessel, name, kanal, rang };
+}
+
+/** Fasst Anbieter (nach Priorität sortiert, je mit Angebotsart) zu Diensten zusammen. */
+function fasseZusammen(eintraege) {
+  const dienste = new Map();
+  for (const { p, art } of eintraege) {
+    const info = dienstInfo(p.provider_name);
+    if (!info.schluessel) continue;
+    let d = dienste.get(info.schluessel);
+    if (!d) {
+      d = { schluessel: info.schluessel, rang: Infinity, arten: new Set(), kanaele: new Set(), direkt: false };
+      dienste.set(info.schluessel, d);
+    }
+    // Name und Logo vom Dienst selbst bevorzugen, nicht vom Kanal
+    if (info.rang < d.rang) Object.assign(d, { id: p.provider_id, name: info.name, logo: p.logo_path || null, rang: info.rang });
+    d.arten.add(art);
+    if (info.kanal) d.kanaele.add(info.kanal);
+    else d.direkt = true;
+  }
+  return [...dienste.values()].map((d) => ({
+    id: d.id,
+    dienst: d.schluessel,
+    name: d.name,
+    logo: d.logo,
+    art: ART_REIHENFOLGE.filter((a) => d.arten.has(a)).join(' oder '),
+    ...(d.kanaele.size ? { kanaele: [...d.kanaele], direkt: d.direkt } : {}),
+  }));
 }
 
 /** Streaming-Angebote für Deutschland: Abo/kostenlos getrennt von Leihen/Kaufen. */
 function streaming(daten) {
   const de = daten?.results?.[LAND];
   if (!de) return { abo: [], kaufen: [], streamingLink: null };
-  const nachPrioritaet = (a, b) => (a.display_priority ?? 999) - (b.display_priority ?? 999);
+  const sammle = (quellen) =>
+    quellen
+      .flatMap(([feld, art]) => (Array.isArray(de[feld]) ? de[feld] : []).map((p) => ({ p, art })))
+      .sort((a, b) => (a.p.display_priority ?? 999) - (b.p.display_priority ?? 999));
 
-  const abo = [];
-  const schonDa = new Set();
-  const aboQuellen = [
-    ['flatrate', 'Abo'],
-    ['free', 'kostenlos'],
-    ['ads', 'kostenlos mit Werbung'],
-  ];
-  const alleAbo = aboQuellen.flatMap(([feld, art]) => (de[feld] || []).map((p) => ({ ...p, art }))).sort(nachPrioritaet);
-  for (const p of alleAbo) {
-    const name = basisName(p.provider_name);
-    const schluessel = normal(name);
-    if (!schluessel || schonDa.has(schluessel)) continue;
-    schonDa.add(schluessel);
-    abo.push({ id: p.provider_id, name, logo: p.logo_path || null, art: p.art });
-  }
-
-  const kauf = new Map();
-  for (const [feld, art] of [['rent', 'Leihen'], ['buy', 'Kaufen']]) {
-    for (const p of [...(de[feld] || [])].sort(nachPrioritaet)) {
-      const vorhanden = kauf.get(p.provider_id);
-      if (vorhanden) {
-        if (!vorhanden.arten.includes(art)) vorhanden.arten.push(art);
-        continue;
-      }
-      kauf.set(p.provider_id, {
-        id: p.provider_id,
-        name: p.provider_name,
-        logo: p.logo_path || null,
-        prioritaet: p.display_priority ?? 999,
-        arten: [art],
-      });
-    }
-  }
-  const kaufen = [...kauf.values()]
-    .sort((a, b) => a.prioritaet - b.prioritaet)
-    .map(({ prioritaet, arten, ...rest }) => ({ ...rest, art: arten.join(' / ') }));
-
+  const abo = fasseZusammen(
+    sammle([
+      ['flatrate', 'Abo'],
+      ['free', 'kostenlos'],
+      ['ads', 'kostenlos mit Werbung'],
+    ]),
+  );
+  const kaufen = fasseZusammen(
+    sammle([
+      ['rent', 'Leihen'],
+      ['buy', 'Kaufen'],
+    ]),
+  );
   const link = typeof de.link === 'string' && /^https:\/\//.test(de.link) ? de.link : null;
   return { abo, kaufen, streamingLink: link };
+}
+
+/** Einträge im alten Format (vor dem Zusammenfassen gespeichert) nachträglich zusammenfassen. */
+function alsDienste(liste) {
+  if (!Array.isArray(liste)) return [];
+  if (liste.every((p) => p?.dienst)) return liste;
+  return fasseZusammen(
+    liste.flatMap((p, i) =>
+      String(p?.art || 'Abo')
+        .split(/\s+(?:\/|oder)\s+/)
+        .map((art) => ({ p: { provider_id: p?.id, provider_name: p?.name, logo_path: p?.logo, display_priority: i }, art })),
+    ),
+  );
+}
+
+/**
+ * Derselbe Dienst soll auf allen Karten gleich heißen und dasselbe Logo haben –
+ * auch wenn eine Serie ihn nur als Kanal einer anderen Plattform anbietet.
+ */
+function vereinheitlicheDienste(serien) {
+  for (const feld of ['abo', 'kaufen']) {
+    const varianten = new Map(); // Dienst → Map(Name+Logo → Variante)
+    for (const s of serien) {
+      s[feld] = alsDienste(s[feld]);
+      for (const p of s[feld]) {
+        if (!varianten.has(p.dienst)) varianten.set(p.dienst, new Map());
+        const proDienst = varianten.get(p.dienst);
+        const schluessel = `${p.name}|${p.logo}`;
+        const v = proDienst.get(schluessel) || { id: p.id, name: p.name, logo: p.logo, direkt: 0, anzahl: 0 };
+        v.anzahl++;
+        if (p.direkt !== false) v.direkt++;
+        proDienst.set(schluessel, v);
+      }
+    }
+    const bester = new Map();
+    for (const [dienst, proDienst] of varianten) {
+      const [v] = [...proDienst.values()].sort((a, b) => b.direkt - a.direkt || b.anzahl - a.anzahl);
+      bester.set(dienst, v);
+    }
+    for (const s of serien) {
+      for (const p of s[feld]) Object.assign(p, { id: bester.get(p.dienst).id, name: bester.get(p.dienst).name, logo: bester.get(p.dienst).logo });
+    }
+  }
 }
 
 /** Passt die TMDB-ID zum Eintrag? Vergleicht Titel und Startjahr (±1 Jahr). */
@@ -882,6 +981,7 @@ async function main() {
   }
 
   const stand = new Date().toISOString();
+  vereinheitlicheDienste(ergebnisse);
   await schreibeDaten({ stand, serien: ergebnisse, pruefung });
   await zusammenfassung({ stand, statistik, pruefung, hinweiseOben: [...hinweiseOben] });
 }

@@ -166,3 +166,4 @@ Benötigt wird Node.js 18 oder neuer, Pakete sind nicht nötig. Mit `node script
 - **Farben:** oben in `style.css` unter `:root` (hell) und im Block darunter (dunkel).
 - **Uhrzeit des Laufs:** Zeile `cron` in `.github/workflows/update.yml` (Zeit in UTC).
 - **Andere Liste:** `data/series.json` bearbeiten – Platz, Titel, Jahre und TMDB-ID.
+- **Doppelte Streamingdienste:** Kanäle wie „HBO Max Amazon Channel“ oder „Paramount Plus Apple TV channel“ fasst das Skript automatisch mit dem Dienst zusammen; der Hinweis beim Logo nennt sie weiterhin. Taucht derselbe Dienst unter einem anderen Namen auf (z. B. „Wow Fiction“ statt „WOW“), ergänze ihn in `scripts/update.mjs` in der Liste `GLEICHER_DIENST`.
