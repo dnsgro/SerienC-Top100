@@ -1,0 +1,102 @@
+# Holt jede Nacht frische Daten von TMDB und MDBList, speichert sie in
+# data/data.json und veröffentlicht die Website über GitHub Pages.
+# Voraussetzung: Settings → Pages → Source = „GitHub Actions“ und die
+# Secrets TMDB_TOKEN und MDBLIST_API_KEY (siehe README).
+name: Daten aktualisieren
+
+on:
+  schedule:
+    # Täglich um 02:17 UTC = 03:17 Uhr (Winterzeit) bzw. 04:17 Uhr (Sommerzeit).
+    # Bewusst nicht zur vollen Stunde – dann sind die GitHub-Server am vollsten.
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+    inputs:
+      alles_neu:
+        description: 'Wertungen sofort neu laden (sonst höchstens alle 20 Stunden)'
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+
+permissions:
+  contents: write  # data.json zurück ins Repository schreiben
+  pages: write     # Website veröffentlichen
+  id-token: write  # wird von GitHub Pages zur Prüfung benötigt
+  actions: write   # Zeitplan aktiv halten (siehe Schritt „Zeitplan aktiv halten“)
+
+concurrency:
+  group: serien-update
+  cancel-in-progress: false
+
+jobs:
+  aktualisieren:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.veroeffentlichen.outputs.page_url }}
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v7
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Daten von TMDB und MDBList holen
+        env:
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
+          MDBLIST_API_KEY: ${{ secrets.MDBLIST_API_KEY }}
+          FORCE_REFRESH: ${{ inputs.alles_neu }}
+        run: node scripts/update.mjs
+
+      - name: Neue Daten committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/data.json
+          if [ -d img ]; then git add img; fi
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen zu committen."
+            exit 0
+          fi
+          git commit -m "Daten aktualisiert ($(date -u +%Y-%m-%d))"
+          for versuch in 1 2 3; do
+            if git push; then exit 0; fi
+            echo "Push fehlgeschlagen – hole neuere Änderungen und versuche es erneut …"
+            git pull --rebase
+            sleep 5
+          done
+          echo "::error::Die neuen Daten konnten nicht gespeichert werden."
+          exit 1
+
+      - name: Zeitplan aktiv halten
+        # GitHub schaltet geplante Workflows in öffentlichen Repositories nach
+        # 60 Tagen ohne Aktivität ab. Das erneute Aktivieren per API beugt dem vor.
+        if: github.event_name == 'schedule'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method PUT "repos/${{ github.repository }}/actions/workflows/update.yml/enable"
+
+      - name: Website-Dateien zusammenstellen
+        run: |
+          mkdir -p _site/data
+          cp index.html style.css app.js _site/
+          cp data/data.json _site/data/
+          cp -r fonts _site/
+          if [ -d img ]; then cp -r img _site/; fi
+
+      - name: GitHub Pages vorbereiten
+        uses: actions/configure-pages@v6
+
+      - name: Website hochladen
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+      - name: Website veröffentlichen
+        id: veroeffentlichen
+        uses: actions/deploy-pages@v5
