@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Die 100 besten Serien</title>
+  <meta name="description" content="Meine Liste der 100 besten Serien – mit Streaming-Angeboten in Deutschland, Wertungen und Gesehen-Liste.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1120" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 50'%3E%3Cpath fill='%23d1d4dc' d='M0 0h10v50H0z'/%3E%3Cpath fill='%23e3cc1c' d='M10 0h10v50H10z'/%3E%3Cpath fill='%231fb5c9' d='M20 0h10v50H20z'/%3E%3Cpath fill='%232aa548' d='M30 0h10v50H30z'/%3E%3Cpath fill='%23b5359c' d='M40 0h10v50H40z'/%3E%3Cpath fill='%23cc2c35' d='M50 0h10v50H50z'/%3E%3Cpath fill='%232342d6' d='M60 0h10v50H60z'/%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://image.tmdb.org" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="sprunglink" href="#liste">Zur Liste springen</a>
+
+  <header class="kopf">
+    <div class="innen">
+      <h1>Die 100 besten Serien</h1>
+      <div class="fortschritt">
+        <p class="fortschritt-text" id="fortschritt-text" aria-live="polite">Gesehen-Stand wird geladen …</p>
+        <div class="balken" id="fortschritt-balken" role="progressbar" aria-labelledby="fortschritt-text" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+      </div>
+      <div class="kopf-zeile">
+        <p class="stand">Stand: <span id="stand">wird geladen …</span></p>
+        <div class="uebertragen">
+          <button type="button" class="knopf-klein" id="export-knopf" title="Gesehen-Stand als Datei speichern">Exportieren</button>
+          <button type="button" class="knopf-klein" id="import-knopf" title="Gesehen-Stand aus einer Datei übernehmen">Importieren</button>
+          <input type="file" id="import-datei" accept=".json,application/json" hidden>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="werkzeuge">
+    <div class="innen werkzeuge-innen">
+      <div class="suche" role="search">
+        <label for="suche" class="sr-only">Serie suchen</label>
+        <input type="search" id="suche" placeholder="Serie suchen" autocomplete="off" spellcheck="false" enterkeyhint="search">
+      </div>
+      <label class="anbieter-wahl">
+        <span class="sr-only">Nach Streamingdienst filtern (Abo oder kostenlos)</span>
+        <select id="filter-anbieter">
+          <option value="">Alle Dienste</option>
+        </select>
+      </label>
+      <fieldset class="segment">
+        <legend class="sr-only">Nach Gesehen-Stand filtern</legend>
+        <label><input type="radio" name="status" value="alle" checked><span>Alle</span></label>
+        <label><input type="radio" name="status" value="gesehen"><span>Gesehen</span></label>
+        <label><input type="radio" name="status" value="offen"><span>Nicht gesehen</span></label>
+      </fieldset>
+    </div>
+  </div>
+
+  <main class="innen" id="inhalt">
+    <p class="treffer" id="treffer" aria-live="polite">Daten werden geladen …</p>
+    <div class="hinweis-box" id="ladefehler" role="alert" hidden></div>
+    <ol class="liste" id="liste" aria-label="Serien, sortiert nach Platz"></ol>
+    <div class="hinweis-box" id="keine-treffer" hidden>
+      <p>Keine Serie passt zu deiner Auswahl.</p>
+      <button type="button" class="knopf" id="filter-zuruecksetzen">Filter zurücksetzen</button>
+    </div>
+    <noscript><p class="hinweis-box">Diese Seite braucht JavaScript. Bitte aktiviere es im Browser.</p></noscript>
+  </main>
+
+  <footer class="fuss">
+    <div class="innen">
+      <p>Datenstand: <span id="stand-fuss">–</span>. Die Daten werden jede Nacht automatisch aktualisiert.</p>
+      <div class="quelle-tmdb">
+        <a class="tmdb-link" href="https://www.themoviedb.org" target="_blank" rel="noopener">
+          <img class="tmdb-logo" src="img/tmdb-logo.svg" alt="The Movie Database (TMDB)" width="128" height="17" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+          <span hidden>TMDB</span>
+        </a>
+        <p lang="en">This website uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.</p>
+        <p>Diese Website nutzt TMDB und die TMDB-APIs, wird von TMDB aber weder unterstützt noch zertifiziert oder anderweitig genehmigt. Titel, Beschreibungen, Poster sowie Staffel- und Folgenzahlen stammen von TMDB.</p>
+      </div>
+      <p>Streaming-Angebote in Deutschland: Daten von <a href="https://www.justwatch.com/de" target="_blank" rel="noopener">JustWatch</a>, bezogen über die TMDB-API.</p>
+      <p>Wertungen: IMDb und Rotten Tomatoes (Tomatometer), bezogen über <a href="https://mdblist.com" target="_blank" rel="noopener">MDBList</a>.</p>
+      <p>Privates, nicht-kommerzielles Projekt. Alle Marken und Logos gehören ihren Inhabern. Deine Gesehen-Markierungen werden nur in diesem Browser gespeichert.</p>
+    </div>
+  </footer>
+
+  <dialog id="import-dialog" aria-labelledby="import-titel">
+    <form method="dialog">
+      <h2 id="import-titel">Gesehen-Stand importieren</h2>
+      <p id="import-text"></p>
+      <div class="dialog-knoepfe">
+        <button type="submit" value="abbrechen" class="knopf">Abbrechen</button>
+        <button type="submit" value="zusammenfuehren" class="knopf">Zusammenführen</button>
+        <button type="submit" value="ersetzen" class="knopf knopf-primaer">Ersetzen</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="meldung" id="meldung" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

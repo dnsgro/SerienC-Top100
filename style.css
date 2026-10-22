@@ -1,0 +1,797 @@
+/* ==========================================================================
+   Die 100 besten Serien
+   Farben stehen oben in :root (hell) und im Dark-Mode-Block darunter.
+   Schrift: Archivo (SIL Open Font License, siehe fonts/OFL.txt), lokal
+   eingebunden – es werden keine Schriften von fremden Servern geladen.
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Archivo';
+  src: url('fonts/archivo.woff2') format('woff2-variations'), url('fonts/archivo.woff2') format('woff2');
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+  --papier: #f2f4f8;
+  --flaeche: #ffffff;
+  --tinte: #141a2e;
+  --grau: #5a6178;
+  --linie: #dce1eb;
+  --signal: #2342d6;
+  --signal-text: #ffffff;
+  --gruen: #11804c;
+  --gruen-text: #ffffff;
+  --gruen-flaeche: #eaf6ef;
+  --balken-leer: #dfe3eb;
+  --schrift: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --aussen: 16px;
+  --breite: 1180px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papier: #0d1120;
+    --flaeche: #151a2c;
+    --tinte: #e7eaf4;
+    --grau: #9ba3bf;
+    --linie: #262d47;
+    --signal: #93a5ff;
+    --signal-text: #0d1120;
+    --gruen: #4cd08a;
+    --gruen-text: #04210f;
+    --gruen-flaeche: #0f2419;
+    --balken-leer: #232a43;
+  }
+}
+
+@media (min-width: 760px) {
+  :root {
+    --aussen: 24px;
+  }
+}
+
+/* ---------- Grundlagen ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--tinte);
+  font-family: var(--schrift);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--signal);
+  text-underline-offset: 2px;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+.innen {
+  max-width: var(--breite);
+  margin-inline: auto;
+  padding-inline: var(--aussen);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sprunglink {
+  position: absolute;
+  left: var(--aussen);
+  top: -80px;
+  z-index: 60;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--tinte);
+  color: var(--papier);
+  font-weight: 600;
+}
+
+.sprunglink:focus {
+  top: 8px;
+}
+
+/* ---------- Kopf mit Fortschritt ---------- */
+
+.kopf {
+  padding-block: 28px 18px;
+}
+
+.kopf h1 {
+  margin: 0;
+  font-size: clamp(2.1rem, 8vw, 3.4rem);
+  font-weight: 800;
+  font-stretch: 72%;
+  line-height: 0.95;
+  letter-spacing: -0.005em;
+}
+
+.fortschritt {
+  max-width: 640px;
+  margin-top: 20px;
+}
+
+.fortschritt-text {
+  margin: 0 0 8px;
+  font-size: 1.0625rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Der Balken füllt sich mit den Farbbalken eines Testbilds. */
+.balken {
+  --anteil: 0%;
+  position: relative;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--balken-leer);
+  overflow: hidden;
+}
+
+.balken::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #e5c91a 0 16.667%,
+    #1fb3c8 16.667% 33.333%,
+    #2aa548 33.333% 50%,
+    #b5359c 50% 66.667%,
+    #cc2c35 66.667% 83.333%,
+    #2342d6 83.333% 100%
+  );
+  clip-path: inset(0 calc(100% - var(--anteil)) 0 0);
+  transition: clip-path 0.45s ease;
+}
+
+.kopf-zeile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  max-width: 640px;
+  margin-top: 12px;
+  color: var(--grau);
+  font-size: 0.875rem;
+}
+
+.stand {
+  margin: 0;
+}
+
+.uebertragen {
+  display: flex;
+  gap: 8px;
+}
+
+.knopf-klein {
+  min-height: 36px;
+  padding: 6px 14px;
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  background: var(--flaeche);
+  color: var(--tinte);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.knopf-klein:hover {
+  border-color: var(--grau);
+}
+
+/* ---------- Werkzeugleiste (bleibt beim Scrollen oben) ---------- */
+
+.werkzeuge {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding-block: 10px;
+  border-bottom: 1px solid var(--linie);
+  background: var(--papier);
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .werkzeuge {
+    background: color-mix(in srgb, var(--papier) 86%, transparent);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    backdrop-filter: blur(12px) saturate(1.3);
+  }
+}
+
+.werkzeuge-innen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.suche {
+  flex: 1 1 140px;
+}
+
+.suche input {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--linie);
+  border-radius: 10px;
+  background: var(--flaeche);
+}
+
+.suche input::placeholder {
+  color: var(--grau);
+  opacity: 1;
+}
+
+.segment {
+  display: flex;
+  flex: 1 1 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 3px;
+  border: 1px solid var(--linie);
+  border-radius: 10px;
+  background: var(--flaeche);
+}
+
+.segment label {
+  position: relative;
+  display: block;
+  flex: 1 1 0;
+}
+
+.segment input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.segment span {
+  display: block;
+  padding: 6px 10px;
+  text-align: center;
+  border-radius: 7px;
+  color: var(--grau);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.segment input:checked + span {
+  background: var(--tinte);
+  color: var(--flaeche);
+}
+
+.segment input:focus-visible + span {
+  outline: 2px solid var(--signal);
+  outline-offset: 1px;
+}
+
+.anbieter-wahl {
+  flex: 0 1 150px;
+  min-width: 0;
+}
+
+.anbieter-wahl select {
+  width: 100%;
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid var(--linie);
+  border-radius: 10px;
+  background: var(--flaeche);
+  font-size: 0.875rem;
+}
+
+@media (min-width: 900px) {
+  .suche {
+    flex: 1 1 260px;
+  }
+
+  .anbieter-wahl {
+    flex: 0 1 220px;
+  }
+
+  .segment {
+    flex: 0 0 auto;
+  }
+
+  .segment label {
+    flex: 0 0 auto;
+  }
+}
+
+/* ---------- Liste und Karten ---------- */
+
+main {
+  padding-block: 14px 44px;
+}
+
+.treffer {
+  margin: 0 0 12px;
+  color: var(--grau);
+  font-size: 0.875rem;
+}
+
+.liste {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 760px) {
+  .liste {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1160px) {
+  .liste {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.karte {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--linie);
+  border-radius: 12px;
+  background: var(--flaeche);
+  scroll-margin-top: 150px;
+}
+
+.karte.ist-gesehen {
+  border-color: var(--gruen);
+  border-color: color-mix(in srgb, var(--gruen) 45%, var(--linie));
+  background: var(--gruen-flaeche);
+}
+
+.karte-kopf {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+@media (min-width: 760px) {
+  .karte-kopf {
+    grid-template-columns: 104px minmax(0, 1fr);
+  }
+}
+
+.poster {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--linie);
+}
+
+.poster-leer {
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  color: var(--grau);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.platz {
+  display: block;
+  margin: -3px 0 4px;
+  color: var(--signal);
+  font-size: 2.75rem;
+  font-weight: 800;
+  font-stretch: 62%;
+  font-variant-numeric: tabular-nums;
+  line-height: 0.9;
+}
+
+.ist-gesehen .platz {
+  color: var(--gruen);
+}
+
+.titel {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-stretch: 87%;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.titel-liste {
+  color: var(--grau);
+  font-weight: 500;
+}
+
+.jahre {
+  margin: 3px 0 0;
+  color: var(--grau);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.fakten {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  margin: 10px 0 0;
+  font-size: 0.875rem;
+}
+
+.fakten div {
+  display: flex;
+  gap: 5px;
+}
+
+.fakten dt {
+  color: var(--grau);
+}
+
+.fakten dd {
+  margin: 0;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-laufend {
+  color: var(--signal);
+}
+
+.wertungen {
+  margin-top: 6px;
+}
+
+.wertungen dd {
+  font-weight: 750;
+}
+
+.karte-aktionen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.gesehen-schalter {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  padding: 6px 16px 6px 12px;
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  background: var(--flaeche);
+  font-weight: 650;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gesehen-schalter input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--gruen);
+  cursor: pointer;
+}
+
+.gesehen-schalter:has(input:focus-visible) {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+.ist-gesehen .gesehen-schalter {
+  border-color: var(--gruen);
+  background: var(--gruen);
+  color: var(--gruen-text);
+}
+
+.ist-gesehen .gesehen-schalter input {
+  accent-color: var(--gruen-text);
+}
+
+.links {
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.links a {
+  color: var(--grau);
+}
+
+.links a:hover {
+  color: var(--signal);
+}
+
+.beschreibung {
+  max-width: 68ch;
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.sprache {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 0 5px;
+  border: 1px solid var(--linie);
+  border-radius: 4px;
+  color: var(--grau);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  vertical-align: 1px;
+}
+
+.mehr {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--signal);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.streaming {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--linie);
+}
+
+.gruppe {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.gruppe h3 {
+  margin: 0;
+  color: var(--grau);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.logos img {
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--linie);
+}
+
+.logo-text {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--linie);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+}
+
+.leer {
+  margin: 0;
+  color: var(--grau);
+}
+
+.quelle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 0;
+  color: var(--grau);
+  font-size: 0.75rem;
+}
+
+.quelle a {
+  color: inherit;
+}
+
+/* ---------- Hinweise, Knöpfe, Dialog, Meldung ---------- */
+
+.hinweis-box {
+  padding: 18px;
+  border: 1px dashed var(--linie);
+  border-radius: 12px;
+  background: var(--flaeche);
+}
+
+.hinweis-box p {
+  margin: 0 0 12px;
+}
+
+.hinweis-box p:last-child {
+  margin-bottom: 0;
+}
+
+.knopf {
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 1px solid var(--linie);
+  border-radius: 10px;
+  background: var(--flaeche);
+  color: var(--tinte);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.knopf-primaer {
+  border-color: var(--signal);
+  background: var(--signal);
+  color: var(--signal-text);
+}
+
+dialog {
+  width: min(92vw, 440px);
+  padding: 22px;
+  border: 1px solid var(--linie);
+  border-radius: 14px;
+  background: var(--flaeche);
+  color: var(--tinte);
+}
+
+dialog::backdrop {
+  background: rgb(8 12 24 / 0.55);
+}
+
+dialog h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-stretch: 87%;
+}
+
+dialog p {
+  margin: 0;
+  color: var(--grau);
+}
+
+.dialog-knoepfe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.dialog-knoepfe .knopf {
+  flex: 1 1 auto;
+}
+
+.meldung {
+  position: fixed;
+  right: 16px;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  left: 16px;
+  z-index: 50;
+  width: fit-content;
+  max-width: 480px;
+  margin-inline: auto;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--tinte);
+  color: var(--papier);
+  font-size: 0.9375rem;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 0.25);
+}
+
+/* ---------- Fußzeile ---------- */
+
+.fuss {
+  padding-block: 26px 44px;
+  border-top: 1px solid var(--linie);
+  color: var(--grau);
+  font-size: 0.8125rem;
+}
+
+.fuss p {
+  max-width: 72ch;
+  margin: 0 0 10px;
+}
+
+.quelle-tmdb {
+  margin: 14px 0 16px;
+}
+
+.tmdb-link {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--tinte);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.tmdb-logo {
+  display: block;
+  width: auto;
+  height: 15px;
+}
+
+/* ---------- Weniger Bewegung, wenn gewünscht ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
