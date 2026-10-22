@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "stand": "2026-10-22T16:30:40.735Z",
+  "stand": "2026-10-22T16:42:56.071Z",
   "sprache": "de-DE",
   "land": "DE",
   "quellen": {
@@ -70,7 +70,7 @@
       "imdb": 9.5,
       "imdbStimmen": 2694802,
       "rt": 96,
-      "wertungStand": "2026-10-22T15:57:58.899Z",
+      "wertungStand": "2026-10-22T16:40:48.978Z",
       "hinweise": []
     },
     {
@@ -146,7 +146,7 @@
       "imdb": 9.3,
       "imdbStimmen": 442691,
       "rt": 94,
-      "wertungStand": "2026-10-22T15:58:00.522Z",
+      "wertungStand": "2026-10-22T16:40:50.253Z",
       "hinweise": []
     },
     {
@@ -228,7 +228,7 @@
       "imdb": 8.7,
       "imdbStimmen": 295739,
       "rt": 94,
-      "wertungStand": "2026-10-22T15:58:02.056Z",
+      "wertungStand": "2026-10-22T16:40:51.482Z",
       "hinweise": []
     },
     {
@@ -316,7 +316,7 @@
       "imdb": 8.8,
       "imdbStimmen": 371009,
       "rt": 95,
-      "wertungStand": "2026-10-22T15:58:04.394Z",
+      "wertungStand": "2026-10-22T16:40:52.748Z",
       "hinweise": []
     },
     {
@@ -356,7 +356,7 @@
       "imdb": 8.7,
       "imdbStimmen": 255154,
       "rt": 100,
-      "wertungStand": "2026-10-22T15:58:06.344Z",
+      "wertungStand": "2026-10-22T16:40:54.002Z",
       "hinweise": []
     },
     {
@@ -432,7 +432,7 @@
       "imdb": 9.2,
       "imdbStimmen": 2676466,
       "rt": 89,
-      "wertungStand": "2026-10-22T15:58:08.015Z",
+      "wertungStand": "2026-10-22T16:40:55.272Z",
       "hinweise": []
     },
     {
@@ -508,7 +508,7 @@
       "imdb": 8.4,
       "imdbStimmen": 73154,
       "rt": 93,
-      "wertungStand": "2026-10-22T15:58:09.488Z",
+      "wertungStand": "2026-10-22T16:40:56.531Z",
       "hinweise": []
     },
     {
@@ -578,7 +578,7 @@
       "imdb": 8.3,
       "imdbStimmen": 140512,
       "rt": 78,
-      "wertungStand": "2026-10-22T15:58:10.962Z",
+      "wertungStand": "2026-10-22T16:40:57.808Z",
       "hinweise": []
     },
     {
@@ -666,7 +666,7 @@
       "imdb": 8.8,
       "imdbStimmen": 169641,
       "rt": 92,
-      "wertungStand": "2026-10-22T15:58:12.531Z",
+      "wertungStand": "2026-10-22T16:40:59.056Z",
       "hinweise": []
     },
     {
@@ -736,7 +736,7 @@
       "imdb": 8.6,
       "imdbStimmen": 100560,
       "rt": 98,
-      "wertungStand": "2026-10-22T15:58:14.031Z",
+      "wertungStand": "2026-10-22T16:41:00.354Z",
       "hinweise": []
     },
     {
@@ -818,7 +818,7 @@
       "imdb": 9,
       "imdbStimmen": 856340,
       "rt": 81,
-      "wertungStand": "2026-10-22T15:58:15.499Z",
+      "wertungStand": "2026-10-22T16:41:01.591Z",
       "hinweise": []
     },
     {
@@ -857,7 +857,7 @@
       "imdb": 8.6,
       "imdbStimmen": 347611,
       "rt": 75,
-      "wertungStand": "2026-10-22T15:58:17.056Z",
+      "wertungStand": "2026-10-22T16:41:02.845Z",
       "hinweise": []
     },
     {
@@ -933,7 +933,7 @@
       "imdb": 7.4,
       "imdbStimmen": 84500,
       "rt": 89,
-      "wertungStand": "2026-10-22T15:58:18.515Z",
+      "wertungStand": "2026-10-22T16:41:04.091Z",
       "hinweise": []
     },
     {
@@ -984,7 +984,7 @@
       "imdb": 8.7,
       "imdbStimmen": 80895,
       "rt": 97,
-      "wertungStand": "2026-10-22T15:58:20.016Z",
+      "wertungStand": "2026-10-22T16:41:05.334Z",
       "hinweise": []
     },
     {
@@ -1060,7 +1060,7 @@
       "imdb": 8.7,
       "imdbStimmen": 171434,
       "rt": 81,
-      "wertungStand": "2026-10-22T15:58:21.467Z",
+      "wertungStand": "2026-10-22T16:41:06.569Z",
       "hinweise": []
     },
     {
@@ -1130,7 +1130,7 @@
       "imdb": 8.5,
       "imdbStimmen": 134352,
       "rt": 97,
-      "wertungStand": "2026-10-22T15:58:22.929Z",
+      "wertungStand": "2026-10-22T16:41:07.816Z",
       "hinweise": []
     },
     {
@@ -1200,7 +1200,7 @@
       "imdb": 8.4,
       "imdbStimmen": 127428,
       "rt": 96,
-      "wertungStand": "2026-10-22T15:58:24.392Z",
+      "wertungStand": "2026-10-22T16:41:09.070Z",
       "hinweise": []
     },
     {
@@ -1276,7 +1276,7 @@
       "imdb": 8,
       "imdbStimmen": 28906,
       "rt": 98,
-      "wertungStand": "2026-10-22T15:58:25.853Z",
+      "wertungStand": "2026-10-22T16:41:10.312Z",
       "hinweise": []
     },
     {
@@ -1358,7 +1358,7 @@
       "imdb": 9.3,
       "imdbStimmen": 1072460,
       "rt": 95,
-      "wertungStand": "2026-10-22T15:58:27.460Z",
+      "wertungStand": "2026-10-22T16:41:11.585Z",
       "hinweise": []
     },
     {
@@ -1391,7 +1391,7 @@
       "imdb": 8.6,
       "imdbStimmen": 285852,
       "rt": 81,
-      "wertungStand": "2026-10-22T15:58:29.065Z",
+      "wertungStand": "2026-10-22T16:41:12.831Z",
       "hinweise": []
     },
     {
@@ -1485,7 +1485,7 @@
       "imdb": 8,
       "imdbStimmen": 337167,
       "rt": 90,
-      "wertungStand": "2026-10-22T15:58:30.536Z",
+      "wertungStand": "2026-10-22T16:41:14.102Z",
       "hinweise": []
     },
     {
@@ -1537,7 +1537,7 @@
       "imdb": 8.3,
       "imdbStimmen": 684828,
       "rt": 86,
-      "wertungStand": "2026-10-22T15:58:32.239Z",
+      "wertungStand": "2026-10-22T16:41:15.368Z",
       "hinweise": []
     },
     {
@@ -1601,7 +1601,7 @@
       "imdb": 7.9,
       "imdbStimmen": 11431,
       "rt": 82,
-      "wertungStand": "2026-10-22T15:58:33.740Z",
+      "wertungStand": "2026-10-22T16:41:16.610Z",
       "hinweise": []
     },
     {
@@ -1653,7 +1653,7 @@
       "imdb": 8.6,
       "imdbStimmen": 130746,
       "rt": 92,
-      "wertungStand": "2026-10-22T15:58:35.239Z",
+      "wertungStand": "2026-10-22T16:41:17.864Z",
       "hinweise": []
     },
     {
@@ -1699,7 +1699,7 @@
       "imdb": 8.3,
       "imdbStimmen": 135377,
       "rt": 91,
-      "wertungStand": "2026-10-22T15:58:36.691Z",
+      "wertungStand": "2026-10-22T16:41:19.130Z",
       "hinweise": []
     },
     {
@@ -1732,7 +1732,7 @@
       "imdb": 8.7,
       "imdbStimmen": 752449,
       "rt": 83,
-      "wertungStand": "2026-10-22T15:58:38.999Z",
+      "wertungStand": "2026-10-22T16:41:20.406Z",
       "hinweise": []
     },
     {
@@ -1796,7 +1796,7 @@
       "imdb": 9,
       "imdbStimmen": 872543,
       "rt": 98,
-      "wertungStand": "2026-10-22T15:58:40.495Z",
+      "wertungStand": "2026-10-22T16:41:21.641Z",
       "hinweise": []
     },
     {
@@ -1878,7 +1878,7 @@
       "imdb": 9.4,
       "imdbStimmen": 610326,
       "rt": 94,
-      "wertungStand": "2026-10-22T15:58:41.991Z",
+      "wertungStand": "2026-10-22T16:41:22.891Z",
       "hinweise": []
     },
     {
@@ -1924,7 +1924,7 @@
       "imdb": 8.3,
       "imdbStimmen": 30090,
       "rt": 97,
-      "wertungStand": "2026-10-22T15:58:43.452Z",
+      "wertungStand": "2026-10-22T16:41:24.138Z",
       "hinweise": []
     },
     {
@@ -1963,7 +1963,7 @@
       "imdb": 8.6,
       "imdbStimmen": 412755,
       "rt": 95,
-      "wertungStand": "2026-10-22T15:58:44.912Z",
+      "wertungStand": "2026-10-22T16:41:25.385Z",
       "hinweise": []
     },
     {
@@ -1989,7 +1989,7 @@
       "imdb": 7.6,
       "imdbStimmen": 30548,
       "rt": null,
-      "wertungStand": "2026-10-22T15:58:46.398Z",
+      "wertungStand": "2026-10-22T16:41:26.689Z",
       "hinweise": []
     },
     {
@@ -2022,7 +2022,7 @@
       "imdb": 8.6,
       "imdbStimmen": 289024,
       "rt": 96,
-      "wertungStand": "2026-10-22T15:58:48.123Z",
+      "wertungStand": "2026-10-22T16:41:27.932Z",
       "hinweise": []
     },
     {
@@ -2098,7 +2098,7 @@
       "imdb": 7.5,
       "imdbStimmen": 11687,
       "rt": 87,
-      "wertungStand": "2026-10-22T15:58:49.569Z",
+      "wertungStand": "2026-10-22T16:41:29.192Z",
       "hinweise": []
     },
     {
@@ -2156,7 +2156,7 @@
       "imdb": 8.5,
       "imdbStimmen": 178135,
       "rt": 93,
-      "wertungStand": "2026-10-22T15:58:51.240Z",
+      "wertungStand": "2026-10-22T16:41:30.427Z",
       "hinweise": []
     },
     {
@@ -2250,7 +2250,7 @@
       "imdb": 8.8,
       "imdbStimmen": 776369,
       "rt": 78,
-      "wertungStand": "2026-10-22T15:58:53.354Z",
+      "wertungStand": "2026-10-22T16:41:31.748Z",
       "hinweise": []
     },
     {
@@ -2289,7 +2289,7 @@
       "imdb": 8.9,
       "imdbStimmen": 177120,
       "rt": 96,
-      "wertungStand": "2026-10-22T15:58:54.910Z",
+      "wertungStand": "2026-10-22T16:41:32.981Z",
       "hinweise": []
     },
     {
@@ -2346,7 +2346,7 @@
       "imdb": 8.7,
       "imdbStimmen": 189028,
       "rt": null,
-      "wertungStand": "2026-10-22T15:58:56.430Z",
+      "wertungStand": "2026-10-22T16:41:34.240Z",
       "hinweise": []
     },
     {
@@ -2422,7 +2422,7 @@
       "imdb": 8.3,
       "imdbStimmen": 389560,
       "rt": 85,
-      "wertungStand": "2026-10-22T15:58:58.460Z",
+      "wertungStand": "2026-10-22T16:41:35.482Z",
       "hinweise": []
     },
     {
@@ -2498,7 +2498,7 @@
       "imdb": 8.2,
       "imdbStimmen": 149067,
       "rt": 96,
-      "wertungStand": "2026-10-22T15:59:00.066Z",
+      "wertungStand": "2026-10-22T16:41:36.725Z",
       "hinweise": []
     },
     {
@@ -2531,7 +2531,7 @@
       "imdb": 8.1,
       "imdbStimmen": 319563,
       "rt": 97,
-      "wertungStand": "2026-10-22T15:59:01.606Z",
+      "wertungStand": "2026-10-22T16:41:37.973Z",
       "hinweise": []
     },
     {
@@ -2557,7 +2557,7 @@
       "imdb": 8.5,
       "imdbStimmen": 85819,
       "rt": 93,
-      "wertungStand": "2026-10-22T15:59:03.064Z",
+      "wertungStand": "2026-10-22T16:41:39.215Z",
       "hinweise": []
     },
     {
@@ -2633,7 +2633,7 @@
       "imdb": 8.3,
       "imdbStimmen": 71223,
       "rt": 98,
-      "wertungStand": "2026-10-22T15:59:04.942Z",
+      "wertungStand": "2026-10-22T16:41:40.455Z",
       "hinweise": []
     },
     {
@@ -2685,7 +2685,7 @@
       "imdb": 8.7,
       "imdbStimmen": 796994,
       "rt": 93,
-      "wertungStand": "2026-10-22T15:59:06.410Z",
+      "wertungStand": "2026-10-22T16:41:41.696Z",
       "hinweise": []
     },
     {
@@ -2718,7 +2718,7 @@
       "imdb": 8.8,
       "imdbStimmen": 240437,
       "rt": 93,
-      "wertungStand": "2026-10-22T15:59:07.908Z",
+      "wertungStand": "2026-10-22T16:41:42.934Z",
       "hinweise": []
     },
     {
@@ -2770,7 +2770,7 @@
       "imdb": 8.5,
       "imdbStimmen": 75372,
       "rt": 98,
-      "wertungStand": "2026-10-22T15:59:09.365Z",
+      "wertungStand": "2026-10-22T16:41:44.206Z",
       "hinweise": []
     },
     {
@@ -2809,7 +2809,7 @@
       "imdb": 8.4,
       "imdbStimmen": 39232,
       "rt": 99,
-      "wertungStand": "2026-10-22T15:59:10.845Z",
+      "wertungStand": "2026-10-22T16:41:45.460Z",
       "hinweise": []
     },
     {
@@ -2879,7 +2879,7 @@
       "imdb": 8.7,
       "imdbStimmen": 252044,
       "rt": 77,
-      "wertungStand": "2026-10-22T15:59:12.741Z",
+      "wertungStand": "2026-10-22T16:41:46.809Z",
       "hinweise": []
     },
     {
@@ -2943,7 +2943,7 @@
       "imdb": 8.6,
       "imdbStimmen": 564673,
       "rt": 77,
-      "wertungStand": "2026-10-22T15:59:14.597Z",
+      "wertungStand": "2026-10-22T16:41:48.048Z",
       "hinweise": []
     },
     {
@@ -3001,7 +3001,7 @@
       "imdb": 8.4,
       "imdbStimmen": 119892,
       "rt": 91,
-      "wertungStand": "2026-10-22T15:59:16.083Z",
+      "wertungStand": "2026-10-22T16:41:49.302Z",
       "hinweise": []
     },
     {
@@ -3064,7 +3064,7 @@
       "imdb": 8.6,
       "imdbStimmen": 320566,
       "rt": 93,
-      "wertungStand": "2026-10-22T15:59:17.877Z",
+      "wertungStand": "2026-10-22T16:41:50.553Z",
       "hinweise": []
     },
     {
@@ -3127,7 +3127,7 @@
       "imdb": 8.2,
       "imdbStimmen": 226550,
       "rt": 97,
-      "wertungStand": "2026-10-22T15:59:20.725Z",
+      "wertungStand": "2026-10-22T16:41:51.816Z",
       "hinweise": []
     },
     {
@@ -3209,7 +3209,7 @@
       "imdb": 8.7,
       "imdbStimmen": 250034,
       "rt": 92,
-      "wertungStand": "2026-10-22T15:59:22.210Z",
+      "wertungStand": "2026-10-22T16:41:53.092Z",
       "hinweise": []
     },
     {
@@ -3242,7 +3242,7 @@
       "imdb": 8.6,
       "imdbStimmen": 1748855,
       "rt": 90,
-      "wertungStand": "2026-10-22T15:59:23.899Z",
+      "wertungStand": "2026-10-22T16:41:54.359Z",
       "hinweise": []
     },
     {
@@ -3287,7 +3287,7 @@
       "imdb": 8.7,
       "imdbStimmen": 20151,
       "rt": null,
-      "wertungStand": "2026-10-22T15:59:25.375Z",
+      "wertungStand": "2026-10-22T16:41:55.605Z",
       "hinweise": []
     },
     {
@@ -3363,7 +3363,7 @@
       "imdb": 8.1,
       "imdbStimmen": 25237,
       "rt": 97,
-      "wertungStand": "2026-10-22T15:59:26.863Z",
+      "wertungStand": "2026-10-22T16:41:57.199Z",
       "hinweise": []
     },
     {
@@ -3414,7 +3414,7 @@
       "imdb": 8.9,
       "imdbStimmen": 51696,
       "rt": 97,
-      "wertungStand": "2026-10-22T15:59:28.318Z",
+      "wertungStand": "2026-10-22T16:41:58.538Z",
       "hinweise": []
     },
     {
@@ -3447,7 +3447,7 @@
       "imdb": 8.1,
       "imdbStimmen": 27567,
       "rt": 97,
-      "wertungStand": "2026-10-22T15:59:29.824Z",
+      "wertungStand": "2026-10-22T16:41:59.820Z",
       "hinweise": []
     },
     {
@@ -3480,7 +3480,7 @@
       "imdb": 8.8,
       "imdbStimmen": 79767,
       "rt": 96,
-      "wertungStand": "2026-10-22T15:59:31.379Z",
+      "wertungStand": "2026-10-22T16:42:01.292Z",
       "hinweise": []
     },
     {
@@ -3506,7 +3506,7 @@
       "imdb": 8.1,
       "imdbStimmen": 16967,
       "rt": 97,
-      "wertungStand": "2026-10-22T15:59:32.846Z",
+      "wertungStand": "2026-10-22T16:42:02.530Z",
       "hinweise": []
     },
     {
@@ -3532,7 +3532,7 @@
       "imdb": 8.7,
       "imdbStimmen": 74945,
       "rt": 96,
-      "wertungStand": "2026-10-22T15:59:34.768Z",
+      "wertungStand": "2026-10-22T16:42:03.784Z",
       "hinweise": []
     },
     {
@@ -3571,7 +3571,7 @@
       "imdb": 8.5,
       "imdbStimmen": 26047,
       "rt": 83,
-      "wertungStand": "2026-10-22T15:59:36.239Z",
+      "wertungStand": "2026-10-22T16:42:05.025Z",
       "hinweise": []
     },
     {
@@ -3610,7 +3610,7 @@
       "imdb": 8.4,
       "imdbStimmen": 165160,
       "rt": 98,
-      "wertungStand": "2026-10-22T15:59:37.702Z",
+      "wertungStand": "2026-10-22T16:42:06.268Z",
       "hinweise": []
     },
     {
@@ -3656,7 +3656,7 @@
       "imdb": 8.7,
       "imdbStimmen": 29864,
       "rt": null,
-      "wertungStand": "2026-10-22T15:59:39.165Z",
+      "wertungStand": "2026-10-22T16:42:07.531Z",
       "hinweise": []
     },
     {
@@ -3689,7 +3689,7 @@
       "imdb": 8.9,
       "imdbStimmen": 8191,
       "rt": null,
-      "wertungStand": "2026-10-22T15:59:40.635Z",
+      "wertungStand": "2026-10-22T16:42:08.802Z",
       "hinweise": []
     },
     {
@@ -3765,7 +3765,7 @@
       "imdb": 8.4,
       "imdbStimmen": 229213,
       "rt": 95,
-      "wertungStand": "2026-10-22T15:59:42.150Z",
+      "wertungStand": "2026-10-22T16:42:10.056Z",
       "hinweise": []
     },
     {
@@ -3816,7 +3816,7 @@
       "imdb": 8.5,
       "imdbStimmen": 39234,
       "rt": 96,
-      "wertungStand": "2026-10-22T15:59:43.599Z",
+      "wertungStand": "2026-10-22T16:42:11.314Z",
       "hinweise": []
     },
     {
@@ -3892,7 +3892,7 @@
       "imdb": 8.3,
       "imdbStimmen": 306402,
       "rt": 83,
-      "wertungStand": "2026-10-22T15:59:45.114Z",
+      "wertungStand": "2026-10-22T16:42:12.628Z",
       "hinweise": []
     },
     {
@@ -3925,7 +3925,7 @@
       "imdb": 8.4,
       "imdbStimmen": 401502,
       "rt": 82,
-      "wertungStand": "2026-10-22T15:59:46.722Z",
+      "wertungStand": "2026-10-22T16:42:13.928Z",
       "hinweise": []
     },
     {
@@ -3951,7 +3951,7 @@
       "imdb": 8.6,
       "imdbStimmen": 8961,
       "rt": null,
-      "wertungStand": "2026-10-22T15:59:48.262Z",
+      "wertungStand": "2026-10-22T16:42:15.190Z",
       "hinweise": []
     },
     {
@@ -4003,7 +4003,7 @@
       "imdb": 8.7,
       "imdbStimmen": 99014,
       "rt": 90,
-      "wertungStand": "2026-10-22T15:59:49.725Z",
+      "wertungStand": "2026-10-22T16:42:16.460Z",
       "hinweise": []
     },
     {
@@ -4036,7 +4036,7 @@
       "imdb": 8,
       "imdbStimmen": 181730,
       "rt": 93,
-      "wertungStand": "2026-10-22T15:59:51.326Z",
+      "wertungStand": "2026-10-22T16:42:17.809Z",
       "hinweise": []
     },
     {
@@ -4069,7 +4069,7 @@
       "imdb": 7.9,
       "imdbStimmen": 780801,
       "rt": 85,
-      "wertungStand": "2026-10-22T15:59:52.787Z",
+      "wertungStand": "2026-10-22T16:42:19.103Z",
       "hinweise": []
     },
     {
@@ -4151,7 +4151,7 @@
       "imdb": 8.3,
       "imdbStimmen": 146680,
       "rt": 98,
-      "wertungStand": "2026-10-22T15:59:54.244Z",
+      "wertungStand": "2026-10-22T16:42:20.392Z",
       "hinweise": []
     },
     {
@@ -4184,7 +4184,7 @@
       "imdb": 8.5,
       "imdbStimmen": 328785,
       "rt": 93,
-      "wertungStand": "2026-10-22T15:59:55.700Z",
+      "wertungStand": "2026-10-22T16:42:21.641Z",
       "hinweise": []
     },
     {
@@ -4223,7 +4223,7 @@
       "imdb": 8.7,
       "imdbStimmen": 476002,
       "rt": 90,
-      "wertungStand": "2026-10-22T15:59:57.165Z",
+      "wertungStand": "2026-10-22T16:42:23.393Z",
       "hinweise": []
     },
     {
@@ -4293,7 +4293,7 @@
       "imdb": 8.3,
       "imdbStimmen": 19502,
       "rt": 100,
-      "wertungStand": "2026-10-22T15:59:59.422Z",
+      "wertungStand": "2026-10-22T16:42:24.883Z",
       "hinweise": []
     },
     {
@@ -4363,7 +4363,7 @@
       "imdb": 8.5,
       "imdbStimmen": 549865,
       "rt": null,
-      "wertungStand": "2026-10-22T16:00:02.475Z",
+      "wertungStand": "2026-10-22T16:42:26.254Z",
       "hinweise": []
     },
     {
@@ -4414,7 +4414,7 @@
       "imdb": 8.8,
       "imdbStimmen": 286826,
       "rt": 94,
-      "wertungStand": "2026-10-22T16:00:03.979Z",
+      "wertungStand": "2026-10-22T16:42:27.495Z",
       "hinweise": []
     },
     {
@@ -4472,7 +4472,7 @@
       "imdb": 8.3,
       "imdbStimmen": 90357,
       "rt": 93,
-      "wertungStand": "2026-10-22T16:00:05.451Z",
+      "wertungStand": "2026-10-22T16:42:28.808Z",
       "hinweise": []
     },
     {
@@ -4511,7 +4511,7 @@
       "imdb": 8.7,
       "imdbStimmen": 17580,
       "rt": 100,
-      "wertungStand": "2026-10-22T16:00:06.952Z",
+      "wertungStand": "2026-10-22T16:42:30.050Z",
       "hinweise": []
     },
     {
@@ -4544,7 +4544,7 @@
       "imdb": 8.5,
       "imdbStimmen": 682474,
       "rt": 96,
-      "wertungStand": "2026-10-22T16:00:08.462Z",
+      "wertungStand": "2026-10-22T16:42:31.334Z",
       "hinweise": []
     },
     {
@@ -4595,7 +4595,7 @@
       "imdb": 7.9,
       "imdbStimmen": 20418,
       "rt": 98,
-      "wertungStand": "2026-10-22T16:00:09.936Z",
+      "wertungStand": "2026-10-22T16:42:32.716Z",
       "hinweise": []
     },
     {
@@ -4683,7 +4683,7 @@
       "imdb": 8.6,
       "imdbStimmen": 133153,
       "rt": 97,
-      "wertungStand": "2026-10-22T16:00:11.455Z",
+      "wertungStand": "2026-10-22T16:42:33.971Z",
       "hinweise": []
     },
     {
@@ -4735,7 +4735,7 @@
       "imdb": 9.4,
       "imdbStimmen": 237603,
       "rt": null,
-      "wertungStand": "2026-10-22T16:00:12.936Z",
+      "wertungStand": "2026-10-22T16:42:35.234Z",
       "hinweise": []
     },
     {
@@ -4761,7 +4761,7 @@
       "imdb": null,
       "imdbStimmen": null,
       "rt": 87,
-      "wertungStand": "2026-10-22T16:00:25.169Z",
+      "wertungStand": "2026-10-22T16:42:36.481Z",
       "hinweise": []
     },
     {
@@ -4794,7 +4794,7 @@
       "imdb": 8.6,
       "imdbStimmen": 254422,
       "rt": 99,
-      "wertungStand": "2026-10-22T16:00:26.713Z",
+      "wertungStand": "2026-10-22T16:42:37.724Z",
       "hinweise": []
     },
     {
@@ -4827,7 +4827,7 @@
       "imdb": 8.3,
       "imdbStimmen": 28913,
       "rt": 99,
-      "wertungStand": "2026-10-22T16:00:28.209Z",
+      "wertungStand": "2026-10-22T16:42:38.971Z",
       "hinweise": []
     },
     {
@@ -4891,7 +4891,7 @@
       "imdb": 8.6,
       "imdbStimmen": 960582,
       "rt": 71,
-      "wertungStand": "2026-10-22T16:00:29.679Z",
+      "wertungStand": "2026-10-22T16:42:40.264Z",
       "hinweise": []
     },
     {
@@ -4924,7 +4924,7 @@
       "imdb": 7.7,
       "imdbStimmen": 198043,
       "rt": 99,
-      "wertungStand": "2026-10-22T16:00:31.145Z",
+      "wertungStand": "2026-10-22T16:42:41.512Z",
       "hinweise": []
     },
     {
@@ -5000,7 +5000,7 @@
       "imdb": 8.2,
       "imdbStimmen": 71483,
       "rt": 91,
-      "wertungStand": "2026-10-22T16:00:32.631Z",
+      "wertungStand": "2026-10-22T16:42:42.771Z",
       "hinweise": []
     },
     {
@@ -5033,7 +5033,7 @@
       "imdb": 8.2,
       "imdbStimmen": 26323,
       "rt": 98,
-      "wertungStand": "2026-10-22T16:00:34.108Z",
+      "wertungStand": "2026-10-22T16:42:44.012Z",
       "hinweise": []
     },
     {
@@ -5115,7 +5115,7 @@
       "imdb": 8.4,
       "imdbStimmen": 201782,
       "rt": 94,
-      "wertungStand": "2026-10-22T16:00:42.443Z",
+      "wertungStand": "2026-10-22T16:42:45.326Z",
       "hinweise": []
     },
     {
@@ -5191,7 +5191,7 @@
       "imdb": 7.5,
       "imdbStimmen": 44933,
       "rt": 98,
-      "wertungStand": "2026-10-22T16:00:48.865Z",
+      "wertungStand": "2026-10-22T16:42:46.717Z",
       "hinweise": []
     },
     {
@@ -5224,7 +5224,7 @@
       "imdb": 8.1,
       "imdbStimmen": 104564,
       "rt": 94,
-      "wertungStand": "2026-10-22T16:00:50.346Z",
+      "wertungStand": "2026-10-22T16:42:48.018Z",
       "hinweise": []
     },
     {
@@ -5294,7 +5294,7 @@
       "imdb": 8.7,
       "imdbStimmen": 602759,
       "rt": 89,
-      "wertungStand": "2026-10-22T16:00:51.802Z",
+      "wertungStand": "2026-10-22T16:42:49.266Z",
       "hinweise": []
     },
     {
@@ -5333,7 +5333,7 @@
       "imdb": 8.4,
       "imdbStimmen": 39067,
       "rt": 90,
-      "wertungStand": "2026-10-22T16:00:53.284Z",
+      "wertungStand": "2026-10-22T16:42:50.721Z",
       "hinweise": []
     },
     {
@@ -5415,7 +5415,7 @@
       "imdb": 8.5,
       "imdbStimmen": 315627,
       "rt": 88,
-      "wertungStand": "2026-10-22T16:00:58.639Z",
+      "wertungStand": "2026-10-22T16:42:51.972Z",
       "hinweise": []
     },
     {
@@ -5448,7 +5448,7 @@
       "imdb": 7.8,
       "imdbStimmen": 129497,
       "rt": 84,
-      "wertungStand": "2026-10-22T16:01:00.219Z",
+      "wertungStand": "2026-10-22T16:42:53.407Z",
       "hinweise": []
     },
     {
@@ -5554,7 +5554,7 @@
       "imdb": 8.2,
       "imdbStimmen": 179063,
       "rt": null,
-      "wertungStand": "2026-10-22T16:01:01.702Z",
+      "wertungStand": "2026-10-22T16:42:54.681Z",
       "hinweise": []
     },
     {
@@ -5630,7 +5630,7 @@
       "imdb": 7.7,
       "imdbStimmen": 85327,
       "rt": 94,
-      "wertungStand": "2026-10-22T16:01:06.856Z",
+      "wertungStand": "2026-10-22T16:42:56.071Z",
       "hinweise": []
     }
   ],
