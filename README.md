@@ -124,6 +124,16 @@ In `data/series.json` steht jede Serie in einer eigenen Zeile:
   2. Die Datei zu Gerät B bringen (Mail, Messenger, Cloud-Speicher).
   3. Auf Gerät B **Importieren** antippen und die Datei wählen. **Ersetzen** übernimmt genau den Stand aus der Datei, **Zusammenführen** vereint beide Stände.
 
+## Nach Streamingdienst filtern
+
+Der Filter funktioniert wie ein Spaltenfilter in Excel:
+
+- Auf **Alle Dienste** (Knopf mit Trichter) tippen. Alle Dienste sind markiert; die Zahl daneben zeigt, bei wie vielen Serien der Dienst im Abo oder kostenlos dabei ist.
+- **(Alle auswählen)** abwählen und nur die gewünschten Dienste markieren, z. B. Netflix und Disney Plus. Angezeigt werden Serien, die bei mindestens einem markierten Dienst laufen. Der Knopf unten nennt vorab die Anzahl, z. B. „39 Serien anzeigen“.
+- **Dienst suchen:** Die Liste zeigt nur passende Dienste, alle Treffer sind markiert. **Übernehmen** (oder Enter) filtert dann genau auf diese Treffer. Mit **Aktuelle Auswahl zum Filter hinzufügen** kommen sie zur bisherigen Auswahl dazu.
+- **(Kein Dienst)** steht für Serien, die es nirgends im Abo oder kostenlos gibt.
+- **Filter löschen** zeigt wieder alle Serien. **Abbrechen**, Esc oder ein Klick daneben schließt den Filter ohne Änderung.
+
 ## Aktualisierung
 
 - **Automatisch** jede Nacht um 02:17 UTC (03:17 Uhr Winterzeit, 04:17 Uhr Sommerzeit). GitHub startet geplante Läufe manchmal etwas später.

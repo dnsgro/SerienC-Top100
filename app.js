@@ -27,7 +27,7 @@
     serien: [],
     gesehen: new Set(), // Plätze (1–100)
     filter: 'alle', // alle | gesehen | offen
-    anbieter: '', // Schlüssel eines Streamingdienstes oder leer
+    dienste: null, // Filter nach Streamingdienst: null = alle, sonst Set der markierten Dienste
     suche: '',
     karten: new Map(), // Platz → <li>
   };
@@ -342,54 +342,298 @@
     balken.setAttribute('aria-valuemax', String(gesamt));
   }
 
-  const anbieterSchluessel = (p) => p?.dienst || normal(p?.name);
+  function sucheKriterien() {
+    const roh = zustand.suche.trim();
+    return { text: normal(roh), platz: /^\d{1,3}$/.test(roh) ? Number(roh) : null };
+  }
 
-  function baueAnbieterFilter() {
-    const zaehler = new Map();
-    for (const s of zustand.serien) {
-      for (const p of s.abo || []) {
-        const schluessel = anbieterSchluessel(p);
-        if (!schluessel) continue;
-        const eintrag = zaehler.get(schluessel) || { name: p.name, anzahl: 0 };
-        eintrag.anzahl++;
-        zaehler.set(schluessel, eintrag);
-      }
-    }
-    const auswahl = $('#filter-anbieter');
-    auswahl.length = 1; // nur „Alle Dienste“ behalten
-    const sortiert = [...zaehler.entries()].sort((a, b) => b[1].anzahl - a[1].anzahl || a[1].name.localeCompare(b[1].name, 'de'));
-    for (const [schluessel, { name, anzahl }] of sortiert) {
-      auswahl.append(el('option', { value: schluessel }, `${name} (${anzahl})`));
-    }
-    auswahl.disabled = sortiert.length === 0;
+  /** Passt die Serie zu Suche, Gesehen-Filter und der Auswahl an Streamingdiensten? */
+  function passt(s, dienste, suche) {
+    const gesehen = zustand.gesehen.has(s.platz);
+    if (zustand.filter === 'gesehen' && !gesehen) return false;
+    if (zustand.filter === 'offen' && gesehen) return false;
+    if (!passtDienst(s, dienste)) return false;
+    if (suche.text || suche.platz !== null) return s.platz === suche.platz || (suche.text !== '' && s._suchtext.includes(suche.text));
+    return true;
   }
 
   function wendeFilterAn() {
-    const suche = normal(zustand.suche);
-    const sucheZahl = /^\d{1,3}$/.test(zustand.suche.trim()) ? Number(zustand.suche.trim()) : null;
+    const suche = sucheKriterien();
     let sichtbar = 0;
     for (const s of zustand.serien) {
-      const gesehen = zustand.gesehen.has(s.platz);
-      let passt = zustand.filter === 'alle' || (zustand.filter === 'gesehen' ? gesehen : !gesehen);
-      if (passt && zustand.anbieter) passt = (s.abo || []).some((p) => anbieterSchluessel(p) === zustand.anbieter);
-      if (passt && (suche || sucheZahl !== null)) passt = s.platz === sucheZahl || (suche !== '' && s._suchtext.includes(suche));
-      zustand.karten.get(s.platz).hidden = !passt;
-      if (passt) sichtbar++;
+      const ja = passt(s, zustand.dienste, suche);
+      zustand.karten.get(s.platz).hidden = !ja;
+      if (ja) sichtbar++;
     }
     const gesamt = zustand.serien.length;
-    const gefiltert = zustand.filter !== 'alle' || zustand.anbieter || zustand.suche.trim();
+    const gefiltert = zustand.filter !== 'alle' || zustand.dienste || zustand.suche.trim();
     $('#treffer').textContent = gefiltert ? `${sichtbar} von ${gesamt} Serien` : `${gesamt} Serien`;
     $('#keine-treffer').hidden = sichtbar > 0 || gesamt === 0;
   }
 
   function setzeFilterZurueck() {
     zustand.filter = 'alle';
-    zustand.anbieter = '';
+    zustand.dienste = null;
     zustand.suche = '';
     $('#suche').value = '';
-    $('#filter-anbieter').value = '';
     document.querySelector('input[name="status"][value="alle"]').checked = true;
+    aktualisiereDienstKnopf();
     wendeFilterAn();
+  }
+
+  // ---------------------------------------------------------------------------
+  // Filter nach Streamingdienst – funktioniert wie ein Spaltenfilter in Excel:
+  // Markiert = wird angezeigt. Beim Öffnen ist alles markiert (kein Filter).
+  // Eine Suche zeigt nur passende Dienste und markiert sie; „Übernehmen“ filtert
+  // dann auf diese Treffer, außer „Aktuelle Auswahl zum Filter hinzufügen“ ist an.
+  // ---------------------------------------------------------------------------
+
+  const OHNE_DIENST = 'ohne-dienst'; // Eintrag „(Kein Dienst)“: Serien ohne Abo- oder Gratis-Angebot
+  const anbieterSchluessel = (p) => p?.dienst || normal(p?.name);
+
+  const dienstFilter = {
+    eintraege: [], // { schluessel, name, logo, anzahl, leer }
+    entwurf: new Set(), // Markierungen im geöffneten Filter
+    suchtext: '',
+    suchAuswahl: new Set(), // markierte Suchtreffer
+    hinzufuegen: false, // „Aktuelle Auswahl zum Filter hinzufügen“
+  };
+
+  function passtDienst(s, dienste) {
+    if (!dienste) return true;
+    const abo = s.abo || [];
+    if (abo.length === 0) return dienste.has(OHNE_DIENST);
+    return abo.some((p) => dienste.has(anbieterSchluessel(p)));
+  }
+
+  function baueDienstFilter() {
+    const zaehler = new Map();
+    let ohneDienst = 0;
+    for (const s of zustand.serien) {
+      const abo = s.abo || [];
+      if (abo.length === 0) ohneDienst++;
+      for (const p of abo) {
+        const schluessel = anbieterSchluessel(p);
+        if (!schluessel) continue;
+        const eintrag = zaehler.get(schluessel) || { schluessel, name: String(p.name || schluessel), logo: p.logo || null, anzahl: 0 };
+        eintrag.anzahl++;
+        zaehler.set(schluessel, eintrag);
+      }
+    }
+    dienstFilter.eintraege = [...zaehler.values()].sort((a, b) => b.anzahl - a.anzahl || a.name.localeCompare(b.name, 'de'));
+    if (dienstFilter.eintraege.length && ohneDienst) {
+      dienstFilter.eintraege.push({ schluessel: OHNE_DIENST, name: '(Kein Dienst)', logo: null, anzahl: ohneDienst, leer: true });
+    }
+    $('#dienst-knopf').disabled = dienstFilter.eintraege.length === 0;
+    aktualisiereDienstKnopf();
+  }
+
+  const suchtModus = () => normal(dienstFilter.suchtext) !== '';
+  const aktiveMarkierung = () => (suchtModus() ? dienstFilter.suchAuswahl : dienstFilter.entwurf);
+
+  function sichtbareDienste() {
+    const text = normal(dienstFilter.suchtext);
+    return text ? dienstFilter.eintraege.filter((e) => normal(e.name).includes(text)) : dienstFilter.eintraege;
+  }
+
+  /** Die Auswahl, die „Übernehmen“ setzen würde. */
+  function dienstErgebnis() {
+    if (!suchtModus()) return new Set(dienstFilter.entwurf);
+    const ergebnis = new Set(dienstFilter.suchAuswahl);
+    if (dienstFilter.hinzufuegen) for (const schluessel of dienstFilter.entwurf) ergebnis.add(schluessel);
+    return ergebnis;
+  }
+
+  /** Sind alle Dienste markiert, ist kein Filter aktiv (null). */
+  function alsFilter(auswahl) {
+    return dienstFilter.eintraege.every((e) => auswahl.has(e.schluessel)) ? null : auswahl;
+  }
+
+  function zaehleTreffer(dienste) {
+    const suche = sucheKriterien();
+    return zustand.serien.reduce((summe, s) => summe + (passt(s, dienste, suche) ? 1 : 0), 0);
+  }
+
+  function rendereDienstListe() {
+    const sichtbar = sichtbareDienste();
+    const markiert = aktiveMarkierung();
+    $('#dienst-eintraege').replaceChildren(
+      ...sichtbar.map((e) => {
+        const box = el('input', { type: 'checkbox', value: e.schluessel });
+        box.checked = markiert.has(e.schluessel);
+        return el(
+          'li',
+          {},
+          el(
+            'label',
+            { class: e.leer ? 'dienst-zeile ist-leer' : 'dienst-zeile' },
+            box,
+            e.logo
+              ? el('img', { class: 'dienst-logo', src: `${BILD_URL}w92${e.logo}`, width: 24, height: 24, alt: '', loading: 'lazy', decoding: 'async' })
+              : el('span', { class: 'dienst-logo dienst-logo-leer', 'aria-hidden': 'true' }),
+            el('span', { class: 'dienst-name' }, e.name),
+            el('span', { class: 'dienst-anzahl', title: `${e.anzahl} ${e.anzahl === 1 ? 'Serie' : 'Serien'}` }, String(e.anzahl)),
+          ),
+        );
+      }),
+    );
+    $('#dienst-leer').hidden = sichtbar.length > 0;
+    $('#dienst-alle-zeile').hidden = sichtbar.length === 0;
+    $('#dienst-alle-text').textContent = suchtModus() ? '(Alle Suchergebnisse auswählen)' : '(Alle auswählen)';
+    $('#dienst-hinzu-zeile').hidden = !suchtModus();
+    $('#dienst-hinzu').checked = dienstFilter.hinzufuegen;
+    aktualisiereDienstPanel();
+  }
+
+  /** „(Alle auswählen)“ und den Knopf „Übernehmen“ an die Markierungen anpassen. */
+  function aktualisiereDienstPanel() {
+    const sichtbar = sichtbareDienste();
+    const markiert = aktiveMarkierung();
+    const anzahlMarkiert = sichtbar.filter((e) => markiert.has(e.schluessel)).length;
+    const alle = $('#dienst-alle');
+    alle.checked = sichtbar.length > 0 && anzahlMarkiert === sichtbar.length;
+    alle.indeterminate = anzahlMarkiert > 0 && anzahlMarkiert < sichtbar.length;
+
+    const ok = $('#dienst-ok');
+    const ergebnis = dienstErgebnis();
+    if (ergebnis.size === 0) {
+      ok.disabled = true;
+      ok.textContent = 'Nichts markiert';
+    } else {
+      const anzahl = zaehleTreffer(alsFilter(ergebnis));
+      ok.disabled = false;
+      ok.textContent = `${anzahl} ${anzahl === 1 ? 'Serie' : 'Serien'} anzeigen`;
+    }
+    $('#dienst-loeschen').disabled = !zustand.dienste;
+  }
+
+  /** Höhe des Filters an den freien Platz im Fenster anpassen (auch bei Bildschirmtastatur). */
+  function passeDienstPanelAn() {
+    const panel = $('#dienst-panel');
+    if (panel.hidden) return;
+    const fenster = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    const frei = fenster - panel.getBoundingClientRect().top - 12;
+    panel.style.maxHeight = `${Math.max(220, Math.min(540, frei))}px`;
+  }
+
+  function oeffneDienstFilter() {
+    dienstFilter.entwurf = new Set(zustand.dienste || dienstFilter.eintraege.map((e) => e.schluessel));
+    dienstFilter.suchtext = '';
+    dienstFilter.suchAuswahl = new Set();
+    dienstFilter.hinzufuegen = false;
+    $('#dienst-suche').value = '';
+    rendereDienstListe();
+    const panel = $('#dienst-panel');
+    panel.hidden = false;
+    $('#dienst-knopf').setAttribute('aria-expanded', 'true');
+    $('#dienst-eintraege').scrollTop = 0;
+    // Zu wenig Platz unter der Leiste (z. B. am Handy ganz oben auf der Seite)? Dann die Leiste nach oben holen.
+    const fenster = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    if (fenster - panel.getBoundingClientRect().top < 360) {
+      window.scrollBy(0, $('.werkzeuge').getBoundingClientRect().top);
+    }
+    passeDienstPanelAn();
+    if (window.matchMedia('(pointer: fine)').matches) $('#dienst-suche').focus();
+    else panel.focus({ preventScroll: true });
+  }
+
+  function schliesseDienstFilter(fokusZurueck = false) {
+    const panel = $('#dienst-panel');
+    if (panel.hidden) return;
+    panel.hidden = true;
+    $('#dienst-knopf').setAttribute('aria-expanded', 'false');
+    if (fokusZurueck) $('#dienst-knopf').focus();
+  }
+
+  function uebernehmeDienstFilter() {
+    const ergebnis = dienstErgebnis();
+    if (ergebnis.size === 0) return;
+    zustand.dienste = alsFilter(ergebnis);
+    schliesseDienstFilter(true);
+    aktualisiereDienstKnopf();
+    wendeFilterAn();
+  }
+
+  function loescheDienstFilter() {
+    zustand.dienste = null;
+    schliesseDienstFilter(true);
+    aktualisiereDienstKnopf();
+    wendeFilterAn();
+  }
+
+  function aktualisiereDienstKnopf() {
+    const knopf = $('#dienst-knopf');
+    const text = $('#dienst-knopf-text');
+    if (!zustand.dienste) {
+      text.textContent = 'Alle Dienste';
+      knopf.classList.remove('ist-aktiv');
+      knopf.removeAttribute('title');
+      return;
+    }
+    const namen = dienstFilter.eintraege.filter((e) => zustand.dienste.has(e.schluessel)).map((e) => (e.leer ? 'Kein Dienst' : e.name));
+    text.textContent = namen.length <= 2 ? namen.join(', ') : `${namen.length} Dienste`;
+    knopf.classList.add('ist-aktiv');
+    knopf.title = `Gefiltert nach: ${namen.join(', ')}`;
+  }
+
+  function verbindeDienstFilter() {
+    const bereich = $('#dienst-filter');
+    const panel = $('#dienst-panel');
+    $('#dienst-knopf').addEventListener('click', () => (panel.hidden ? oeffneDienstFilter() : schliesseDienstFilter()));
+    $('#dienst-suche').addEventListener('input', (e) => {
+      dienstFilter.suchtext = e.target.value;
+      // Wie in Excel: Nach einer Suche sind zunächst alle Treffer markiert.
+      dienstFilter.suchAuswahl = new Set(sichtbareDienste().map((x) => x.schluessel));
+      rendereDienstListe();
+    });
+    $('#dienst-suche').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        uebernehmeDienstFilter();
+      }
+    });
+    $('#dienst-eintraege').addEventListener('change', (e) => {
+      const box = e.target;
+      if (!(box instanceof HTMLInputElement)) return;
+      const markiert = aktiveMarkierung();
+      if (box.checked) markiert.add(box.value);
+      else markiert.delete(box.value);
+      aktualisiereDienstPanel();
+    });
+    $('#dienst-alle').addEventListener('change', () => {
+      const sichtbar = sichtbareDienste();
+      const markiert = aktiveMarkierung();
+      const alleMarkiert = sichtbar.every((x) => markiert.has(x.schluessel));
+      for (const x of sichtbar) {
+        if (alleMarkiert) markiert.delete(x.schluessel);
+        else markiert.add(x.schluessel);
+      }
+      rendereDienstListe();
+    });
+    $('#dienst-hinzu').addEventListener('change', (e) => {
+      dienstFilter.hinzufuegen = e.target.checked;
+      aktualisiereDienstPanel();
+    });
+    $('#dienst-ok').addEventListener('click', uebernehmeDienstFilter);
+    $('#dienst-abbrechen').addEventListener('click', () => schliesseDienstFilter(true));
+    $('#dienst-loeschen').addEventListener('click', loescheDienstFilter);
+    bereich.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !panel.hidden) {
+        e.preventDefault();
+        schliesseDienstFilter(true);
+      }
+    });
+    // Klick oder Fokus außerhalb schließt den Filter ohne Änderung – wie in Excel.
+    // (Ein Klick, kein Antippen zum Scrollen: Wischen auf dem Handy schließt ihn nicht.)
+    document.addEventListener('click', (e) => {
+      if (!panel.hidden && !bereich.contains(e.target)) schliesseDienstFilter();
+    });
+    document.addEventListener('focusin', (e) => {
+      if (!panel.hidden && !bereich.contains(e.target)) schliesseDienstFilter();
+    });
+    window.addEventListener('resize', passeDienstPanelAn);
+    window.addEventListener('scroll', passeDienstPanelAn, { passive: true });
+    window.visualViewport?.addEventListener('resize', passeDienstPanelAn);
   }
 
   // ---------------------------------------------------------------------------
@@ -494,10 +738,7 @@
         wendeFilterAn();
       });
     }
-    $('#filter-anbieter').addEventListener('change', (e) => {
-      zustand.anbieter = e.target.value;
-      wendeFilterAn();
-    });
+    verbindeDienstFilter();
     $('#filter-zuruecksetzen').addEventListener('click', setzeFilterZurueck);
     $('#export-knopf').addEventListener('click', exportiere);
     $('#import-knopf').addEventListener('click', () => $('#import-datei').click());
@@ -542,7 +783,7 @@
       $('#stand').textContent = stand;
       $('#stand-fuss').textContent = stand;
       rendereListe();
-      baueAnbieterFilter();
+      baueDienstFilter();
       aktualisiereFortschritt();
       wendeFilterAn();
       if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();

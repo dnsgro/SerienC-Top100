@@ -41,12 +41,31 @@
         <label for="suche" class="sr-only">Serie suchen</label>
         <input type="search" id="suche" placeholder="Serie suchen" autocomplete="off" spellcheck="false" enterkeyhint="search">
       </div>
-      <label class="anbieter-wahl">
-        <span class="sr-only">Nach Streamingdienst filtern (Abo oder kostenlos)</span>
-        <select id="filter-anbieter">
-          <option value="">Alle Dienste</option>
-        </select>
-      </label>
+      <div class="dienst-filter" id="dienst-filter">
+        <button type="button" class="dienst-knopf" id="dienst-knopf" aria-haspopup="dialog" aria-expanded="false" aria-controls="dienst-panel" disabled>
+          <svg class="trichter" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2 2.5h12L9.5 8v4.6l-3 1.6V8z"/></svg>
+          <span class="sr-only">Streamingdienste: </span><span class="dienst-knopf-text" id="dienst-knopf-text">Alle Dienste</span>
+        </button>
+        <div class="dienst-panel" id="dienst-panel" role="dialog" aria-labelledby="dienst-titel" tabindex="-1" hidden>
+          <div class="dienst-kopf">
+            <p class="dienst-titel" id="dienst-titel">Streamingdienste</p>
+            <button type="button" class="knopf-text" id="dienst-loeschen">Filter löschen</button>
+          </div>
+          <p class="dienst-hinweis" id="dienst-hinweis">Zeigt Serien, die bei mindestens einem markierten Dienst im Abo oder kostenlos laufen.</p>
+          <label for="dienst-suche" class="sr-only">Dienst suchen</label>
+          <input type="search" id="dienst-suche" placeholder="Dienst suchen" autocomplete="off" spellcheck="false" enterkeyhint="done" aria-describedby="dienst-hinweis">
+          <div class="dienst-steuerung">
+            <label class="dienst-zeile dienst-alle" id="dienst-alle-zeile"><input type="checkbox" id="dienst-alle"><span id="dienst-alle-text">(Alle auswählen)</span></label>
+            <label class="dienst-zeile" id="dienst-hinzu-zeile" hidden><input type="checkbox" id="dienst-hinzu"><span>Aktuelle Auswahl zum Filter hinzufügen</span></label>
+          </div>
+          <ul class="dienst-eintraege" id="dienst-eintraege" aria-label="Dienste"></ul>
+          <p class="dienst-leer" id="dienst-leer" hidden>Kein Dienst gefunden.</p>
+          <div class="dienst-aktionen">
+            <button type="button" class="knopf" id="dienst-abbrechen">Abbrechen</button>
+            <button type="button" class="knopf knopf-primaer" id="dienst-ok">Übernehmen</button>
+          </div>
+        </div>
+      </div>
       <fieldset class="segment">
         <legend class="sr-only">Nach Gesehen-Stand filtern</legend>
         <label><input type="radio" name="status" value="alle" checked><span>Alle</span></label>
