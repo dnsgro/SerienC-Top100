@@ -1,0 +1,4 @@
+{
+  "_hinweis": "Deine eigenen Serien für den Tab „Eigene Serien“, die neueste steht oben. Die Website trägt Serien hier selbst ein, wenn du sie hinzufügst. Von Hand geht es auch, z. B. { \"tmdb_id\": 1398, \"titel\": \"Die Sopranos\" } – die Zahl stammt aus der TMDB-Adresse (themoviedb.org/tv/1398-the-sopranos). Findet der Workflow eine Serie nicht, ergänze beim Eintrag \"tmdb_id\".",
+  "serien": []
+}
