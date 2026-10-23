@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "stand": "2026-10-23T19:46:02.458Z",
+  "stand": "2026-10-23T19:46:37.294Z",
   "sprache": "de-DE",
   "land": "DE",
   "repo": "dnsgro/SerienC-Top100",
@@ -6171,6 +6171,27 @@
     }
   ],
   "eigene": [
+    {
+      "schluessel": "tmdb:1408",
+      "tvmaze": null,
+      "hinzugefuegt": "2026-10-23",
+      "top": 95,
+      "tmdbId": 1408
+    },
+    {
+      "schluessel": "tmdb:1044",
+      "tvmaze": null,
+      "hinzugefuegt": "2026-10-23",
+      "top": 84,
+      "tmdbId": 1044
+    },
+    {
+      "schluessel": "tmdb:126308",
+      "tvmaze": null,
+      "hinzugefuegt": "2026-10-23",
+      "top": 86,
+      "tmdbId": 126308
+    },
     {
       "schluessel": "tmdb:66732",
       "tvmaze": null,
