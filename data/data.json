@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "stand": "2026-10-23T19:43:33.492Z",
+  "stand": "2026-10-23T19:44:16.151Z",
   "sprache": "de-DE",
   "land": "DE",
   "repo": "dnsgro/SerienC-Top100",
@@ -6171,6 +6171,13 @@
     }
   ],
   "eigene": [
+    {
+      "schluessel": "tmdb:1438",
+      "tvmaze": null,
+      "hinzugefuegt": "2026-10-23",
+      "top": 2,
+      "tmdbId": 1438
+    },
     {
       "schluessel": "tvmaze:76",
       "titel": "Sons of Anarchy",
