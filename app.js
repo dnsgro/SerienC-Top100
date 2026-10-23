@@ -279,8 +279,29 @@
   const statusVon = (schluessel) => zustand.status.get(schluessel) || null;
 
   function setzeStatus(schluessel, art) {
-    if (statusVon(schluessel) === art) zustand.status.delete(schluessel);
+    const vorher = statusVon(schluessel);
+    if (vorher === art) zustand.status.delete(schluessel);
     else zustand.status.set(schluessel, art);
+    zeigeStatus(schluessel);
+    // Eine bestehende Markierung entfernt oder ersetzt (z. B. „Uninteressant“ statt „Gesehen“)?
+    // Dann mit „Rückgängig“ melden – sonst geht ein Gesehen-Haken leicht aus Versehen verloren.
+    if (vorher) {
+      const jetzt = statusVon(schluessel);
+      const titel = titelZu(schluessel) || 'Die Serie';
+      meldung(jetzt ? `„${titel}“ ist jetzt ${jetzt} statt ${vorher}.` : `„${titel}“ ist nicht mehr als ${vorher} markiert.`, {
+        aktion: {
+          text: 'Rückgängig',
+          beiKlick: () => {
+            zustand.status.set(schluessel, vorher);
+            zeigeStatus(schluessel);
+          },
+        },
+      });
+    }
+  }
+
+  /** Speichern und alle Karten der Serie, Fortschritt und Filter anpassen. */
+  function zeigeStatus(schluessel) {
     speichereStatus();
     for (const karte of kartenZu(schluessel)) aktualisiereKarte(karte);
     aktualisiereFortschritt();
@@ -1316,6 +1337,7 @@
     $('#treffer').textContent = filterAktiv() ? `${sichtbar} von ${gesamt} ${serienWort(gesamt)}` : `${gesamt} ${serienWort(gesamt)}`;
     const leerEigene = zustand.tab === 'eigene' && gesamt === 0;
     $('#eigene-leer').hidden = !leerEigene;
+    $('#treffer').hidden = leerEigene; // „0 Serien“ über dem Hinweis wäre doppelt
     $('#keine-treffer').hidden = sichtbar > 0 || gesamt === 0;
   }
 

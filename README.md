@@ -121,7 +121,7 @@ In `data/series.json` steht jede Serie in einer eigenen Zeile:
 
 ## Gesehen und Uninteressant
 
-- Jede Karte hat zwei Knöpfe: **Gesehen** färbt die Karte grün, **Uninteressant** rot (das Poster wird blass). Es ist immer nur einer aktiv; ein zweiter Tipp hebt die Markierung wieder auf.
+- Jede Karte hat zwei Knöpfe: **Gesehen** färbt die Karte grün, **Uninteressant** rot (das Poster wird blass). Es ist immer nur einer aktiv; ein zweiter Tipp hebt die Markierung wieder auf. Wird eine Markierung entfernt oder ersetzt, erscheint unten kurz **Rückgängig**.
 - Die Markierung gilt für die Serie, egal in welchem Tab sie steht.
 - Oben steht zum Beispiel „37 von 100 gesehen, 5 uninteressant“. Im Balken sind die uninteressanten Serien rot gestreift am rechten Ende.
 - Die Markierungen werden sofort im Browser gespeichert (localStorage) und bleiben nach dem Neuladen erhalten. Der Gesehen-Stand der alten Version wird beim ersten Öffnen automatisch übernommen.
@@ -186,8 +186,8 @@ Der Filter funktioniert wie ein Spaltenfilter in Excel:
 ## Aktualisierung
 
 - **Automatisch** jede Nacht um 02:17 UTC (03:17 Uhr Winterzeit, 04:17 Uhr Sommerzeit). GitHub startet geplante Läufe manchmal etwas später.
-- **Per Knopfdruck:** Actions → Daten aktualisieren → Run workflow. Mit dem Haken „Wertungen sofort neu laden“ fragt das Skript auch die Wertungen sofort neu ab; sonst geschieht das höchstens alle 20 Stunden, um das MDBList-Kontingent zu schonen.
-- **Nach jeder Änderung** im Repository (z. B. an `series.json`, oder wenn die Website eine eigene Serie einträgt) läuft der Workflow ebenfalls.
+- **Per Knopfdruck:** Actions → Daten aktualisieren → Run workflow. Mit dem Haken „Wertungen sofort neu laden“ fragt das Skript auch die Wertungen sofort neu ab; sonst geschieht das höchstens alle 12 Stunden, um das MDBList-Kontingent zu schonen.
+- **Nach jeder Änderung** im Repository (z. B. an `series.json`, oder wenn die Website eine eigene Serie einträgt) läuft der Workflow ebenfalls. Diese Läufe übernehmen die vorhandenen Wertungen und fragen nur fehlende ab (etwa für eine neue Serie). So sind sie in rund einer Minute fertig; alle Wertungen frischt der nächtliche Lauf auf.
 - **Schutz vor dem Abschalten:** GitHub deaktiviert Zeitpläne in öffentlichen Repositories nach 60 Tagen ohne Aktivität. Der Workflow committet jede Nacht eine neue `data.json` und schaltet seinen Zeitplan bei jedem geplanten Lauf zusätzlich per API wieder ein. Falls er trotzdem einmal deaktiviert sein sollte: Actions → Daten aktualisieren → **Enable workflow**.
 - **Wenn etwas fehlschlägt:** Schlägt ein einzelner Abruf fehl, bleiben die Werte vom letzten erfolgreichen Lauf stehen. Scheitert mehr als die Hälfte, wird `data.json` gar nicht überschrieben.
 

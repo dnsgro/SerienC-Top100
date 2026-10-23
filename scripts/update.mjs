@@ -24,7 +24,10 @@
  * Umgebungsvariablen (im Workflow kommen sie aus den GitHub Secrets):
  *   TMDB_TOKEN       TMDB „API Read Access Token“ (empfohlen) oder der kurze „API Key“
  *   MDBLIST_API_KEY  API-Key von mdblist.com
- *   FORCE_REFRESH    „true“ = Wertungen sofort neu laden (sonst höchstens alle 20 Stunden)
+ *   FORCE_REFRESH    „true“ = Wertungen sofort neu laden (sonst höchstens alle 12 Stunden)
+ *   WERTUNGEN_NUR_NEU „true“ = vorhandene Wertungen übernehmen und nur fehlende abfragen.
+ *                    Setzt der Workflow bei Läufen nach einer Änderung, damit z. B. eine
+ *                    neue eigene Serie schnell erscheint; neu abgefragt wird in der Nacht.
  *
  * Aufruf:
  *   TMDB_TOKEN=… MDBLIST_API_KEY=… node scripts/update.mjs
@@ -58,11 +61,14 @@ const TMDB_LOGO_SEITE = process.env.TMDB_LOGO_SEITE_URL || 'https://www.themovie
 const TMDB_ZUGANG = (process.env.TMDB_TOKEN || '').trim();
 const MDBLIST_KEY = (process.env.MDBLIST_API_KEY || '').trim();
 const ALLES_NEU = /^(1|true|yes|ja)$/i.test((process.env.FORCE_REFRESH || '').trim());
+const NUR_NEUE_WERTUNGEN = /^(1|true|yes|ja)$/i.test((process.env.WERTUNGEN_NUR_NEU || '').trim());
 const NUR_LEER = process.argv.includes('--leer');
 
 const SPRACHE = 'de-DE';
 const LAND = 'DE';
-const WERTUNG_MAX_STUNDEN = 20; // MDBList-Wertungen höchstens so oft neu abfragen
+// MDBList-Wertungen höchstens so oft neu abfragen. Die nächtlichen Läufe liegen rund
+// 24 Stunden auseinander – mit 12 Stunden fragt also jeder nächtliche Lauf neu ab.
+const WERTUNG_MAX_STUNDEN = 12;
 const TMDB_PAUSE_MS = 40; // TMDB erlaubt rund 40 Anfragen pro Sekunde
 const IN_ACTIONS = process.env.GITHUB_ACTIONS === 'true';
 const USER_AGENT = 'serien-top-100-update (privates, nicht-kommerzielles Projekt)';
@@ -976,7 +982,8 @@ async function setzeWertung(s, altWertung, lauf, bezeichnung) {
     // Kannte TMDB keine IMDb-ID, stammt sie von MDBList – auch die bleibt erhalten.
     if (!s.imdbId && gueltigeImdbId(altWertung?.imdbId)) s.imdbId = altWertung.imdbId;
   };
-  if (altWertung?.wertungStand && alter < WERTUNG_MAX_STUNDEN * 3_600_000 && !ALLES_NEU) {
+  const nochFrisch = alter < WERTUNG_MAX_STUNDEN * 3_600_000 || NUR_NEUE_WERTUNGEN;
+  if (altWertung?.wertungStand && nochFrisch && !ALLES_NEU) {
     uebernehmeAlt();
     statistik.wertungGespeichert++;
   } else if (mdb.aktiv) {
