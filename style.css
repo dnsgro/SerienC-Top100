@@ -179,8 +179,11 @@ select {
   -webkit-tap-highlight-color: transparent;
 }
 
-.tab:hover {
-  color: var(--tinte);
+/* Hover nur mit Maus: Auf Touch-Geräten bliebe der Zustand nach dem Antippen hängen. */
+@media (hover: hover) {
+  .tab:hover {
+    color: var(--tinte);
+  }
 }
 
 .tab[aria-selected='true'] {
@@ -280,8 +283,10 @@ select {
   cursor: pointer;
 }
 
-.knopf-klein:hover {
-  border-color: var(--grau);
+@media (hover: hover) {
+  .knopf-klein:hover {
+    border-color: var(--grau);
+  }
 }
 
 /* ---------- Werkzeugleiste (bleibt beim Scrollen oben) ---------- */
@@ -373,8 +378,10 @@ select {
   color: var(--chip-text);
 }
 
-.chip:hover {
-  border-color: var(--chip-farbe);
+@media (hover: hover) {
+  .chip:hover {
+    border-color: var(--chip-farbe);
+  }
 }
 
 .chip-zeichen {
@@ -553,8 +560,10 @@ select {
   cursor: pointer;
 }
 
-.dienst-zeile:hover {
-  background: var(--papier);
+@media (hover: hover) {
+  .dienst-zeile:hover {
+    background: var(--papier);
+  }
 }
 
 .dienst-zeile input {
@@ -746,8 +755,10 @@ main {
   -webkit-tap-highlight-color: transparent;
 }
 
-.merken:hover {
-  color: var(--signal);
+@media (hover: hover) {
+  .merken:hover {
+    color: var(--signal);
+  }
 }
 
 .merken[aria-pressed='true'] {
@@ -904,8 +915,10 @@ main {
   -webkit-tap-highlight-color: transparent;
 }
 
-.schalter:hover {
-  border-color: var(--grau);
+@media (hover: hover) {
+  .schalter:hover {
+    border-color: var(--grau);
+  }
 }
 
 .symbol {
@@ -1088,8 +1101,10 @@ main {
   color: inherit;
 }
 
-.quelle a:hover {
-  color: var(--signal);
+@media (hover: hover) {
+  .quelle a:hover {
+    color: var(--signal);
+  }
 }
 
 /* ---------- Eigene Serien: Kopf mit „Serie hinzufügen“ ---------- */
@@ -1122,8 +1137,10 @@ main {
   stroke-linecap: round;
 }
 
-.knopf-hinzu:hover {
-  border-style: solid;
+@media (hover: hover) {
+  .knopf-hinzu:hover {
+    border-style: solid;
+  }
 }
 
 @media (min-width: 760px) {
@@ -1291,8 +1308,10 @@ dialog .blatt-kopf h2 {
   stroke-linecap: round;
 }
 
-.knopf-symbol:hover {
-  background: var(--papier);
+@media (hover: hover) {
+  .knopf-symbol:hover {
+    background: var(--papier);
+  }
 }
 
 .blatt input[type='search'],

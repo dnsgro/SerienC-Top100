@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       alles_neu:
-        description: 'Wertungen sofort neu laden (sonst höchstens alle 20 Stunden)'
+        description: 'Wertungen sofort neu laden (sonst höchstens alle 12 Stunden)'
         type: boolean
         default: false
   # Jede Änderung auf main: series.json, eigene.json (z. B. von der Website), Code
@@ -59,6 +59,9 @@ jobs:
           TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
           MDBLIST_API_KEY: ${{ secrets.MDBLIST_API_KEY }}
           FORCE_REFRESH: ${{ inputs.alles_neu }}
+          # Nach einer Änderung (z. B. neue eigene Serie) nur fehlende Wertungen holen –
+          # so ist der Lauf in rund einer Minute fertig. Neu abgefragt wird nachts.
+          WERTUNGEN_NUR_NEU: ${{ github.event_name == 'push' }}
         run: node scripts/update.mjs
 
       - name: Neue Daten committen
