@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "stand": "2026-10-23T19:46:37.294Z",
+  "stand": "2026-10-23T19:47:12.573Z",
   "sprache": "de-DE",
   "land": "DE",
   "repo": "dnsgro/SerienC-Top100",
@@ -6171,6 +6171,13 @@
     }
   ],
   "eigene": [
+    {
+      "schluessel": "tmdb:69061",
+      "tvmaze": null,
+      "hinzugefuegt": "2026-10-23",
+      "top": 98,
+      "tmdbId": 69061
+    },
     {
       "schluessel": "tmdb:1408",
       "tvmaze": null,
