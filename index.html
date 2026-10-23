@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Erlaubt nur die nötigen Server: Poster (TMDB), Suche (TVmaze) und Speichern (GitHub-API) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: https://image.tmdb.org https://static.tvmaze.com; connect-src 'self' https://api.github.com https://api.tvmaze.com; object-src 'none'; base-uri 'none'; frame-src 'none'">
   <title>Die 100 besten Serien</title>
-  <meta name="description" content="Meine Liste der 100 besten Serien – mit Streaming-Angeboten in Deutschland, Wertungen und Gesehen-Liste.">
+  <meta name="description" content="Meine Liste der 100 besten Serien und meine eigenen Serien – mit Streaming-Angeboten in Deutschland, Wertungen und Gesehen-Liste.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0d1120" media="(prefers-color-scheme: dark)">
@@ -17,20 +19,24 @@
   <script src="app.js" defer></script>
 </head>
 <body>
-  <a class="sprunglink" href="#liste">Zur Liste springen</a>
+  <a class="sprunglink" href="#inhalt">Zur Liste springen</a>
 
   <header class="kopf">
     <div class="innen">
-      <h1>Die 100 besten Serien</h1>
+      <h1 class="sr-only">Die 100 besten Serien und eigene Serien</h1>
+      <div class="tabs" role="tablist" aria-label="Listen">
+        <button type="button" class="tab" role="tab" id="tab-top" aria-controls="inhalt" aria-selected="true">Top 100</button>
+        <button type="button" class="tab" role="tab" id="tab-eigene" aria-controls="inhalt" aria-selected="false" tabindex="-1">Eigene Serien<span class="tab-anzahl" id="anzahl-eigene"></span></button>
+      </div>
       <div class="fortschritt">
-        <p class="fortschritt-text" id="fortschritt-text" aria-live="polite">Gesehen-Stand wird geladen …</p>
+        <p class="fortschritt-text" id="fortschritt-text" aria-live="polite">Wird geladen …</p>
         <div class="balken" id="fortschritt-balken" role="progressbar" aria-labelledby="fortschritt-text" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
       </div>
       <div class="kopf-zeile">
         <p class="stand">Stand: <span id="stand">wird geladen …</span></p>
         <div class="uebertragen">
-          <button type="button" class="knopf-klein" id="export-knopf" title="Gesehen-Stand als Datei speichern">Exportieren</button>
-          <button type="button" class="knopf-klein" id="import-knopf" title="Gesehen-Stand aus einer Datei übernehmen">Importieren</button>
+          <button type="button" class="knopf-klein" id="export-knopf" title="Gesehen- und Uninteressant-Markierungen als Datei speichern">Exportieren</button>
+          <button type="button" class="knopf-klein" id="import-knopf" title="Markierungen aus einer Datei übernehmen">Importieren</button>
           <input type="file" id="import-datei" accept=".json,application/json" hidden>
         </div>
       </div>
@@ -40,7 +46,7 @@
   <div class="werkzeuge">
     <div class="innen werkzeuge-innen">
       <div class="suche" role="search">
-        <label for="suche" class="sr-only">Serie suchen</label>
+        <label for="suche" class="sr-only">Serie in dieser Liste suchen</label>
         <input type="search" id="suche" placeholder="Serie suchen" autocomplete="off" spellcheck="false" enterkeyhint="search">
       </div>
       <div class="dienst-filter" id="dienst-filter">
@@ -68,19 +74,38 @@
           </div>
         </div>
       </div>
-      <fieldset class="segment">
-        <legend class="sr-only">Nach Gesehen-Stand filtern</legend>
-        <label><input type="radio" name="status" value="alle" checked><span>Alle</span></label>
-        <label><input type="radio" name="status" value="gesehen"><span>Gesehen</span></label>
-        <label><input type="radio" name="status" value="offen"><span>Nicht gesehen</span></label>
-      </fieldset>
+      <div class="status-filter" role="group" aria-label="Nach Markierung filtern">
+        <button type="button" class="chip" data-status="offen" aria-pressed="true" title="Serien ohne Markierung ein- oder ausblenden">
+          <svg class="chip-zeichen" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false"><path class="kreis" d="M12 5.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/><path class="haken" d="M6.5 12.5l3.5 3.5 7.5-8"/></svg>
+          <span>Offen</span><span class="chip-anzahl" id="anzahl-offen"></span>
+        </button>
+        <button type="button" class="chip" data-status="gesehen" aria-pressed="true" title="Gesehene Serien ein- oder ausblenden">
+          <svg class="chip-zeichen" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false"><path class="kreis" d="M12 5.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/><path class="haken" d="M6.5 12.5l3.5 3.5 7.5-8"/></svg>
+          <span>Gesehen</span><span class="chip-anzahl" id="anzahl-gesehen"></span>
+        </button>
+        <button type="button" class="chip" data-status="uninteressant" aria-pressed="true" title="Uninteressante Serien ein- oder ausblenden">
+          <svg class="chip-zeichen" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false"><path class="kreis" d="M12 5.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/><path class="haken" d="M6.5 12.5l3.5 3.5 7.5-8"/></svg>
+          <span>Uninteressant</span><span class="chip-anzahl" id="anzahl-uninteressant"></span>
+        </button>
+      </div>
     </div>
   </div>
 
-  <main class="innen" id="inhalt">
+  <main class="innen" id="inhalt" role="tabpanel" aria-labelledby="tab-top" tabindex="-1">
+    <div class="eigene-kopf" id="eigene-kopf" hidden>
+      <button type="button" class="knopf-hinzu" id="hinzu-knopf">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+        Serie hinzufügen
+      </button>
+      <p class="verbindung" id="verbindung"></p>
+    </div>
     <p class="treffer" id="treffer" aria-live="polite">Daten werden geladen …</p>
     <div class="hinweis-box" id="ladefehler" role="alert" hidden></div>
-    <ol class="liste" id="liste" aria-label="Serien, sortiert nach Platz"></ol>
+    <ol class="liste" id="liste-top" aria-label="Top 100, sortiert nach Platz"></ol>
+    <ol class="liste" id="liste-eigene" aria-label="Eigene Serien, neueste zuerst" hidden></ol>
+    <div class="hinweis-box" id="eigene-leer" hidden>
+      <p>Noch keine eigenen Serien. Tippe auf „Serie hinzufügen“ oder in den Top 100 auf das Lesezeichen oben rechts in einer Karte.</p>
+    </div>
     <div class="hinweis-box" id="keine-treffer" hidden>
       <p>Keine Serie passt zu deiner Auswahl.</p>
       <button type="button" class="knopf" id="filter-zuruecksetzen">Filter zurücksetzen</button>
@@ -90,24 +115,25 @@
 
   <footer class="fuss">
     <div class="innen">
-      <p>Datenstand: <span id="stand-fuss">–</span>. Die Daten werden jede Nacht automatisch aktualisiert.</p>
+      <p>Datenstand: <span id="stand-fuss">–</span>. Die Daten werden jede Nacht und nach jeder Änderung automatisch aktualisiert.</p>
       <div class="quelle-tmdb">
         <a class="tmdb-link" href="https://www.themoviedb.org" target="_blank" rel="noopener">
-          <img class="tmdb-logo" src="img/tmdb-logo.svg" alt="The Movie Database (TMDB)" width="128" height="17" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-          <span hidden>TMDB</span>
+          <img class="tmdb-logo" id="tmdb-logo" src="img/tmdb-logo.svg" alt="The Movie Database (TMDB)" width="128" height="17" loading="lazy">
+          <span id="tmdb-logo-text" hidden>TMDB</span>
         </a>
         <p lang="en">This website uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.</p>
         <p>Diese Website nutzt TMDB und die TMDB-APIs, wird von TMDB aber weder unterstützt noch zertifiziert oder anderweitig genehmigt. Titel, Beschreibungen, Poster sowie Staffel- und Folgenzahlen stammen von TMDB.</p>
       </div>
       <p>Streaming-Angebote in Deutschland: Daten von <a href="https://www.justwatch.com/de" target="_blank" rel="noopener">JustWatch</a>, bezogen über die TMDB-API.</p>
       <p>Wertungen: IMDb und Rotten Tomatoes (Tomatometer), bezogen über <a href="https://mdblist.com" target="_blank" rel="noopener">MDBList</a>.</p>
-      <p>Privates, nicht-kommerzielles Projekt. Alle Marken und Logos gehören ihren Inhabern. Deine Gesehen-Markierungen werden nur in diesem Browser gespeichert.</p>
+      <p>Suche nach neuen Serien: Daten von <a href="https://www.tvmaze.com" target="_blank" rel="noopener">TVmaze</a> (Lizenz <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank" rel="noopener">CC BY-SA</a>).</p>
+      <p>Privates, nicht-kommerzielles Projekt. Alle Marken und Logos gehören ihren Inhabern. Deine Markierungen „Gesehen“ und „Uninteressant“ werden nur in diesem Browser gespeichert. Deine eigene Liste steht in der Datei data/eigene.json im öffentlichen GitHub-Repository.</p>
     </div>
   </footer>
 
   <dialog id="import-dialog" aria-labelledby="import-titel">
     <form method="dialog">
-      <h2 id="import-titel">Gesehen-Stand importieren</h2>
+      <h2 id="import-titel">Markierungen importieren</h2>
       <p id="import-text"></p>
       <div class="dialog-knoepfe">
         <button type="submit" value="abbrechen" class="knopf">Abbrechen</button>
@@ -117,6 +143,46 @@
     </form>
   </dialog>
 
-  <div class="meldung" id="meldung" role="status" aria-live="polite" hidden></div>
+  <dialog id="hinzu-dialog" class="blatt" aria-labelledby="hinzu-titel">
+    <div class="blatt-innen">
+      <div class="blatt-kopf">
+        <h2 id="hinzu-titel">Serie hinzufügen</h2>
+        <button type="button" class="knopf-symbol" id="hinzu-schliessen" aria-label="Schließen">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <label for="hinzu-suche" class="sr-only">Titel suchen</label>
+      <input type="search" id="hinzu-suche" placeholder="Titel eingeben, z. B. The Sopranos" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-describedby="hinzu-tipp" autofocus>
+      <p class="blatt-tipp" id="hinzu-tipp">Suche über <a href="https://www.tvmaze.com" target="_blank" rel="noopener">TVmaze</a>. Am besten mit dem Original- oder englischen Titel.</p>
+      <p class="dialog-meldung" id="hinzu-meldung" role="status" aria-live="polite"></p>
+      <ul class="treffer-liste" id="hinzu-treffer" aria-label="Suchergebnisse"></ul>
+    </div>
+  </dialog>
+
+  <dialog id="github-dialog" aria-labelledby="github-titel">
+    <form id="github-form" novalidate>
+      <h2 id="github-titel">Mit GitHub verbinden</h2>
+      <p>Deine eigene Liste wird in deinem GitHub-Repository gespeichert, damit sie auf allen Geräten gleich ist. Dafür braucht die Website auf jedem Gerät einmal einen GitHub-Schlüssel. Er darf nur Dateien in diesem Repository ändern und bleibt in diesem Browser.</p>
+      <p class="github-status" id="github-status" hidden></p>
+      <ol class="schritte">
+        <li><a id="github-anlegen" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Schlüssel bei GitHub erstellen</a>. Name und Berechtigung sind schon ausgefüllt.</li>
+        <li>Bei <b>Repository access</b> „Only select repositories“ wählen und <b id="github-repo-name">dieses Repository</b> auswählen.</li>
+        <li>Unten auf <b>Generate token</b> tippen, den Schlüssel kopieren und hier einfügen.</li>
+      </ol>
+      <label class="feld-titel" for="github-token">GitHub-Schlüssel</label>
+      <input type="password" id="github-token" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="github_pat_…">
+      <p class="feld-fehler" id="github-fehler" role="alert" hidden></p>
+      <div class="dialog-knoepfe">
+        <button type="button" class="knopf" id="github-trennen" hidden>Trennen</button>
+        <button type="button" class="knopf" id="github-abbrechen">Abbrechen</button>
+        <button type="submit" class="knopf knopf-primaer" id="github-verbinden">Verbinden</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="meldung" id="meldung" role="status" aria-live="polite" hidden>
+    <span id="meldung-text"></span>
+    <button type="button" class="meldung-aktion" id="meldung-aktion" hidden></button>
+  </div>
 </body>
 </html>

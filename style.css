@@ -28,6 +28,10 @@
   --gruen: #11804c;
   --gruen-text: #ffffff;
   --gruen-flaeche: #eaf6ef;
+  --rot: #b42632;
+  --rot-text: #ffffff;
+  --rot-flaeche: #fbeef0;
+  --rot-streifen: #e3828c;
   --balken-leer: #dfe3eb;
   --schrift: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --aussen: 16px;
@@ -46,6 +50,10 @@
     --gruen: #4cd08a;
     --gruen-text: #04210f;
     --gruen-flaeche: #0f2419;
+    --rot: #ff7b86;
+    --rot-text: #2a0509;
+    --rot-flaeche: #2b1218;
+    --rot-streifen: #9c3d47;
     --balken-leer: #232a43;
   }
 }
@@ -143,13 +151,48 @@ select {
   padding-block: 28px 18px;
 }
 
-.kopf h1 {
+/* Die beiden Listen als große Überschrift-Tabs */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 4px 22px;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  min-height: 44px;
   margin: 0;
-  font-size: clamp(2.1rem, 8vw, 3.4rem);
+  padding: 0 0 6px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: var(--grau);
+  font-size: clamp(1.8rem, 9vw, 3.4rem);
   font-weight: 800;
-  font-stretch: 72%;
+  font-stretch: 70%;
   line-height: 0.95;
   letter-spacing: -0.005em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab:hover {
+  color: var(--tinte);
+}
+
+.tab[aria-selected='true'] {
+  border-bottom-color: currentColor;
+  color: var(--tinte);
+}
+
+.tab-anzahl {
+  font-size: 0.5em;
+  font-weight: 700;
+  font-stretch: 87%;
+  font-variant-numeric: tabular-nums;
 }
 
 .fortschritt {
@@ -164,9 +207,11 @@ select {
   font-variant-numeric: tabular-nums;
 }
 
-/* Der Balken füllt sich mit den Farbbalken eines Testbilds. */
+/* Der Balken füllt sich mit den Farbbalken eines Testbilds; uninteressante
+   Serien stehen rot gestreift am rechten Ende. */
 .balken {
   --anteil: 0%;
+  --anteil-rot: 0%;
   position: relative;
   height: 12px;
   border-radius: 999px;
@@ -189,6 +234,17 @@ select {
   );
   clip-path: inset(0 calc(100% - var(--anteil)) 0 0);
   transition: clip-path 0.45s ease;
+}
+
+.balken::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--anteil-rot);
+  background: repeating-linear-gradient(135deg, var(--rot) 0 4px, var(--rot-streifen) 4px 8px);
+  transition: width 0.45s ease;
 }
 
 .kopf-zeile {
@@ -272,52 +328,77 @@ select {
   opacity: 1;
 }
 
-.segment {
+/* Filter nach Markierung: drei Schalter, an = wird angezeigt */
+.status-filter {
   display: flex;
   flex: 1 1 100%;
+  flex-wrap: wrap;
+  gap: 6px;
   min-width: 0;
-  margin: 0;
-  padding: 3px;
+}
+
+.chip {
+  --chip-farbe: var(--tinte);
+  --chip-text: var(--flaeche);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 4px 12px 4px 9px;
   border: 1px solid var(--linie);
-  border-radius: 10px;
+  border-radius: 999px;
   background: var(--flaeche);
-}
-
-.segment label {
-  position: relative;
-  display: block;
-  flex: 1 1 0;
-}
-
-.segment input {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.segment span {
-  display: block;
-  padding: 6px 10px;
-  text-align: center;
-  border-radius: 7px;
   color: var(--grau);
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  font-stretch: 87%;
   white-space: nowrap;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.segment input:checked + span {
-  background: var(--tinte);
-  color: var(--flaeche);
+.chip[data-status='gesehen'] {
+  --chip-farbe: var(--gruen);
+  --chip-text: var(--gruen-text);
 }
 
-.segment input:focus-visible + span {
-  outline: 2px solid var(--signal);
-  outline-offset: 1px;
+.chip[data-status='uninteressant'] {
+  --chip-farbe: var(--rot);
+  --chip-text: var(--rot-text);
+}
+
+.chip[aria-pressed='true'] {
+  border-color: var(--chip-farbe);
+  background: var(--chip-farbe);
+  color: var(--chip-text);
+}
+
+.chip:hover {
+  border-color: var(--chip-farbe);
+}
+
+.chip-zeichen {
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chip-zeichen .kreis {
+  stroke-width: 1.7;
+}
+
+.chip[aria-pressed='true'] .kreis,
+.chip[aria-pressed='false'] .haken {
+  display: none;
+}
+
+.chip-anzahl {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
 }
 
 /* Filter nach Streamingdienst – aufgebaut wie ein Spaltenfilter in Excel */
@@ -578,11 +659,7 @@ select {
     flex: 0 1 240px;
   }
 
-  .segment {
-    flex: 0 0 auto;
-  }
-
-  .segment label {
+  .status-filter {
     flex: 0 0 auto;
   }
 }
@@ -622,6 +699,7 @@ main {
 }
 
 .karte {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -636,6 +714,64 @@ main {
   border-color: var(--gruen);
   border-color: color-mix(in srgb, var(--gruen) 45%, var(--linie));
   background: var(--gruen-flaeche);
+}
+
+.karte.ist-uninteressant {
+  border-color: var(--rot);
+  border-color: color-mix(in srgb, var(--rot) 40%, var(--linie));
+  background: var(--rot-flaeche);
+}
+
+/* Uninteressant: Poster blass, damit die Karte in der Liste zurücktritt */
+.ist-uninteressant .poster {
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+/* Lesezeichen oben rechts: in „Eigene Serien“ aufnehmen oder entfernen */
+.merken {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--grau);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.merken:hover {
+  color: var(--signal);
+}
+
+.merken[aria-pressed='true'] {
+  color: var(--signal);
+}
+
+.merken[aria-pressed='true'] .symbol path {
+  fill: currentColor;
+}
+
+.karte-text {
+  min-width: 0;
+  padding-right: 34px;
+}
+
+.karte-hinweis {
+  margin: 0 0 4px;
+  color: var(--signal);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.karte-hinweis.hinweis-grau {
+  color: var(--grau);
 }
 
 .karte-kopf {
@@ -683,6 +819,10 @@ main {
 
 .ist-gesehen .platz {
   color: var(--gruen);
+}
+
+.ist-uninteressant .platz {
+  color: var(--rot);
 }
 
 .titel {
@@ -741,65 +881,113 @@ main {
   font-weight: 750;
 }
 
-.karte-aktionen {
+/* Markieren: „Gesehen“ (grün) oder „Uninteressant“ (rot) – immer nur eins */
+.markieren {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
   gap: 8px;
 }
 
-.gesehen-schalter {
+.schalter {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  min-height: 40px;
+  gap: 8px;
+  min-height: 44px;
   padding: 6px 16px 6px 12px;
   border: 1px solid var(--linie);
   border-radius: 999px;
   background: var(--flaeche);
+  color: var(--tinte);
   font-weight: 650;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-.gesehen-schalter input {
-  width: 20px;
-  height: 20px;
-  margin: 0;
-  accent-color: var(--gruen);
-  cursor: pointer;
+.schalter:hover {
+  border-color: var(--grau);
 }
 
-.gesehen-schalter:has(input:focus-visible) {
-  outline: 2px solid var(--signal);
-  outline-offset: 2px;
+.symbol {
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.ist-gesehen .gesehen-schalter {
+.schalter .haken {
+  stroke-width: 2.2;
+}
+
+.schalter[aria-pressed='false'] .haken {
+  display: none;
+}
+
+.schalter-gesehen[aria-pressed='true'] {
   border-color: var(--gruen);
   background: var(--gruen);
   color: var(--gruen-text);
 }
 
-.ist-gesehen .gesehen-schalter input {
-  accent-color: var(--gruen-text);
+.schalter-uninteressant[aria-pressed='true'] {
+  border-color: var(--rot);
+  background: var(--rot);
+  color: var(--rot-text);
 }
 
-.links {
-  display: flex;
-  gap: 14px;
-  margin: 0;
+/* Neue eigene Serie: Die Daten holt gerade der Workflow */
+.warten {
+  margin: 10px 0 0;
+  color: var(--grau);
   font-size: 0.875rem;
 }
 
-.links a {
-  color: var(--grau);
+.warten p {
+  margin: 4px 0 0;
 }
 
-.links a:hover {
+.warten .warten-titel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
   color: var(--signal);
+  font-weight: 650;
+}
+
+.punkte {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.punkte span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: punkt 1.2s ease-in-out infinite;
+}
+
+.punkte span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.punkte span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes punkt {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+  }
+
+  40% {
+    opacity: 1;
+  }
 }
 
 .beschreibung {
@@ -900,6 +1088,62 @@ main {
   color: inherit;
 }
 
+.quelle a:hover {
+  color: var(--signal);
+}
+
+/* ---------- Eigene Serien: Kopf mit „Serie hinzufügen“ ---------- */
+
+.eigene-kopf {
+  margin-bottom: 14px;
+}
+
+.knopf-hinzu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 52px;
+  padding: 8px 16px;
+  border: 1.5px dashed var(--signal);
+  border-radius: 12px;
+  background: var(--flaeche);
+  color: var(--signal);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.knopf-hinzu svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.knopf-hinzu:hover {
+  border-style: solid;
+}
+
+@media (min-width: 760px) {
+  .knopf-hinzu {
+    width: auto;
+    padding-inline: 22px;
+  }
+}
+
+.verbindung {
+  margin: 8px 0 0;
+  color: var(--grau);
+  font-size: 0.8125rem;
+}
+
+.verbindung .knopf-text {
+  padding: 2px 0;
+  font-size: inherit;
+}
+
 /* ---------- Hinweise, Knöpfe, Dialog, Meldung ---------- */
 
 .hinweis-box {
@@ -977,14 +1221,228 @@ dialog p {
   flex: 1 1 auto;
 }
 
+/* Solange ein Dialog offen ist, scrollt die Seite dahinter nicht mit. */
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* „Serie hinzufügen“: am Handy ein Blatt von unten, am PC ein Fenster */
+dialog.blatt {
+  width: 100%;
+  max-width: 560px;
+  height: min(88dvh, 720px);
+  max-height: 100dvh;
+  margin: auto auto 0;
+  padding: 0;
+  border-width: 1px 1px 0;
+  border-radius: 16px 16px 0 0;
+}
+
+@media (min-width: 640px) {
+  dialog.blatt {
+    height: min(80dvh, 720px);
+    margin: auto;
+    border-width: 1px;
+    border-radius: 14px;
+  }
+}
+
+.blatt-innen {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  padding: 16px 16px max(16px, env(safe-area-inset-bottom));
+}
+
+.blatt-kopf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+dialog .blatt-kopf h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-stretch: 75%;
+}
+
+.knopf-symbol {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -8px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--tinte);
+  cursor: pointer;
+}
+
+.knopf-symbol svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.knopf-symbol:hover {
+  background: var(--papier);
+}
+
+.blatt input[type='search'],
+#github-token {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 14px;
+  border: 1px solid var(--linie);
+  border-radius: 10px;
+  background: var(--papier);
+  font-size: 1rem; /* ab 16 px zoomt iOS beim Tippen nicht hinein */
+}
+
+.blatt input[type='search']::placeholder,
+#github-token::placeholder {
+  color: var(--grau);
+  opacity: 1;
+}
+
+dialog p.blatt-tipp,
+dialog p.dialog-meldung {
+  margin: 0;
+  font-size: 0.8125rem;
+}
+
+dialog p.blatt-tipp a {
+  color: inherit;
+}
+
+dialog p.dialog-meldung {
+  min-height: 1.3em;
+  color: var(--tinte);
+  font-weight: 600;
+}
+
+.treffer-liste {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0 -16px;
+  padding: 0 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+}
+
+.treffer-zeile {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--linie);
+}
+
+.treffer-bild {
+  display: block;
+  width: 44px;
+  height: 66px;
+  border-radius: 4px;
+  background: var(--linie);
+  object-fit: cover;
+}
+
+.treffer-bild-leer {
+  border: 1px dashed var(--grau);
+  background: none;
+}
+
+.treffer-text {
+  min-width: 0;
+}
+
+dialog .treffer-text p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+dialog p.treffer-titel {
+  color: var(--tinte);
+  font-weight: 700;
+  font-stretch: 87%;
+  line-height: 1.25;
+}
+
+dialog p.treffer-info {
+  margin-top: 2px;
+  font-size: 0.8125rem;
+}
+
+dialog p.treffer-top {
+  margin-top: 2px;
+  color: var(--signal);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.treffer-knopf {
+  min-height: 44px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+/* GitHub-Verbindung */
+.schritte {
+  margin: 12px 0 14px;
+  padding-left: 1.3em;
+  color: var(--grau);
+  font-size: 0.9375rem;
+}
+
+.schritte li + li {
+  margin-top: 6px;
+}
+
+.schritte b {
+  color: var(--tinte);
+  font-weight: 650;
+}
+
+dialog p.github-status {
+  margin-top: 10px;
+  color: var(--gruen);
+  font-weight: 650;
+}
+
+.feld-titel {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 650;
+}
+
+dialog p.feld-fehler {
+  margin-top: 8px;
+  color: var(--rot);
+  font-weight: 600;
+}
+
 .meldung {
   position: fixed;
   right: 16px;
   bottom: max(16px, env(safe-area-inset-bottom));
   left: 16px;
   z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 4px 14px;
   width: fit-content;
-  max-width: 480px;
+  max-width: 520px;
   margin-inline: auto;
   padding: 10px 16px;
   border-radius: 10px;
@@ -992,6 +1450,20 @@ dialog p {
   color: var(--papier);
   font-size: 0.9375rem;
   box-shadow: 0 6px 24px rgb(0 0 0 / 0.25);
+}
+
+.meldung-aktion {
+  flex: none;
+  min-height: 44px;
+  margin: -8px -8px -8px 0;
+  padding: 4px 8px;
+  border: 0;
+  background: none;
+  color: var(--papier);
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
 }
 
 /* ---------- Fußzeile ---------- */

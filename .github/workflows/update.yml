@@ -1,5 +1,8 @@
 # Holt jede Nacht frische Daten von TMDB und MDBList, speichert sie in
 # data/data.json und veröffentlicht die Website über GitHub Pages.
+# Läuft außerdem nach jeder Änderung im Repository – auch wenn die Website
+# eine eigene Serie in data/eigene.json einträgt. Dann sind deren Daten nach
+# ein bis zwei Minuten da.
 # Voraussetzung: Settings → Pages → Source = „GitHub Actions“ und die
 # Secrets TMDB_TOKEN und MDBLIST_API_KEY (siehe README).
 name: Daten aktualisieren
@@ -15,6 +18,7 @@ on:
         description: 'Wertungen sofort neu laden (sonst höchstens alle 20 Stunden)'
         type: boolean
         default: false
+  # Jede Änderung auf main: series.json, eigene.json (z. B. von der Website), Code
   push:
     branches: [main]
 

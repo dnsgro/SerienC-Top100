@@ -2,12 +2,18 @@
 /**
  * Update-Skript für „Die 100 besten Serien“
  * =========================================
- * Liest data/series.json und holt für jede Serie aktuelle Daten:
+ * Liest data/series.json (die Top 100) und data/eigene.json (deine eigenen
+ * Serien) und holt für jede Serie aktuelle Daten:
  *   • TMDB (Sprache de-DE, Land DE): deutscher Titel, Poster, Beschreibung,
  *     Staffeln, Folgen, Status, IMDb-ID und Streaming-Angebote in Deutschland
  *     (diese Angebotsdaten stammen von JustWatch)
  *   • MDBList: IMDb-Wertung und Rotten-Tomatoes-Tomatometer
  * und schreibt alles mit Zeitstempel nach data/data.json.
+ *
+ * Eigene Serien trägt die Website über die Suche (TVmaze) ein. Sie kennt dann
+ * die TVmaze-, IMDb- und TVDB-Nummer; die passende TMDB-Serie sucht dieses
+ * Skript über TMDB („find“). Steht eine Serie schon in den Top 100, verweist
+ * der Eintrag nur auf sie.
  *
  * Es werden keine Werte geschätzt: Was eine API nicht liefert, bleibt leer
  * (die Website zeigt dann „–“). Schlägt ein Abruf fehl, bleiben die Werte
@@ -22,7 +28,7 @@
  *
  * Aufruf:
  *   TMDB_TOKEN=… MDBLIST_API_KEY=… node scripts/update.mjs
- *   node scripts/update.mjs --leer   (schreibt data.json nur aus series.json, ohne API-Abruf)
+ *   node scripts/update.mjs --leer   (schreibt data.json nur aus den Listen, ohne API-Abruf)
  */
 
 import { readFile, writeFile, appendFile, mkdir, access } from 'node:fs/promises';
@@ -40,6 +46,7 @@ if (Number(process.versions.node.split('.')[0]) < 18) {
 
 const WURZEL = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SERIEN_DATEI = path.join(WURZEL, 'data', 'series.json');
+const EIGENE_DATEI = path.join(WURZEL, 'data', 'eigene.json');
 const DATEN_DATEI = path.join(WURZEL, 'data', 'data.json');
 const LOGO_DATEI = path.join(WURZEL, 'img', 'tmdb-logo.svg');
 
@@ -59,6 +66,9 @@ const WERTUNG_MAX_STUNDEN = 20; // MDBList-Wertungen höchstens so oft neu abfra
 const TMDB_PAUSE_MS = 40; // TMDB erlaubt rund 40 Anfragen pro Sekunde
 const IN_ACTIONS = process.env.GITHUB_ACTIONS === 'true';
 const USER_AGENT = 'serien-top-100-update (privates, nicht-kommerzielles Projekt)';
+// „besitzer/repo“ – im Workflow setzt GitHub die Variable. Die Website speichert
+// eigene Serien in genau diesem Repository.
+const REPO = /^[\w.-]+\/[\w.-]+$/.test(process.env.GITHUB_REPOSITORY || '') ? process.env.GITHUB_REPOSITORY : null;
 
 // API Read Access Token (JWT, beginnt mit „eyJ“) → Bearer-Header; sonst alter v3-Key
 const TMDB_IST_TOKEN = TMDB_ZUGANG.startsWith('eyJ') || TMDB_ZUGANG.split('.').length === 3;
@@ -233,6 +243,21 @@ function gueltigeImdbId(id) {
   return typeof id === 'string' && /^tt\d{5,}$/.test(id) ? id : null;
 }
 
+const positiv = (n) => Number.isInteger(n) && n > 0;
+
+/**
+ * Fester Schlüssel eines eigenen Eintrags. Die Website rechnet genauso (app.js,
+ * eigenerSchluessel). Die TVmaze-Nummer hat Vorrang: So bleibt der Schlüssel –
+ * und damit die Gesehen-Markierung – gleich, wenn du später eine tmdb_id ergänzt.
+ */
+function eigenerSchluessel(e) {
+  if (positiv(e?.tvmaze)) return `tvmaze:${e.tvmaze}`;
+  if (positiv(e?.tmdb_id)) return `tmdb:${e.tmdb_id}`;
+  if (gueltigeImdbId(e?.imdb)) return `imdb:${e.imdb}`;
+  if (positiv(e?.tvdb)) return `tvdb:${e.tvdb}`;
+  return null;
+}
+
 /** Für Vergleiche: ohne Akzente, Satzzeichen und Groß-/Kleinschreibung. */
 function normal(text) {
   return String(text ?? '')
@@ -335,6 +360,17 @@ function statusText(status) {
   if (['Ended', 'Canceled', 'Cancelled'].includes(status)) return 'beendet';
   if (['Returning Series', 'In Production', 'Planned', 'Pilot'].includes(status)) return 'laufend';
   return null;
+}
+
+/** Laufzeit für eigene Serien aus den TMDB-Daten, z. B. „1999-2007“ oder „2014-present“. */
+function jahreVonTmdb(serie) {
+  const start = jahrAus(serie.first_air_date);
+  if (!start) return null;
+  const status = statusText(serie.status);
+  if (status === 'laufend') return `${start}-present`;
+  const ende = jahrAus(serie.last_air_date);
+  if (status === 'beendet' && ende && ende !== start) return `${start}-${ende}`;
+  return String(start);
 }
 
 /**
@@ -559,9 +595,36 @@ async function sucheVorschlaege(eintrag) {
   return [];
 }
 
+/**
+ * TMDB-ID für eine eigene Serie: über die IMDb- oder TVDB-Nummer aus der
+ * TVmaze-Suche, notfalls über Titel und Startjahr (nur bei genau gleichem Titel).
+ */
+async function findeTmdbId(e) {
+  const wege = [];
+  if (e.imdb) wege.push([e.imdb, 'imdb_id']);
+  if (e.tvdb) wege.push([String(e.tvdb), 'tvdb_id']);
+  for (const [id, quelle] of wege) {
+    const antwort = await tmdb(`/find/${encodeURIComponent(id)}`, { external_source: quelle });
+    const treffer = (antwort?.tv_results || []).find((t) => positiv(t?.id));
+    if (treffer) return treffer.id;
+  }
+  if (e.titel) {
+    const antwort = await tmdb('/search/tv', { query: e.titel, language: 'en-US', first_air_date_year: e.jahr ?? undefined });
+    const soll = normal(e.titel);
+    const treffer = (antwort?.results || []).find((t) => {
+      const jahr = jahrAus(t?.first_air_date);
+      const titelGleich = [t?.name, t?.original_name].some((n) => normal(n) === soll);
+      return positiv(t?.id) && titelGleich && (!e.jahr || !jahr || Math.abs(jahr - e.jahr) <= 1);
+    });
+    if (treffer) return treffer.id;
+  }
+  return null;
+}
+
 function leererEintrag(eintrag) {
   return {
     platz: eintrag.platz,
+    schluessel: Number.isInteger(eintrag.tmdb_id) ? `tmdb:${eintrag.tmdb_id}` : `platz:${eintrag.platz}`,
     titel: eintrag.titel,
     jahre: eintrag.jahre ?? null,
     tmdbId: Number.isInteger(eintrag.tmdb_id) ? eintrag.tmdb_id : null,
@@ -580,6 +643,7 @@ function leererEintrag(eintrag) {
     kaufen: [],
     streamingLink: null,
     imdbId: null,
+    tvdbId: null,
     imdb: null,
     imdbStimmen: null,
     rt: null,
@@ -612,7 +676,17 @@ async function ladeSerie(eintrag) {
   s.folgen = anzahl.folgen;
   s.naechsteFolge = serie.next_episode_to_air?.air_date || null;
   s.imdbId = gueltigeImdbId(serie.external_ids?.imdb_id);
+  s.tvdbId = positiv(serie.external_ids?.tvdb_id) ? serie.external_ids.tvdb_id : null;
   Object.assign(s, streaming(anbieter));
+
+  // Eigene Serien: Laufzeit von TMDB; fehlt der Titel, den englischen bzw. Originaltitel nehmen
+  if (eintrag.eigen) {
+    s.jahre = jahreVonTmdb(serie) ?? s.jahre;
+    if (!s.titel) {
+      const en = waehleUebersetzung(uebersetzungen, 'en', ['US', 'GB'], 'name');
+      s.titel = en?.data?.name?.trim() || serie.original_name || serie.name || null;
+    }
+  }
 
   let text = beschreibung(serie, uebersetzungen);
   let vergleichsJahr = jahrAus(serie.first_air_date);
@@ -687,6 +761,56 @@ async function leseListe() {
   return [...liste].sort((a, b) => a.platz - b.platz);
 }
 
+/**
+ * Liest data/eigene.json (neueste Serie zuerst). Die Website schreibt diese
+ * Datei selbst; ein fehlerhafter Eintrag wird deshalb nur übersprungen.
+ * Rückgabe null = Datei unlesbar → die eigenen Serien bleiben auf dem alten Stand.
+ */
+async function leseEigene() {
+  let roh;
+  try {
+    roh = await readFile(EIGENE_DATEI, 'utf8');
+  } catch {
+    return []; // noch keine eigenen Serien
+  }
+  let json;
+  try {
+    json = JSON.parse(roh);
+  } catch (e) {
+    fehler(`data/eigene.json ist kein gültiges JSON (${e.message}). Die eigenen Serien bleiben auf dem letzten Stand.`, 'Eigene Serien');
+    return null;
+  }
+  const liste = Array.isArray(json) ? json : json?.serien;
+  if (!Array.isArray(liste)) {
+    fehler('data/eigene.json enthält keine Liste „serien“. Die eigenen Serien bleiben auf dem letzten Stand.', 'Eigene Serien');
+    return null;
+  }
+  const schluessel = new Set();
+  const ergebnis = [];
+  liste.forEach((e, i) => {
+    const s = e && typeof e === 'object' ? eigenerSchluessel(e) : null;
+    if (!s) {
+      warnung(`data/eigene.json, Eintrag ${i + 1}: Es fehlt eine gültige Nummer (tvmaze, tmdb_id, imdb oder tvdb). Der Eintrag wird übersprungen.`, 'Eigene Serien');
+      return;
+    }
+    if (schluessel.has(s)) return; // doppelt eingetragen
+    schluessel.add(s);
+    ergebnis.push({
+      schluessel: s,
+      tvmaze: positiv(e.tvmaze) ? e.tvmaze : null,
+      tmdb_id: positiv(e.tmdb_id) ? e.tmdb_id : null,
+      // Nur bei Einträgen, die eine einzelne Staffel meinen (z. B. aus den Top 100 übernommen)
+      staffel: Number.isInteger(e.staffel) && e.staffel >= 0 ? e.staffel : null,
+      imdb: gueltigeImdbId(e.imdb),
+      tvdb: positiv(e.tvdb) ? e.tvdb : null,
+      titel: typeof e.titel === 'string' ? e.titel.trim().slice(0, 200) : '',
+      jahr: positiv(e.jahr) ? e.jahr : null,
+      hinzugefuegt: typeof e.hinzugefuegt === 'string' ? e.hinzugefuegt.slice(0, 40) : null,
+    });
+  });
+  return ergebnis;
+}
+
 async function leseAlteDaten() {
   try {
     const json = JSON.parse(await readFile(DATEN_DATEI, 'utf8'));
@@ -696,18 +820,22 @@ async function leseAlteDaten() {
   }
 }
 
-async function schreibeDaten({ stand, serien, pruefung }) {
+async function schreibeDaten({ stand, serien, eigene, pruefung }) {
   const daten = {
-    version: 1,
+    version: 2,
     stand,
     sprache: SPRACHE,
     land: LAND,
+    repo: REPO,
     quellen: {
       tmdb: 'https://www.themoviedb.org',
       streaming: 'JustWatch (über TMDB)',
       wertungen: 'IMDb und Rotten Tomatoes (über MDBList)',
     },
     serien,
+    // Eigene Serien in der Reihenfolge von data/eigene.json. Steht eine Serie
+    // schon in den Top 100, enthält der Eintrag nur „top“ (den Platz).
+    eigene,
     pruefung,
   };
   await mkdir(path.dirname(DATEN_DATEI), { recursive: true });
@@ -764,7 +892,7 @@ const DATUM_ZEIT = new Intl.DateTimeFormat('de-DE', {
 
 const md = (s) => String(s ?? '').replace(/\|/g, '\\|');
 
-async function zusammenfassung({ stand, statistik, pruefung, hinweiseOben = [] }) {
+async function zusammenfassung({ stand, statistik, pruefung, eigene, hinweiseOben = [] }) {
   const zeilen = ['## Serien-Update', ''];
   if (stand) zeilen.push(`**Stand:** ${DATUM_ZEIT.format(new Date(stand))} Uhr`, '');
   for (const h of hinweiseOben) zeilen.push(`> ${h}`, '');
@@ -773,6 +901,19 @@ async function zusammenfassung({ stand, statistik, pruefung, hinweiseOben = [] }
       '| | |',
       '|---|---|',
       `| TMDB | ${statistik.tmdbOk} von ${statistik.gesamt} Serien aktualisiert${statistik.tmdbAlt ? `, ${statistik.tmdbAlt} vom letzten Lauf übernommen` : ''}${statistik.tmdbFehler ? `, ${statistik.tmdbFehler} ohne Daten` : ''} |`,
+    );
+    if (eigene) {
+      const e = eigene.statistik;
+      const teile = [];
+      if (e.top) teile.push(`${e.top} aus den Top 100`);
+      if (e.ok) teile.push(`${e.ok} aktualisiert`);
+      if (e.alt) teile.push(`${e.alt} vom letzten Lauf übernommen`);
+      if (e.fehlt) teile.push(`${e.fehlt} ohne Daten`);
+      zeilen.push(
+        `| Eigene Serien | ${eigene.kaputt ? '⚠️ data/eigene.json ist fehlerhaft – alter Stand bleibt' : `${e.gesamt}${teile.length ? ` (${teile.join(', ')})` : ''}`} |`,
+      );
+    }
+    zeilen.push(
       `| Wertungen (MDBList) | ${statistik.wertungNeu} neu abgerufen, ${statistik.wertungGespeichert} vom letzten Lauf übernommen${statistik.wertungFehlt ? `, ${statistik.wertungFehlt} ohne Wertung` : ''} |`,
       '',
     );
@@ -798,9 +939,180 @@ async function zusammenfassung({ stand, statistik, pruefung, hinweiseOben = [] }
       );
     }
   }
+  if (eigene?.pruefung?.length) {
+    zeilen.push(
+      '',
+      `### ⚠️ Eigene Serien prüfen (${eigene.pruefung.length})`,
+      '',
+      '| Titel | Eintrag | Problem |',
+      '|---|---|---|',
+      ...eigene.pruefung.map((p) => `| ${md(p.titel)} | \`${md(p.schluessel)}\` | ${md(p.hinweise.join(' '))} |`),
+      '',
+      'Abhilfe: `data/eigene.json` öffnen → Stift-Symbol → beim Eintrag `"tmdb_id": 12345` ergänzen (die Zahl aus der TMDB-Adresse) → **Commit changes**.',
+    );
+  }
   const text = `${zeilen.join('\n')}\n`;
   info(`\n${text}`);
   if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, text);
+}
+
+// ---------------------------------------------------------------------------
+// Wertungen
+// ---------------------------------------------------------------------------
+
+/**
+ * Wertungen (MDBList) einer Serie setzen: höchstens alle WERTUNG_MAX_STUNDEN
+ * neu abfragen, sonst die vom letzten Lauf übernehmen.
+ * lauf = { mdb, statistik, hinweiseOben } teilen sich alle Serien eines Laufs.
+ */
+async function setzeWertung(s, altWertung, lauf, bezeichnung) {
+  const { mdb, statistik, hinweiseOben } = lauf;
+  const alter = altWertung?.wertungStand ? Date.now() - Date.parse(altWertung.wertungStand) : Infinity;
+  const uebernehmeAlt = () => {
+    s.imdb = altWertung?.imdb ?? null;
+    s.imdbStimmen = altWertung?.imdbStimmen ?? null;
+    s.rt = altWertung?.rt ?? null;
+    s.wertungStand = altWertung?.wertungStand ?? null;
+    // Kannte TMDB keine IMDb-ID, stammt sie von MDBList – auch die bleibt erhalten.
+    if (!s.imdbId && gueltigeImdbId(altWertung?.imdbId)) s.imdbId = altWertung.imdbId;
+  };
+  if (altWertung?.wertungStand && alter < WERTUNG_MAX_STUNDEN * 3_600_000 && !ALLES_NEU) {
+    uebernehmeAlt();
+    statistik.wertungGespeichert++;
+  } else if (mdb.aktiv) {
+    try {
+      const w = await mdblistWertung(s.tmdbId, s.imdbId);
+      s.imdb = w.imdb;
+      s.imdbStimmen = w.imdbStimmen;
+      s.rt = w.rt;
+      s.wertungStand = new Date().toISOString();
+      if (!s.imdbId && w.imdbIdMdblist) s.imdbId = w.imdbIdMdblist;
+      statistik.wertungNeu++;
+    } catch (e) {
+      if ([401, 403].includes(e.status)) {
+        mdb.aktiv = false;
+        fehler('MDBList lehnt den API-Key ab. Prüfe das Secret MDBLIST_API_KEY.', 'MDBList-Zugang ungültig');
+        hinweiseOben.add(HINWEIS_MDB_KEY);
+      } else if (e.status === 429) {
+        mdb.aktiv = false;
+        warnung('Das Tageslimit von MDBList ist erreicht – für die übrigen Serien bleiben die alten Wertungen stehen.', 'MDBList-Limit');
+        hinweiseOben.add(HINWEIS_MDB_LIMIT);
+      } else {
+        warnung(`${bezeichnung}: Wertung nicht abrufbar (${e.message}).`, 'MDBList');
+      }
+      uebernehmeAlt();
+      if (s.wertungStand) statistik.wertungGespeichert++;
+    }
+  } else {
+    uebernehmeAlt();
+    if (s.wertungStand) statistik.wertungGespeichert++;
+  }
+  if (s.imdb === null && s.rt === null) statistik.wertungFehlt++;
+}
+
+// ---------------------------------------------------------------------------
+// Eigene Serien
+// ---------------------------------------------------------------------------
+
+/** Eigener Eintrag ohne TMDB-Daten – die Website zeigt dann „–“. */
+function leererEigenerEintrag(e, tmdbId = null) {
+  const s = leererEintrag({ platz: null, titel: e.titel || e.schluessel, jahre: e.jahr ? String(e.jahr) : null, tmdb_id: tmdbId });
+  delete s.platz;
+  return { ...s, schluessel: e.schluessel, tvmaze: e.tvmaze, hinzugefuegt: e.hinzugefuegt };
+}
+
+/** Verweis auf eine Serie der Top 100; deren Daten stehen schon unter „serien“. */
+function topVerweis(e, platz, tmdbId) {
+  return { schluessel: e.schluessel, tvmaze: e.tvmaze, hinzugefuegt: e.hinzugefuegt, top: platz, tmdbId };
+}
+
+/** Holt die Daten der eigenen Serien – genauso wie für die Top 100. */
+async function ladeEigene(liste, { top, alt, lauf }) {
+  const statistik = { gesamt: 0, top: 0, ok: 0, alt: 0, fehlt: 0 };
+  const pruefung = [];
+  const bisher = Array.isArray(alt?.eigene) ? alt.eigene : [];
+  if (liste === null) {
+    return { eigene: bisher, statistik: { ...statistik, gesamt: bisher.length }, pruefung, kaputt: true };
+  }
+
+  // Ein Eintrag verweist auf die Top 100, wenn Serie und Staffel übereinstimmen. Ohne „staffel“
+  // zählen nur ganze Serien – „True Detective“ ist also nicht „True Detective (Season 1)“.
+  const topFuer = (tmdbId, staffel) => top.find((s) => s.tmdbId === tmdbId && (s.staffel ?? null) === staffel) || null;
+  const altNachSchluessel = new Map(bisher.filter((x) => x?.schluessel).map((x) => [x.schluessel, x]));
+  const eigene = [];
+
+  for (const e of liste) {
+    statistik.gesamt++;
+    const altEintrag = altNachSchluessel.get(e.schluessel) || null;
+    const bezeichnung = `Eigene Serie „${e.titel || e.schluessel}“`;
+    const melde = (s, hinweis) => {
+      s.hinweise.push(hinweis);
+      pruefung.push({ schluessel: e.schluessel, titel: s.titel || e.titel || e.schluessel, hinweise: s.hinweise });
+      warnung(`${bezeichnung}: ${s.hinweise.join(' ')}`, 'Eigene Serien');
+    };
+
+    // 1. TMDB-ID: eingetragen, vom letzten Lauf bekannt oder über TMDB „find“
+    let tmdbId = e.tmdb_id;
+    if (!tmdbId && positiv(altEintrag?.tmdbId)) tmdbId = altEintrag.tmdbId;
+    if (!tmdbId) {
+      try {
+        tmdbId = await findeTmdbId(e);
+      } catch (fehlerTmdb) {
+        const s = leererEigenerEintrag(e);
+        melde(s, `Suche bei TMDB fehlgeschlagen: ${fehlerTmdb.message}`);
+        eigene.push(s);
+        statistik.fehlt++;
+        continue;
+      }
+    }
+    if (!tmdbId) {
+      const s = leererEigenerEintrag(e);
+      melde(s, 'Bei TMDB nicht gefunden.');
+      eigene.push(s);
+      statistik.fehlt++;
+      continue;
+    }
+
+    // 2. Steht die Serie schon in den Top 100? Dann nur darauf verweisen.
+    const topSerie = topFuer(tmdbId, e.staffel);
+    if (topSerie) {
+      eigene.push(topVerweis(e, topSerie.platz, tmdbId));
+      statistik.top++;
+      continue;
+    }
+
+    // 3. Daten holen
+    const eintrag = { platz: null, titel: e.titel, jahre: e.jahr ? String(e.jahr) : null, tmdb_id: tmdbId, staffel: e.staffel, geprueft: true, eigen: true };
+    const gleicheZuordnung = Boolean(altEintrag) && !altEintrag.top && altEintrag.tmdbId === tmdbId;
+    let s;
+    let wertungAbfragen = true;
+    try {
+      s = await ladeSerie(eintrag);
+      statistik.ok++;
+    } catch (fehlerTmdb) {
+      if (fehlerTmdb.status === 404) {
+        s = leererEigenerEintrag(e, tmdbId);
+        melde(s, `TMDB kennt die ID ${tmdbId} nicht.`);
+        statistik.fehlt++;
+        wertungAbfragen = false;
+      } else if (gleicheZuordnung && alt?.stand) {
+        s = { ...leererEigenerEintrag(e, tmdbId), ...altEintrag, hinweise: [] };
+        statistik.alt++;
+        warnung(`${bezeichnung}: ${fehlerTmdb.message} – Daten vom letzten Lauf bleiben stehen.`, 'TMDB');
+      } else {
+        s = leererEigenerEintrag(e, tmdbId);
+        melde(s, `Abruf fehlgeschlagen: ${fehlerTmdb.message}`);
+        statistik.fehlt++;
+      }
+    }
+    if (s.tmdbId && wertungAbfragen) await setzeWertung(s, gleicheZuordnung ? altEintrag : null, lauf, bezeichnung);
+
+    delete s.platz;
+    delete s.top;
+    eigene.push({ ...s, schluessel: e.schluessel, tvmaze: e.tvmaze, hinzugefuegt: e.hinzugefuegt });
+    info(`✓ eigen  ${s.titel}${s.titelDe ? ` → ${s.titelDe}` : ''}`);
+  }
+  return { eigene, statistik, pruefung, kaputt: false };
 }
 
 // ---------------------------------------------------------------------------
@@ -809,12 +1121,18 @@ async function zusammenfassung({ stand, statistik, pruefung, hinweiseOben = [] }
 
 async function main() {
   const liste = await leseListe();
+  const eigeneListe = await leseEigene();
   const alt = await leseAlteDaten();
   const altNachPlatz = new Map((alt?.serien || []).map((s) => [s.platz, s]));
 
   if (NUR_LEER) {
-    await schreibeDaten({ stand: null, serien: liste.map(leererEintrag), pruefung: [] });
-    info(`data/data.json ohne API-Daten geschrieben (${liste.length} Serien).`);
+    const serien = liste.map(leererEintrag);
+    const eigene = (eigeneListe || []).map((e) => {
+      const top = e.tmdb_id ? liste.find((t) => t.tmdb_id === e.tmdb_id && (t.staffel ?? null) === e.staffel) : null;
+      return top ? topVerweis(e, top.platz, e.tmdb_id) : leererEigenerEintrag(e, e.tmdb_id);
+    });
+    await schreibeDaten({ stand: null, serien, eigene, pruefung: [] });
+    info(`data/data.json ohne API-Daten geschrieben (${serien.length} Serien, ${eigene.length} eigene).`);
     return;
   }
 
@@ -828,7 +1146,7 @@ async function main() {
       'Das Secret TMDB_TOKEN fehlt. data.json bleibt unverändert. Lege das Secret an (README, Schritt 4) und starte den Workflow erneut.',
       'TMDB-Zugang fehlt',
     );
-    if (!alt) await schreibeDaten({ stand: null, serien: liste.map(leererEintrag), pruefung: [] });
+    if (!alt) await schreibeDaten({ stand: null, serien: liste.map(leererEintrag), eigene: [], pruefung: [] });
     await zusammenfassung({ hinweiseOben: ['⚠️ Secret `TMDB_TOKEN` fehlt – es wurden keine Daten abgerufen.', ...hinweiseOben] });
     return;
   }
@@ -880,6 +1198,7 @@ async function main() {
     wertungGespeichert: 0,
     wertungFehlt: 0,
   };
+  const lauf = { mdb, statistik, hinweiseOben };
   const ergebnisse = [];
   const pruefung = [];
 
@@ -914,46 +1233,7 @@ async function main() {
 
     // Wertungen (MDBList): höchstens alle WERTUNG_MAX_STUNDEN neu abfragen
     if (s.tmdbId && wertungAbfragen) {
-      const altWertung = gleicheZuordnung ? altEintrag : null;
-      const alter = altWertung?.wertungStand ? Date.now() - Date.parse(altWertung.wertungStand) : Infinity;
-      const uebernehmeAlt = () => {
-        s.imdb = altWertung?.imdb ?? null;
-        s.imdbStimmen = altWertung?.imdbStimmen ?? null;
-        s.rt = altWertung?.rt ?? null;
-        s.wertungStand = altWertung?.wertungStand ?? null;
-      };
-      if (altWertung?.wertungStand && alter < WERTUNG_MAX_STUNDEN * 3_600_000 && !ALLES_NEU) {
-        uebernehmeAlt();
-        statistik.wertungGespeichert++;
-      } else if (mdb.aktiv) {
-        try {
-          const w = await mdblistWertung(s.tmdbId, s.imdbId);
-          s.imdb = w.imdb;
-          s.imdbStimmen = w.imdbStimmen;
-          s.rt = w.rt;
-          s.wertungStand = new Date().toISOString();
-          if (!s.imdbId && w.imdbIdMdblist) s.imdbId = w.imdbIdMdblist;
-          statistik.wertungNeu++;
-        } catch (e) {
-          if ([401, 403].includes(e.status)) {
-            mdb.aktiv = false;
-            fehler('MDBList lehnt den API-Key ab. Prüfe das Secret MDBLIST_API_KEY.', 'MDBList-Zugang ungültig');
-            hinweiseOben.add(HINWEIS_MDB_KEY);
-          } else if (e.status === 429) {
-            mdb.aktiv = false;
-            warnung('Das Tageslimit von MDBList ist erreicht – für die übrigen Serien bleiben die alten Wertungen stehen.', 'MDBList-Limit');
-            hinweiseOben.add(HINWEIS_MDB_LIMIT);
-          } else {
-            warnung(`Platz ${s.platz} (${s.titel}): Wertung nicht abrufbar (${e.message}).`, 'MDBList');
-          }
-          uebernehmeAlt();
-          if (s.wertungStand) statistik.wertungGespeichert++;
-        }
-      } else {
-        uebernehmeAlt();
-        if (s.wertungStand) statistik.wertungGespeichert++;
-      }
-      if (s.imdb === null && s.rt === null) statistik.wertungFehlt++;
+      await setzeWertung(s, gleicheZuordnung ? altEintrag : null, lauf, `Platz ${s.platz} (${s.titel})`);
     }
 
     if (s.hinweise.length) {
@@ -980,10 +1260,12 @@ async function main() {
     return;
   }
 
+  const eigene = await ladeEigene(eigeneListe, { top: ergebnisse, alt, lauf });
+
   const stand = new Date().toISOString();
-  vereinheitlicheDienste(ergebnisse);
-  await schreibeDaten({ stand, serien: ergebnisse, pruefung });
-  await zusammenfassung({ stand, statistik, pruefung, hinweiseOben: [...hinweiseOben] });
+  vereinheitlicheDienste([...ergebnisse, ...eigene.eigene.filter((e) => !e.top)]);
+  await schreibeDaten({ stand, serien: ergebnisse, eigene: eigene.eigene, pruefung });
+  await zusammenfassung({ stand, statistik, pruefung, eigene, hinweiseOben: [...hinweiseOben] });
 }
 
 main().catch((e) => {
