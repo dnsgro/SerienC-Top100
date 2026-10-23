@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "stand": "2026-10-23T19:41:09.465Z",
+  "stand": "2026-10-23T19:43:33.492Z",
   "sprache": "de-DE",
   "land": "DE",
   "repo": "dnsgro/SerienC-Top100",
@@ -6170,6 +6170,87 @@
       "hinweise": []
     }
   ],
-  "eigene": [],
+  "eigene": [
+    {
+      "schluessel": "tvmaze:76",
+      "titel": "Sons of Anarchy",
+      "jahre": "2008-2014",
+      "tmdbId": 1409,
+      "staffel": null,
+      "titelDe": null,
+      "poster": "/yPLkf4EiCkR0NOvMfmpHMA2zfN3.jpg",
+      "beschreibung": "Der bewaffnete Motorradclub Sons of Anarchy hat die Stadt fest im Griff und bekommt es schon bald mit rivalisierenden Gangs, Rassisten und dem Gesetz zu tun.\n\nWann ist das Dasein als Renegade zu einem einfachen Geschäft verkommen? Wann ist der Ehrenkodex der Gesetzlosen zu einer aussterbenden Art geworden? In Charming, Kalifornien, gibt es noch eine Spielart von diesem viel gerühmten Gesetz. Über die fiktive Kleinstadt in der Wüste herrscht die Motorradgang „Sons of Anarchy“. Aber es ist mehr als nur eine Gang oder ein Motorradclub, es ist eine Bruderschaft, eine Familie. Wie jede anständige Gang betreibt auch diese Waffenhandel und ein paar andere illegale Geschäfte. Ehre ist eben teuer, Familie auch. Auch wenn es bei dem Namen etwas paradox erscheint haben die Söhne der Anarchie strenge Regeln, nach denen sie leben.",
+      "kurz": "Der bewaffnete Motorradclub Sons of Anarchy hat die Stadt fest im Griff und bekommt es schon bald mit rivalisierenden Gangs, Rassisten und dem Gesetz zu tun. Wann ist das Dasein als Renegade zu einem einfachen Geschäft verkommen? Wann ist der Ehrenkodex der Gesetzlosen zu einer aussterbenden Art geworden?",
+      "beschreibungSprache": "de",
+      "staffeln": 7,
+      "folgen": 92,
+      "status": "beendet",
+      "statusTmdb": "Ended",
+      "naechsteFolge": null,
+      "abo": [
+        {
+          "id": 337,
+          "dienst": "disneyplus",
+          "name": "Disney Plus",
+          "logo": "/5eZ872CghnHFLB1j8grszbrx0dx.png",
+          "art": "Abo"
+        }
+      ],
+      "kaufen": [
+        {
+          "id": 2,
+          "dienst": "appletvstore",
+          "name": "Apple TV Store",
+          "logo": "/qdEGArH3lKfFnAtYXMkSYk5wxuG.png",
+          "art": "Kaufen"
+        },
+        {
+          "id": 10,
+          "dienst": "amazonvideo",
+          "name": "Amazon Video",
+          "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
+          "art": "Kaufen"
+        },
+        {
+          "id": 178,
+          "dienst": "magentatv",
+          "name": "MagentaTV",
+          "logo": "/f1uWfExJA6DSAvuTL0YJ9Kyftfg.png",
+          "art": "Kaufen"
+        },
+        {
+          "id": 20,
+          "dienst": "maxdomestore",
+          "name": "maxdome Store",
+          "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
+          "art": "Kaufen"
+        },
+        {
+          "id": 1993,
+          "dienst": "videoload",
+          "name": "Videoload",
+          "logo": "/kWgg0b4wHDr4pwSyOXVK8nAsNKB.png",
+          "art": "Kaufen"
+        },
+        {
+          "id": 2209,
+          "dienst": "freenetmeinvod",
+          "name": "Freenet meinVOD",
+          "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
+          "art": "Kaufen"
+        }
+      ],
+      "streamingLink": "https://www.themoviedb.org/tv/1409-sons-of-anarchy/watch?locale=DE",
+      "imdbId": "tt1124373",
+      "tvdbId": 82696,
+      "imdb": 8.5,
+      "imdbStimmen": 361632,
+      "rt": 87,
+      "wertungStand": "2026-10-23T19:43:33.492Z",
+      "hinweise": [],
+      "tvmaze": 76,
+      "hinzugefuegt": "2026-10-23"
+    }
+  ],
   "pruefung": []
 }
