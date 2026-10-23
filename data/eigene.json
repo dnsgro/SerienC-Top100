@@ -1,6 +1,7 @@
 {
   "_hinweis": "Deine eigenen Serien für den Tab „Eigene Serien“, die neueste steht oben. Die Website trägt Serien hier selbst ein, wenn du sie hinzufügst. Von Hand geht es auch, z. B. { \"tmdb_id\": 1398, \"titel\": \"Die Sopranos\" } – die Zahl stammt aus der TMDB-Adresse (themoviedb.org/tv/1398-the-sopranos). Findet der Workflow eine Serie nicht, ergänze beim Eintrag \"tmdb_id\".",
   "serien": [
+    { "tmdb_id": 69061, "titel": "The OA", "hinzugefuegt": "2026-10-23" },
     { "tmdb_id": 1408, "titel": "House", "hinzugefuegt": "2026-10-23" },
     { "tmdb_id": 1044, "titel": "Planet Earth", "hinzugefuegt": "2026-10-23" },
     { "tmdb_id": 126308, "titel": "Shogun", "hinzugefuegt": "2026-10-23" },
