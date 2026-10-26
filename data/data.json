@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "stand": "2026-10-26T07:50:05.997Z",
+  "stand": "2026-10-26T08:49:27.620Z",
   "sprache": "de-DE",
   "land": "DE",
   "repo": "dnsgro/SerienC-Top100",
@@ -6171,6 +6171,113 @@
     }
   ],
   "eigene": [
+    {
+      "schluessel": "tvmaze:27848",
+      "titel": "Yellowstone",
+      "jahre": "2018-2024",
+      "tmdbId": 73586,
+      "staffel": null,
+      "titelDe": null,
+      "poster": "/n3LvkTNTULObSGmDOixRtahBLjR.jpg",
+      "beschreibung": "„Yellowstone“ folgt der einflussreichen Familie Dutton, die eine der größten Ranches in den USA besitzt und ständig um deren Erhalt kämpfen muss. Die Serie zeigt, wie sie sich gegen politische Interessen, Landentwickler und rivalisierende Gruppen behaupten. Gleichzeitig beleuchtet sie die komplexen Beziehungen innerhalb der Familie und die moralischen Grenzen, die sie zu überschreiten bereit sind. Insgesamt verbindet die Serie moderne Western‑Atmosphäre mit Machtkämpfen, Loyalität und Konflikten um Land und Identität.",
+      "kurz": "„Yellowstone“ folgt der einflussreichen Familie Dutton, die eine der größten Ranches in den USA besitzt und ständig um deren Erhalt kämpfen muss. Die Serie zeigt, wie sie sich gegen politische Interessen, Landentwickler und rivalisierende Gruppen behaupten. Gleichzeitig beleuchtet sie die komplexen Beziehungen innerhalb der Familie und die moralischen Grenzen, die sie zu überschreiten bereit sind.",
+      "beschreibungSprache": "de",
+      "staffeln": 5,
+      "folgen": 53,
+      "status": "beendet",
+      "statusTmdb": "Ended",
+      "naechsteFolge": null,
+      "abo": [
+        {
+          "id": 8,
+          "dienst": "netflix",
+          "name": "Netflix",
+          "logo": "/rK1KljqmbvO9HQa1PBFLILWah72.png",
+          "art": "Abo"
+        },
+        {
+          "id": 531,
+          "dienst": "paramountplus",
+          "name": "Paramount Plus",
+          "logo": "/pkx3klJlwW5JdtaulvDx6hDNtch.png",
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel",
+            "Apple TV Channel"
+          ],
+          "direkt": true
+        },
+        {
+          "id": 30,
+          "dienst": "wow",
+          "name": "WOW",
+          "logo": "/2o26YwA7tXQ7I6CSrMvO9Rj4oNi.png",
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": true
+        },
+        {
+          "id": 29,
+          "dienst": "skygo",
+          "name": "Sky Go",
+          "logo": "/1Yvl9eP3pmktqChitnFhHJHcBtX.png",
+          "art": "Abo"
+        },
+        {
+          "id": 2134,
+          "dienst": "axnblack",
+          "name": "AXN Black",
+          "logo": "/nor5QyGmfv9AtJI2qPhOVdBa3hA.png",
+          "art": "Abo",
+          "kanaele": [
+            "Amazon Channel"
+          ],
+          "direkt": false
+        },
+        {
+          "id": 2412,
+          "dienst": "magentatvplus",
+          "name": "Magenta TV+",
+          "logo": "/2HcyGXRwSTh3DkgDwaF59AzACHu.png",
+          "art": "Abo"
+        }
+      ],
+      "kaufen": [
+        {
+          "id": 10,
+          "dienst": "amazonvideo",
+          "name": "Amazon Video",
+          "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
+          "art": "Kaufen"
+        },
+        {
+          "id": 20,
+          "dienst": "maxdomestore",
+          "name": "maxdome Store",
+          "logo": "/mjB4eyswPoC0XeJPUd1W1oitOlh.png",
+          "art": "Kaufen"
+        },
+        {
+          "id": 2209,
+          "dienst": "freenetmeinvod",
+          "name": "Freenet meinVOD",
+          "logo": "/iUGee0WhY5ZSBZZuCunNt0K7au2.png",
+          "art": "Kaufen"
+        }
+      ],
+      "streamingLink": "https://www.themoviedb.org/tv/73586-yellowstone/watch?locale=DE",
+      "imdbId": "tt4236770",
+      "tvdbId": 341164,
+      "imdb": 8.6,
+      "imdbStimmen": 324469,
+      "rt": 83,
+      "wertungStand": "2026-10-26T08:49:27.509Z",
+      "hinweise": [],
+      "tvmaze": 27848,
+      "hinzugefuegt": "2026-10-26"
+    },
     {
       "schluessel": "tmdb:69061",
       "tvmaze": null,
