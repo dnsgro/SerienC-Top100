@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "stand": "2026-10-30T08:41:14.136Z",
+  "stand": "2026-10-31T08:27:48.916Z",
   "sprache": "de-DE",
   "land": "DE",
   "repo": "dnsgro/SerienC-Top100",
@@ -77,9 +77,9 @@
       "imdbId": "tt0903747",
       "tvdbId": 81189,
       "imdb": 9.5,
-      "imdbStimmen": 2698499,
+      "imdbStimmen": 2698882,
       "rt": 96,
-      "wertungStand": "2026-10-30T08:39:08.356Z",
+      "wertungStand": "2026-10-31T08:25:19.637Z",
       "hinweise": []
     },
     {
@@ -160,9 +160,9 @@
       "imdbId": "tt0306414",
       "tvdbId": 79126,
       "imdb": 9.3,
-      "imdbStimmen": 443258,
+      "imdbStimmen": 443325,
       "rt": 94,
-      "wertungStand": "2026-10-30T08:39:09.600Z",
+      "wertungStand": "2026-10-31T08:25:21.109Z",
       "hinweise": []
     },
     {
@@ -257,9 +257,9 @@
       "imdbId": "tt0804503",
       "tvdbId": 80337,
       "imdb": 8.7,
-      "imdbStimmen": 296039,
+      "imdbStimmen": 296076,
       "rt": 94,
-      "wertungStand": "2026-10-30T08:39:10.849Z",
+      "wertungStand": "2026-10-31T08:25:22.592Z",
       "hinweise": []
     },
     {
@@ -351,9 +351,9 @@
       "imdbId": "tt7660850",
       "tvdbId": 338186,
       "imdb": 8.8,
-      "imdbStimmen": 371740,
+      "imdbStimmen": 371827,
       "rt": 95,
-      "wertungStand": "2026-10-30T08:39:12.102Z",
+      "wertungStand": "2026-10-31T08:25:24.058Z",
       "hinweise": []
     },
     {
@@ -395,9 +395,9 @@
       "imdbId": "tt5687612",
       "tvdbId": 314614,
       "imdb": 8.7,
-      "imdbStimmen": 255617,
+      "imdbStimmen": 255673,
       "rt": 100,
-      "wertungStand": "2026-10-30T08:39:13.343Z",
+      "wertungStand": "2026-10-31T08:25:25.537Z",
       "hinweise": []
     },
     {
@@ -478,9 +478,9 @@
       "imdbId": "tt0944947",
       "tvdbId": 121361,
       "imdb": 9.2,
-      "imdbStimmen": 2679321,
+      "imdbStimmen": 2679616,
       "rt": 89,
-      "wertungStand": "2026-10-30T08:39:14.599Z",
+      "wertungStand": "2026-10-31T08:25:27.012Z",
       "hinweise": []
     },
     {
@@ -561,9 +561,9 @@
       "imdbId": "tt1759761",
       "tvdbId": 237831,
       "imdb": 8.4,
-      "imdbStimmen": 73245,
+      "imdbStimmen": 73250,
       "rt": 93,
-      "wertungStand": "2026-10-30T08:39:15.836Z",
+      "wertungStand": "2026-10-31T08:25:28.478Z",
       "hinweise": []
     },
     {
@@ -640,9 +640,9 @@
       "imdbId": "tt0496424",
       "tvdbId": 79488,
       "imdb": 8.3,
-      "imdbStimmen": 140634,
+      "imdbStimmen": 140648,
       "rt": 78,
-      "wertungStand": "2026-10-30T08:39:17.085Z",
+      "wertungStand": "2026-10-31T08:25:29.988Z",
       "hinweise": []
     },
     {
@@ -734,9 +734,9 @@
       "imdbId": "tt0264235",
       "tvdbId": 76203,
       "imdb": 8.8,
-      "imdbStimmen": 169808,
+      "imdbStimmen": 169824,
       "rt": 92,
-      "wertungStand": "2026-10-30T08:39:18.322Z",
+      "wertungStand": "2026-10-31T08:25:31.458Z",
       "hinweise": []
     },
     {
@@ -813,9 +813,9 @@
       "imdbId": "tt4288182",
       "tvdbId": 313999,
       "imdb": 8.6,
-      "imdbStimmen": 100659,
+      "imdbStimmen": 100671,
       "rt": 98,
-      "wertungStand": "2026-10-30T08:39:19.563Z",
+      "wertungStand": "2026-10-31T08:25:32.923Z",
       "hinweise": []
     },
     {
@@ -910,9 +910,9 @@
       "imdbId": "tt0386676",
       "tvdbId": 73244,
       "imdb": 9,
-      "imdbStimmen": 857453,
+      "imdbStimmen": 857587,
       "rt": 81,
-      "wertungStand": "2026-10-30T08:39:20.813Z",
+      "wertungStand": "2026-10-31T08:25:34.470Z",
       "hinweise": []
     },
     {
@@ -953,9 +953,9 @@
       "imdbId": "tt0367279",
       "tvdbId": 72173,
       "imdb": 8.6,
-      "imdbStimmen": 347789,
+      "imdbStimmen": 347816,
       "rt": 75,
-      "wertungStand": "2026-10-30T08:39:22.043Z",
+      "wertungStand": "2026-10-31T08:25:35.933Z",
       "hinweise": []
     },
     {
@@ -997,13 +997,6 @@
           "art": "Kaufen"
         },
         {
-          "id": 10,
-          "dienst": "amazonvideo",
-          "name": "Amazon Video",
-          "logo": "/jn6TLbtaTZntTRX9UYucHJvpQx1.png",
-          "art": "Kaufen"
-        },
-        {
           "id": 178,
           "dienst": "magentatv",
           "name": "MagentaTV",
@@ -1036,9 +1029,9 @@
       "imdbId": "tt1723816",
       "tvdbId": 220411,
       "imdb": 7.4,
-      "imdbStimmen": 84607,
+      "imdbStimmen": 84616,
       "rt": 89,
-      "wertungStand": "2026-10-30T08:39:23.286Z",
+      "wertungStand": "2026-10-31T08:25:37.395Z",
       "hinweise": []
     },
     {
@@ -1093,9 +1086,9 @@
       "imdbId": "tt0758745",
       "tvdbId": 79337,
       "imdb": 8.7,
-      "imdbStimmen": 81002,
+      "imdbStimmen": 81014,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:39:24.532Z",
+      "wertungStand": "2026-10-31T08:25:38.877Z",
       "hinweise": []
     },
     {
@@ -1176,9 +1169,9 @@
       "imdbId": "tt0248654",
       "tvdbId": 75450,
       "imdb": 8.7,
-      "imdbStimmen": 171597,
+      "imdbStimmen": 171621,
       "rt": 81,
-      "wertungStand": "2026-10-30T08:39:25.760Z",
+      "wertungStand": "2026-10-31T08:25:40.336Z",
       "hinweise": []
     },
     {
@@ -1250,9 +1243,9 @@
       "imdbId": "tt0290978",
       "tvdbId": 78107,
       "imdb": 8.5,
-      "imdbStimmen": 134443,
+      "imdbStimmen": 134452,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:39:27.001Z",
+      "wertungStand": "2026-10-31T08:25:41.793Z",
       "hinweise": []
     },
     {
@@ -1329,9 +1322,9 @@
       "imdbId": "tt2149175",
       "tvdbId": 261690,
       "imdb": 8.4,
-      "imdbStimmen": 127682,
+      "imdbStimmen": 127699,
       "rt": 96,
-      "wertungStand": "2026-10-30T08:39:28.246Z",
+      "wertungStand": "2026-10-31T08:25:43.247Z",
       "hinweise": []
     },
     {
@@ -1412,9 +1405,9 @@
       "imdbId": "tt11204260",
       "tvdbId": 371798,
       "imdb": 8,
-      "imdbStimmen": 28933,
+      "imdbStimmen": 28938,
       "rt": 98,
-      "wertungStand": "2026-10-30T08:39:29.494Z",
+      "wertungStand": "2026-10-31T08:25:44.716Z",
       "hinweise": []
     },
     {
@@ -1502,9 +1495,9 @@
       "imdbId": "tt7366338",
       "tvdbId": 360893,
       "imdb": 9.3,
-      "imdbStimmen": 1073920,
+      "imdbStimmen": 1074104,
       "rt": 95,
-      "wertungStand": "2026-10-30T08:39:30.730Z",
+      "wertungStand": "2026-10-31T08:25:46.178Z",
       "hinweise": []
     },
     {
@@ -1538,9 +1531,9 @@
       "imdbId": "tt4786824",
       "tvdbId": 305574,
       "imdb": 8.6,
-      "imdbStimmen": 286125,
+      "imdbStimmen": 286152,
       "rt": 81,
-      "wertungStand": "2026-10-30T08:39:31.959Z",
+      "wertungStand": "2026-10-31T08:25:47.638Z",
       "hinweise": []
     },
     {
@@ -1639,9 +1632,9 @@
       "imdbId": "tt13406094",
       "tvdbId": 390430,
       "imdb": 8,
-      "imdbStimmen": 337749,
+      "imdbStimmen": 337818,
       "rt": 90,
-      "wertungStand": "2026-10-30T08:39:33.198Z",
+      "wertungStand": "2026-10-31T08:25:49.196Z",
       "hinweise": []
     },
     {
@@ -1697,9 +1690,9 @@
       "imdbId": "tt0411008",
       "tvdbId": 73739,
       "imdb": 8.3,
-      "imdbStimmen": 685294,
+      "imdbStimmen": 685368,
       "rt": 86,
-      "wertungStand": "2026-10-30T08:39:34.429Z",
+      "wertungStand": "2026-10-31T08:25:50.704Z",
       "hinweise": []
     },
     {
@@ -1766,9 +1759,9 @@
       "imdbId": "tt0434672",
       "tvdbId": 75383,
       "imdb": 7.9,
-      "imdbStimmen": 11448,
+      "imdbStimmen": 11451,
       "rt": 82,
-      "wertungStand": "2026-10-30T08:39:35.664Z",
+      "wertungStand": "2026-10-31T08:25:52.165Z",
       "hinweise": []
     },
     {
@@ -1815,9 +1808,9 @@
       "imdbId": "tt0348914",
       "tvdbId": 72023,
       "imdb": 8.6,
-      "imdbStimmen": 130842,
+      "imdbStimmen": 130861,
       "rt": 92,
-      "wertungStand": "2026-10-30T08:39:36.906Z",
+      "wertungStand": "2026-10-31T08:25:53.631Z",
       "hinweise": []
     },
     {
@@ -1863,9 +1856,9 @@
       "imdbId": "tt2699128",
       "tvdbId": 269689,
       "imdb": 8.3,
-      "imdbStimmen": 135602,
+      "imdbStimmen": 135631,
       "rt": 91,
-      "wertungStand": "2026-10-30T08:39:38.148Z",
+      "wertungStand": "2026-10-31T08:25:55.093Z",
       "hinweise": []
     },
     {
@@ -1899,9 +1892,9 @@
       "imdbId": "tt2085059",
       "tvdbId": 253463,
       "imdb": 8.7,
-      "imdbStimmen": 753204,
+      "imdbStimmen": 753286,
       "rt": 83,
-      "wertungStand": "2026-10-30T08:39:39.391Z",
+      "wertungStand": "2026-10-31T08:25:56.589Z",
       "hinweise": []
     },
     {
@@ -1971,9 +1964,9 @@
       "imdbId": "tt3032476",
       "tvdbId": 273181,
       "imdb": 9,
-      "imdbStimmen": 874348,
+      "imdbStimmen": 874547,
       "rt": 98,
-      "wertungStand": "2026-10-30T08:39:40.638Z",
+      "wertungStand": "2026-10-31T08:25:58.036Z",
       "hinweise": []
     },
     {
@@ -2061,9 +2054,9 @@
       "imdbId": "tt0185906",
       "tvdbId": 74205,
       "imdb": 9.4,
-      "imdbStimmen": 611221,
+      "imdbStimmen": 611326,
       "rt": 94,
-      "wertungStand": "2026-10-30T08:39:41.901Z",
+      "wertungStand": "2026-10-31T08:25:59.489Z",
       "hinweise": []
     },
     {
@@ -2112,9 +2105,9 @@
       "imdbId": "tt1981558",
       "tvdbId": 255325,
       "imdb": 8.3,
-      "imdbStimmen": 30127,
+      "imdbStimmen": 30131,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:39:43.137Z",
+      "wertungStand": "2026-10-31T08:26:01.000Z",
       "hinweise": []
     },
     {
@@ -2152,9 +2145,9 @@
       "imdbId": "tt11280740",
       "tvdbId": 371980,
       "imdb": 8.6,
-      "imdbStimmen": 413781,
+      "imdbStimmen": 413910,
       "rt": 95,
-      "wertungStand": "2026-10-30T08:39:44.374Z",
+      "wertungStand": "2026-10-31T08:26:02.453Z",
       "hinweise": []
     },
     {
@@ -2180,9 +2173,9 @@
       "imdbId": "tt0239195",
       "tvdbId": 76733,
       "imdb": 7.6,
-      "imdbStimmen": 30570,
+      "imdbStimmen": 30575,
       "rt": null,
-      "wertungStand": "2026-10-30T08:39:45.625Z",
+      "wertungStand": "2026-10-31T08:26:04.074Z",
       "hinweise": []
     },
     {
@@ -2216,9 +2209,9 @@
       "imdbId": "tt9253284",
       "tvdbId": 393189,
       "imdb": 8.6,
-      "imdbStimmen": 289601,
+      "imdbStimmen": 289673,
       "rt": 96,
-      "wertungStand": "2026-10-30T08:39:46.845Z",
+      "wertungStand": "2026-10-31T08:26:05.533Z",
       "hinweise": []
     },
     {
@@ -2299,9 +2292,9 @@
       "imdbId": "tt1509004",
       "tvdbId": 197101,
       "imdb": 7.5,
-      "imdbStimmen": 11704,
+      "imdbStimmen": 11708,
       "rt": 87,
-      "wertungStand": "2026-10-30T08:39:48.075Z",
+      "wertungStand": "2026-10-31T08:26:06.995Z",
       "hinweise": []
     },
     {
@@ -2364,9 +2357,9 @@
       "imdbId": "tt3526078",
       "tvdbId": 287247,
       "imdb": 8.5,
-      "imdbStimmen": 178366,
+      "imdbStimmen": 178381,
       "rt": 93,
-      "wertungStand": "2026-10-30T08:39:49.302Z",
+      "wertungStand": "2026-10-31T08:26:08.449Z",
       "hinweise": []
     },
     {
@@ -2465,9 +2458,9 @@
       "imdbId": "tt2356777",
       "tvdbId": 270633,
       "imdb": 8.8,
-      "imdbStimmen": 777433,
+      "imdbStimmen": 777530,
       "rt": 78,
-      "wertungStand": "2026-10-30T08:39:50.599Z",
+      "wertungStand": "2026-10-31T08:26:10.036Z",
       "hinweise": []
     },
     {
@@ -2505,9 +2498,9 @@
       "imdbId": "tt31938062",
       "tvdbId": 448176,
       "imdb": 8.9,
-      "imdbStimmen": 178079,
+      "imdbStimmen": 178214,
       "rt": 96,
-      "wertungStand": "2026-10-30T08:39:51.832Z",
+      "wertungStand": "2026-10-31T08:26:11.492Z",
       "hinweise": []
     },
     {
@@ -2582,9 +2575,9 @@
       "imdbId": "tt0407362",
       "tvdbId": 73545,
       "imdb": 8.7,
-      "imdbStimmen": 189144,
+      "imdbStimmen": 189162,
       "rt": null,
-      "wertungStand": "2026-10-30T08:39:53.057Z",
+      "wertungStand": "2026-10-31T08:26:12.994Z",
       "hinweise": []
     },
     {
@@ -2668,9 +2661,9 @@
       "imdbId": "tt1796960",
       "tvdbId": 247897,
       "imdb": 8.3,
-      "imdbStimmen": 389805,
+      "imdbStimmen": 389839,
       "rt": 85,
-      "wertungStand": "2026-10-30T08:39:54.304Z",
+      "wertungStand": "2026-10-31T08:26:14.515Z",
       "hinweise": []
     },
     {
@@ -2751,9 +2744,9 @@
       "imdbId": "tt7049682",
       "tvdbId": 360733,
       "imdb": 8.2,
-      "imdbStimmen": 149213,
+      "imdbStimmen": 149225,
       "rt": 96,
-      "wertungStand": "2026-10-30T08:39:55.534Z",
+      "wertungStand": "2026-10-31T08:26:15.974Z",
       "hinweise": []
     },
     {
@@ -2787,9 +2780,9 @@
       "imdbId": "tt31806037",
       "tvdbId": 452467,
       "imdb": 8.1,
-      "imdbStimmen": 320158,
+      "imdbStimmen": 320233,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:39:56.769Z",
+      "wertungStand": "2026-10-31T08:26:17.429Z",
       "hinweise": []
     },
     {
@@ -2815,9 +2808,9 @@
       "imdbId": "tt1492966",
       "tvdbId": 155201,
       "imdb": 8.5,
-      "imdbStimmen": 85849,
+      "imdbStimmen": 85852,
       "rt": 93,
-      "wertungStand": "2026-10-30T08:39:57.999Z",
+      "wertungStand": "2026-10-31T08:26:18.904Z",
       "hinweise": []
     },
     {
@@ -2902,9 +2895,9 @@
       "imdbId": "tt11815682",
       "tvdbId": 401582,
       "imdb": 8.3,
-      "imdbStimmen": 71428,
+      "imdbStimmen": 71459,
       "rt": 98,
-      "wertungStand": "2026-10-30T08:39:59.235Z",
+      "wertungStand": "2026-10-31T08:26:20.357Z",
       "hinweise": []
     },
     {
@@ -2960,9 +2953,9 @@
       "imdbId": "tt2442560",
       "tvdbId": 270915,
       "imdb": 8.7,
-      "imdbStimmen": 797799,
+      "imdbStimmen": 797883,
       "rt": 93,
-      "wertungStand": "2026-10-30T08:40:00.494Z",
+      "wertungStand": "2026-10-31T08:26:21.811Z",
       "hinweise": []
     },
     {
@@ -2996,9 +2989,9 @@
       "imdbId": "tt3398228",
       "tvdbId": 282254,
       "imdb": 8.8,
-      "imdbStimmen": 240799,
+      "imdbStimmen": 240839,
       "rt": 93,
-      "wertungStand": "2026-10-30T08:40:01.722Z",
+      "wertungStand": "2026-10-31T08:26:23.276Z",
       "hinweise": []
     },
     {
@@ -3058,9 +3051,9 @@
       "imdbId": "tt3428912",
       "tvdbId": 280537,
       "imdb": 8.5,
-      "imdbStimmen": 75474,
+      "imdbStimmen": 75483,
       "rt": 98,
-      "wertungStand": "2026-10-30T08:40:02.961Z",
+      "wertungStand": "2026-10-31T08:26:24.729Z",
       "hinweise": []
     },
     {
@@ -3101,9 +3094,9 @@
       "imdbId": "tt2578560",
       "tvdbId": 275557,
       "imdb": 8.4,
-      "imdbStimmen": 39256,
+      "imdbStimmen": 39261,
       "rt": 99,
-      "wertungStand": "2026-10-30T08:40:04.200Z",
+      "wertungStand": "2026-10-31T08:26:26.177Z",
       "hinweise": []
     },
     {
@@ -3168,9 +3161,9 @@
       "imdbId": "tt0098936",
       "tvdbId": 70533,
       "imdb": 8.7,
-      "imdbStimmen": 252325,
+      "imdbStimmen": 252370,
       "rt": 77,
-      "wertungStand": "2026-10-30T08:40:05.616Z",
+      "wertungStand": "2026-10-31T08:26:27.901Z",
       "hinweise": []
     },
     {
@@ -3240,9 +3233,9 @@
       "imdbId": "tt1856010",
       "tvdbId": 262980,
       "imdb": 8.6,
-      "imdbStimmen": 564943,
+      "imdbStimmen": 564969,
       "rt": 77,
-      "wertungStand": "2026-10-30T08:40:06.865Z",
+      "wertungStand": "2026-10-31T08:26:29.358Z",
       "hinweise": []
     },
     {
@@ -3302,9 +3295,9 @@
       "imdbId": "tt9059760",
       "tvdbId": 371806,
       "imdb": 8.4,
-      "imdbStimmen": 120132,
+      "imdbStimmen": 120168,
       "rt": 91,
-      "wertungStand": "2026-10-30T08:40:08.101Z",
+      "wertungStand": "2026-10-31T08:26:30.812Z",
       "hinweise": []
     },
     {
@@ -3373,9 +3366,9 @@
       "imdbId": "tt1266020",
       "tvdbId": 84912,
       "imdb": 8.6,
-      "imdbStimmen": 320850,
+      "imdbStimmen": 320881,
       "rt": 93,
-      "wertungStand": "2026-10-30T08:40:09.350Z",
+      "wertungStand": "2026-10-31T08:26:32.276Z",
       "hinweise": []
     },
     {
@@ -3444,9 +3437,9 @@
       "imdbId": "tt4955642",
       "tvdbId": 311711,
       "imdb": 8.2,
-      "imdbStimmen": 226824,
+      "imdbStimmen": 226865,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:40:10.602Z",
+      "wertungStand": "2026-10-31T08:26:33.734Z",
       "hinweise": []
     },
     {
@@ -3537,9 +3530,9 @@
       "imdbId": "tt1606375",
       "tvdbId": 193131,
       "imdb": 8.7,
-      "imdbStimmen": 250221,
+      "imdbStimmen": 250240,
       "rt": 92,
-      "wertungStand": "2026-10-30T08:40:11.864Z",
+      "wertungStand": "2026-10-31T08:26:35.201Z",
       "hinweise": []
     },
     {
@@ -3573,9 +3566,9 @@
       "imdbId": "tt4574334",
       "tvdbId": 305288,
       "imdb": 8.6,
-      "imdbStimmen": 1750889,
+      "imdbStimmen": 1751121,
       "rt": 90,
-      "wertungStand": "2026-10-30T08:40:13.103Z",
+      "wertungStand": "2026-10-31T08:26:36.659Z",
       "hinweise": []
     },
     {
@@ -3614,9 +3607,9 @@
       "imdbId": "tt4063800",
       "tvdbId": 294564,
       "imdb": 8.7,
-      "imdbStimmen": 20181,
+      "imdbStimmen": 20184,
       "rt": null,
-      "wertungStand": "2026-10-30T08:40:14.340Z",
+      "wertungStand": "2026-10-31T08:26:38.124Z",
       "hinweise": []
     },
     {
@@ -3697,9 +3690,9 @@
       "imdbId": "tt5024912",
       "tvdbId": 314986,
       "imdb": 8.1,
-      "imdbStimmen": 25254,
+      "imdbStimmen": 25256,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:40:15.589Z",
+      "wertungStand": "2026-10-31T08:26:39.589Z",
       "hinweise": []
     },
     {
@@ -3745,9 +3738,9 @@
       "imdbId": "tt2297757",
       "tvdbId": 267002,
       "imdb": 8.9,
-      "imdbStimmen": 52028,
+      "imdbStimmen": 52073,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:40:16.844Z",
+      "wertungStand": "2026-10-31T08:26:41.051Z",
       "hinweise": []
     },
     {
@@ -3781,9 +3774,9 @@
       "imdbId": "tt10050772",
       "tvdbId": 362753,
       "imdb": 8.1,
-      "imdbStimmen": 27612,
+      "imdbStimmen": 27617,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:40:18.084Z",
+      "wertungStand": "2026-10-31T08:26:42.509Z",
       "hinweise": []
     },
     {
@@ -3817,9 +3810,9 @@
       "imdbId": "tt0353049",
       "tvdbId": 71862,
       "imdb": 8.8,
-      "imdbStimmen": 79824,
+      "imdbStimmen": 79828,
       "rt": 96,
-      "wertungStand": "2026-10-30T08:40:19.321Z",
+      "wertungStand": "2026-10-31T08:26:43.962Z",
       "hinweise": []
     },
     {
@@ -3845,9 +3838,9 @@
       "imdbId": "tt8324422",
       "tvdbId": 348127,
       "imdb": 8.1,
-      "imdbStimmen": 17000,
+      "imdbStimmen": 17003,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:40:20.548Z",
+      "wertungStand": "2026-10-31T08:26:45.458Z",
       "hinweise": []
     },
     {
@@ -3873,9 +3866,9 @@
       "imdbId": "tt0387764",
       "tvdbId": 71656,
       "imdb": 8.7,
-      "imdbStimmen": 75005,
+      "imdbStimmen": 75014,
       "rt": 96,
-      "wertungStand": "2026-10-30T08:40:21.793Z",
+      "wertungStand": "2026-10-31T08:26:46.924Z",
       "hinweise": []
     },
     {
@@ -3920,9 +3913,9 @@
       "imdbId": "tt1353056",
       "tvdbId": 85002,
       "imdb": 8.5,
-      "imdbStimmen": 26071,
+      "imdbStimmen": 26073,
       "rt": 83,
-      "wertungStand": "2026-10-30T08:40:23.058Z",
+      "wertungStand": "2026-10-31T08:26:48.382Z",
       "hinweise": []
     },
     {
@@ -3960,9 +3953,9 @@
       "imdbId": "tt5875444",
       "tvdbId": 372264,
       "imdb": 8.4,
-      "imdbStimmen": 167444,
+      "imdbStimmen": 167702,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:40:24.293Z",
+      "wertungStand": "2026-10-31T08:26:49.849Z",
       "hinweise": []
     },
     {
@@ -4015,9 +4008,9 @@
       "imdbId": "tt0459159",
       "tvdbId": 79843,
       "imdb": 8.7,
-      "imdbStimmen": 29888,
+      "imdbStimmen": 29890,
       "rt": null,
-      "wertungStand": "2026-10-30T08:40:25.540Z",
+      "wertungStand": "2026-10-31T08:26:51.302Z",
       "hinweise": []
     },
     {
@@ -4051,9 +4044,9 @@
       "imdbId": "tt2845786",
       "tvdbId": 264108,
       "imdb": 8.9,
-      "imdbStimmen": 8201,
+      "imdbStimmen": 8202,
       "rt": null,
-      "wertungStand": "2026-10-30T08:40:26.784Z",
+      "wertungStand": "2026-10-31T08:26:52.768Z",
       "hinweise": []
     },
     {
@@ -4134,9 +4127,9 @@
       "imdbId": "tt10155688",
       "tvdbId": 370112,
       "imdb": 8.4,
-      "imdbStimmen": 229593,
+      "imdbStimmen": 229642,
       "rt": 95,
-      "wertungStand": "2026-10-30T08:40:28.042Z",
+      "wertungStand": "2026-10-31T08:26:54.267Z",
       "hinweise": []
     },
     {
@@ -4185,9 +4178,9 @@
       "imdbId": "tt10802170",
       "tvdbId": 405593,
       "imdb": 8.5,
-      "imdbStimmen": 39717,
+      "imdbStimmen": 39768,
       "rt": 96,
-      "wertungStand": "2026-10-30T08:40:29.278Z",
+      "wertungStand": "2026-10-31T08:26:55.720Z",
       "hinweise": []
     },
     {
@@ -4268,9 +4261,9 @@
       "imdbId": "tt5834204",
       "tvdbId": 321239,
       "imdb": 8.3,
-      "imdbStimmen": 306748,
+      "imdbStimmen": 306785,
       "rt": 83,
-      "wertungStand": "2026-10-30T08:40:30.522Z",
+      "wertungStand": "2026-10-31T08:26:57.232Z",
       "hinweise": []
     },
     {
@@ -4304,9 +4297,9 @@
       "imdbId": "tt5071412",
       "tvdbId": 329089,
       "imdb": 8.4,
-      "imdbStimmen": 402002,
+      "imdbStimmen": 402046,
       "rt": 82,
-      "wertungStand": "2026-10-30T08:40:31.748Z",
+      "wertungStand": "2026-10-31T08:26:58.689Z",
       "hinweise": []
     },
     {
@@ -4334,7 +4327,7 @@
       "imdb": 8.6,
       "imdbStimmen": 8965,
       "rt": null,
-      "wertungStand": "2026-10-30T08:40:32.997Z",
+      "wertungStand": "2026-10-31T08:27:00.185Z",
       "hinweise": []
     },
     {
@@ -4394,9 +4387,9 @@
       "imdbId": "tt0286486",
       "tvdbId": 78261,
       "imdb": 8.7,
-      "imdbStimmen": 99108,
+      "imdbStimmen": 99119,
       "rt": 90,
-      "wertungStand": "2026-10-30T08:40:34.231Z",
+      "wertungStand": "2026-10-31T08:27:01.663Z",
       "hinweise": []
     },
     {
@@ -4430,9 +4423,9 @@
       "imdbId": "tt14403178",
       "tvdbId": 399838,
       "imdb": 8,
-      "imdbStimmen": 182016,
+      "imdbStimmen": 182048,
       "rt": 93,
-      "wertungStand": "2026-10-30T08:40:35.526Z",
+      "wertungStand": "2026-10-31T08:27:03.262Z",
       "hinweise": []
     },
     {
@@ -4466,9 +4459,9 @@
       "imdbId": "tt10919420",
       "tvdbId": 383275,
       "imdb": 7.9,
-      "imdbStimmen": 781692,
+      "imdbStimmen": 781778,
       "rt": 85,
-      "wertungStand": "2026-10-30T08:40:36.754Z",
+      "wertungStand": "2026-10-31T08:27:04.722Z",
       "hinweise": []
     },
     {
@@ -4553,9 +4546,9 @@
       "imdbId": "tt5348176",
       "tvdbId": 333072,
       "imdb": 8.3,
-      "imdbStimmen": 146862,
+      "imdbStimmen": 146889,
       "rt": 98,
-      "wertungStand": "2026-10-30T08:40:37.993Z",
+      "wertungStand": "2026-10-31T08:27:06.175Z",
       "hinweise": []
     },
     {
@@ -4589,9 +4582,9 @@
       "imdbId": "tt14452776",
       "tvdbId": 403294,
       "imdb": 8.5,
-      "imdbStimmen": 329382,
+      "imdbStimmen": 329445,
       "rt": 93,
-      "wertungStand": "2026-10-30T08:40:39.233Z",
+      "wertungStand": "2026-10-31T08:27:07.666Z",
       "hinweise": []
     },
     {
@@ -4629,9 +4622,9 @@
       "imdbId": "tt10986410",
       "tvdbId": 383203,
       "imdb": 8.7,
-      "imdbStimmen": 477538,
+      "imdbStimmen": 477683,
       "rt": 90,
-      "wertungStand": "2026-10-30T08:40:40.459Z",
+      "wertungStand": "2026-10-31T08:27:09.155Z",
       "hinweise": []
     },
     {
@@ -4702,9 +4695,9 @@
       "imdbId": "tt12759100",
       "tvdbId": 385730,
       "imdb": 8.3,
-      "imdbStimmen": 19557,
+      "imdbStimmen": 19568,
       "rt": 100,
-      "wertungStand": "2026-10-30T08:40:41.692Z",
+      "wertungStand": "2026-10-31T08:27:10.621Z",
       "hinweise": []
     },
     {
@@ -4781,9 +4774,9 @@
       "imdbId": "tt1442437",
       "tvdbId": 95011,
       "imdb": 8.5,
-      "imdbStimmen": 550445,
+      "imdbStimmen": 550502,
       "rt": null,
-      "wertungStand": "2026-10-30T08:40:42.935Z",
+      "wertungStand": "2026-10-31T08:27:12.068Z",
       "hinweise": []
     },
     {
@@ -4846,9 +4839,9 @@
       "imdbId": "tt0472954",
       "tvdbId": 75805,
       "imdb": 8.8,
-      "imdbStimmen": 287126,
+      "imdbStimmen": 287164,
       "rt": 94,
-      "wertungStand": "2026-10-30T08:40:44.171Z",
+      "wertungStand": "2026-10-31T08:27:13.524Z",
       "hinweise": []
     },
     {
@@ -4902,9 +4895,9 @@
       "imdbId": "tt1442462",
       "tvdbId": 95451,
       "imdb": 8.3,
-      "imdbStimmen": 90432,
+      "imdbStimmen": 90438,
       "rt": 93,
-      "wertungStand": "2026-10-30T08:40:45.410Z",
+      "wertungStand": "2026-10-31T08:27:15.034Z",
       "hinweise": []
     },
     {
@@ -4942,9 +4935,9 @@
       "imdbId": "tt10801534",
       "tvdbId": 388071,
       "imdb": 8.7,
-      "imdbStimmen": 17637,
+      "imdbStimmen": 17643,
       "rt": 100,
-      "wertungStand": "2026-10-30T08:40:46.647Z",
+      "wertungStand": "2026-10-31T08:27:16.494Z",
       "hinweise": []
     },
     {
@@ -4978,9 +4971,9 @@
       "imdbId": "tt10048342",
       "tvdbId": 387115,
       "imdb": 8.5,
-      "imdbStimmen": 683317,
+      "imdbStimmen": 683416,
       "rt": 96,
-      "wertungStand": "2026-10-30T08:40:47.898Z",
+      "wertungStand": "2026-10-31T08:27:17.945Z",
       "hinweise": []
     },
     {
@@ -5035,9 +5028,9 @@
       "imdbId": "tt4370596",
       "tvdbId": 313270,
       "imdb": 7.9,
-      "imdbStimmen": 20436,
+      "imdbStimmen": 20442,
       "rt": 98,
-      "wertungStand": "2026-10-30T08:40:49.138Z",
+      "wertungStand": "2026-10-31T08:27:19.409Z",
       "hinweise": []
     },
     {
@@ -5130,9 +5123,9 @@
       "imdbId": "tt1489428",
       "tvdbId": 134241,
       "imdb": 8.6,
-      "imdbStimmen": 133285,
+      "imdbStimmen": 133304,
       "rt": 97,
-      "wertungStand": "2026-10-30T08:40:50.379Z",
+      "wertungStand": "2026-10-31T08:27:20.867Z",
       "hinweise": []
     },
     {
@@ -5185,9 +5178,9 @@
       "imdbId": "tt0795176",
       "tvdbId": 79257,
       "imdb": 9.4,
-      "imdbStimmen": 237769,
+      "imdbStimmen": 237795,
       "rt": null,
-      "wertungStand": "2026-10-30T08:40:51.615Z",
+      "wertungStand": "2026-10-31T08:27:22.358Z",
       "hinweise": []
     },
     {
@@ -5215,7 +5208,7 @@
       "imdb": null,
       "imdbStimmen": null,
       "rt": 87,
-      "wertungStand": "2026-10-30T08:40:52.848Z",
+      "wertungStand": "2026-10-31T08:27:23.817Z",
       "hinweise": []
     },
     {
@@ -5249,9 +5242,9 @@
       "imdbId": "tt2788316",
       "tvdbId": 392573,
       "imdb": 8.6,
-      "imdbStimmen": 254828,
+      "imdbStimmen": 254883,
       "rt": 99,
-      "wertungStand": "2026-10-30T08:40:54.085Z",
+      "wertungStand": "2026-10-31T08:27:25.275Z",
       "hinweise": []
     },
     {
@@ -5285,9 +5278,9 @@
       "imdbId": "tt13623580",
       "tvdbId": 371884,
       "imdb": 8.3,
-      "imdbStimmen": 28939,
+      "imdbStimmen": 28946,
       "rt": 99,
-      "wertungStand": "2026-10-30T08:40:55.320Z",
+      "wertungStand": "2026-10-31T08:27:26.755Z",
       "hinweise": []
     },
     {
@@ -5348,9 +5341,9 @@
       "imdbId": "tt0773262",
       "tvdbId": 79349,
       "imdb": 8.6,
-      "imdbStimmen": 961599,
+      "imdbStimmen": 961731,
       "rt": 71,
-      "wertungStand": "2026-10-30T08:40:56.557Z",
+      "wertungStand": "2026-10-31T08:27:28.229Z",
       "hinweise": []
     },
     {
@@ -5384,9 +5377,9 @@
       "imdbId": "tt13649112",
       "tvdbId": 417223,
       "imdb": 7.7,
-      "imdbStimmen": 198326,
+      "imdbStimmen": 198363,
       "rt": 99,
-      "wertungStand": "2026-10-30T08:40:58.018Z",
+      "wertungStand": "2026-10-31T08:27:29.684Z",
       "hinweise": []
     },
     {
@@ -5467,9 +5460,9 @@
       "imdbId": "tt0866442",
       "tvdbId": 82467,
       "imdb": 8.2,
-      "imdbStimmen": 71539,
+      "imdbStimmen": 71548,
       "rt": 91,
-      "wertungStand": "2026-10-30T08:40:59.258Z",
+      "wertungStand": "2026-10-31T08:27:31.156Z",
       "hinweise": []
     },
     {
@@ -5503,9 +5496,9 @@
       "imdbId": "tt4374208",
       "tvdbId": 289771,
       "imdb": 8.2,
-      "imdbStimmen": 26358,
+      "imdbStimmen": 26360,
       "rt": 98,
-      "wertungStand": "2026-10-30T08:41:00.484Z",
+      "wertungStand": "2026-10-31T08:27:32.650Z",
       "hinweise": []
     },
     {
@@ -5593,9 +5586,9 @@
       "imdbId": "tt2401256",
       "tvdbId": 310516,
       "imdb": 8.4,
-      "imdbStimmen": 202184,
+      "imdbStimmen": 202244,
       "rt": 94,
-      "wertungStand": "2026-10-30T08:41:01.720Z",
+      "wertungStand": "2026-10-31T08:27:34.117Z",
       "hinweise": []
     },
     {
@@ -5670,9 +5663,9 @@
       "imdbId": "tt10574236",
       "tvdbId": 366529,
       "imdb": 7.5,
-      "imdbStimmen": 45032,
+      "imdbStimmen": 45049,
       "rt": 98,
-      "wertungStand": "2026-10-30T08:41:02.950Z",
+      "wertungStand": "2026-10-31T08:27:35.586Z",
       "hinweise": []
     },
     {
@@ -5706,9 +5699,9 @@
       "imdbId": "tt17491088",
       "tvdbId": 415239,
       "imdb": 8.1,
-      "imdbStimmen": 106674,
+      "imdbStimmen": 106891,
       "rt": 93,
-      "wertungStand": "2026-10-30T08:41:04.200Z",
+      "wertungStand": "2026-10-31T08:27:37.048Z",
       "hinweise": []
     },
     {
@@ -5785,9 +5778,9 @@
       "imdbId": "tt0412142",
       "tvdbId": 73255,
       "imdb": 8.7,
-      "imdbStimmen": 603183,
+      "imdbStimmen": 603241,
       "rt": 89,
-      "wertungStand": "2026-10-30T08:41:05.430Z",
+      "wertungStand": "2026-10-31T08:27:38.521Z",
       "hinweise": []
     },
     {
@@ -5828,9 +5821,9 @@
       "imdbId": "tt2543312",
       "tvdbId": 271910,
       "imdb": 8.4,
-      "imdbStimmen": 39105,
+      "imdbStimmen": 39111,
       "rt": 90,
-      "wertungStand": "2026-10-30T08:41:06.679Z",
+      "wertungStand": "2026-10-31T08:27:40.019Z",
       "hinweise": []
     },
     {
@@ -5933,9 +5926,9 @@
       "imdbId": "tt1439629",
       "tvdbId": 94571,
       "imdb": 8.5,
-      "imdbStimmen": 315862,
+      "imdbStimmen": 315885,
       "rt": 88,
-      "wertungStand": "2026-10-30T08:41:07.912Z",
+      "wertungStand": "2026-10-31T08:27:41.491Z",
       "hinweise": []
     },
     {
@@ -5969,9 +5962,9 @@
       "imdbId": "tt4635282",
       "tvdbId": 321060,
       "imdb": 7.8,
-      "imdbStimmen": 129599,
+      "imdbStimmen": 129616,
       "rt": 84,
-      "wertungStand": "2026-10-30T08:41:09.171Z",
+      "wertungStand": "2026-10-31T08:27:42.987Z",
       "hinweise": []
     },
     {
@@ -6091,9 +6084,9 @@
       "imdbId": "tt0238784",
       "tvdbId": 76568,
       "imdb": 8.2,
-      "imdbStimmen": 179407,
+      "imdbStimmen": 179443,
       "rt": null,
-      "wertungStand": "2026-10-30T08:41:10.427Z",
+      "wertungStand": "2026-10-31T08:27:44.455Z",
       "hinweise": []
     },
     {
@@ -6177,9 +6170,9 @@
       "imdbId": "tt1837576",
       "tvdbId": 248841,
       "imdb": 7.7,
-      "imdbStimmen": 85378,
+      "imdbStimmen": 85386,
       "rt": 94,
-      "wertungStand": "2026-10-30T08:41:11.667Z",
+      "wertungStand": "2026-10-31T08:27:45.915Z",
       "hinweise": []
     }
   ],
@@ -6284,9 +6277,9 @@
       "imdbId": "tt4236770",
       "tvdbId": 341164,
       "imdb": 8.6,
-      "imdbStimmen": 324727,
+      "imdbStimmen": 324775,
       "rt": 83,
-      "wertungStand": "2026-10-30T08:41:12.905Z",
+      "wertungStand": "2026-10-31T08:27:47.428Z",
       "hinweise": [],
       "tvmaze": 27848,
       "hinzugefuegt": "2026-10-26"
@@ -6448,9 +6441,9 @@
       "imdbId": "tt1124373",
       "tvdbId": 82696,
       "imdb": 8.5,
-      "imdbStimmen": 361916,
+      "imdbStimmen": 361955,
       "rt": 87,
-      "wertungStand": "2026-10-30T08:41:14.136Z",
+      "wertungStand": "2026-10-31T08:27:48.916Z",
       "hinweise": [],
       "tvmaze": 76,
       "hinzugefuegt": "2026-10-23"
